@@ -18,7 +18,7 @@ import Reveal from "../ui/Reveal.astro";
           class="group border-t border-nd-border pt-2xl pb-2xl md:pb-3xl relative pl-0 md:pl-xl transition-colors duration-300"
           aria-labelledby={`eng-${eng.slug}-title`}
         >
-          <!-- Accent left border — dim, brightens on hover -->
+          <!-- Accent left border -->
           <span
             class="hidden md:block absolute left-0 top-2xl bottom-2xl w-[1px] bg-nd-border group-hover:bg-nd-accent transition-colors duration-500"
             aria-hidden="true"
@@ -26,18 +26,17 @@ import Reveal from "../ui/Reveal.astro";
 
           <!-- Header: title + timeframe -->
           <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-sm mb-lg">
-            <div>
-              <h3
-                id={`eng-${eng.slug}-title`}
-                class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]"
-              >
-                {eng.title}
-              </h3>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-2xs shrink-0">
-              <span class="font-mono text-caption text-nd-text-secondary uppercase tracking-[0.08em]">{eng.sector}</span>
-              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">{eng.timeframe}</span>
-            </div>
+            <h3
+              id={`eng-${eng.slug}-title`}
+              class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]"
+            >
+              {eng.title}
+            </h3>
+            {eng.timeframe && (
+              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em] shrink-0">
+                {eng.timeframe}
+              </span>
+            )}
           </div>
 
           <!-- Summary -->
@@ -45,19 +44,13 @@ import Reveal from "../ui/Reveal.astro";
             {eng.summary}
           </p>
 
-          <!-- Role / Stack -->
-          <div class="flex flex-col gap-xs mb-2xl">
-            <div class="flex items-baseline gap-md">
-              <span class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-disabled w-[48px]">Role</span>
-              <span class="text-nd-text-secondary text-sm">{eng.role}</span>
-            </div>
-            <div class="flex items-baseline gap-md">
-              <span class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-disabled w-[48px]">Stack</span>
-              <div class="flex flex-wrap gap-xs">
-                {eng.stack.map((s) => (
-                  <Tag text={s} variant="technical" />
-                ))}
-              </div>
+          <!-- Stack -->
+          <div class="flex items-baseline gap-md mb-2xl">
+            <span class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-disabled w-[48px]">Stack</span>
+            <div class="flex flex-wrap gap-xs">
+              {eng.stack.map((s) => (
+                <Tag text={s} variant="technical" />
+              ))}
             </div>
           </div>
 
