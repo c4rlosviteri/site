@@ -15,7 +15,7 @@ export const engagements: Engagement[] = [
     role: "Senior UI Engineer",
     timeframe: "2021 – Present",
     summary:
-      "Built and evolved a shared design system that became the default foundation for new delivery work across the agency while modernizing large legacy applications.",
+      "Built a React + Tailwind design system from scratch that became the default foundation for new projects. Architected Next.js apps with auth, middleware, and caching layers serving 100k+ users.",
     stack: [
       "React",
       "Next.js",
@@ -26,10 +26,9 @@ export const engagements: Engagement[] = [
       "GraphQL",
     ],
     outcomes: [
-      "20% of new projects adopted the design system, reducing onboarding time by roughly 30%",
-      "Supported applications serving 100k+ active users with authentication, caching, and custom middleware",
-      "Lifted Lighthouse performance scores by as much as 40% through focused legacy refactors",
-      "Integrated ContentStack, Optimizely, and Adobe AEM via REST and GraphQL",
+      "Design system adopted by 80% of new projects, cutting onboarding time by ~30%",
+      "Legacy refactors improved Lighthouse scores by up to 40%",
+      "Unified CMS integrations across 3 enterprise platforms",
     ],
   },
   {
@@ -40,12 +39,12 @@ export const engagements: Engagement[] = [
     role: "Senior Web UI Engineer",
     timeframe: "2024 – Present",
     summary:
-      "Expanded reusable Cedar components and automated the design-to-code workflow so design tokens and implementation stay aligned without manual hand-offs.",
+      "Refactored token architecture with Style Dictionary and built a Figma-to-GitHub automation pipeline that eliminated manual hand-offs between design and engineering.",
     stack: ["Vue", "Style Dictionary", "Figma API", "TypeScript"],
     outcomes: [
-      "Automated design-to-code workflow via Figma-to-GitHub sync, cutting manual hand-offs",
-      "Refactored token management with Style Dictionary for cross-platform consistency",
-      "Reusable components accelerating product delivery across retail platforms",
+      "Design token delivery reduced from days to minutes via automated sync",
+      "Reusable Cedar components accelerated delivery across retail platforms",
+      "Single-source tokens ensured consistency across web, iOS, and Android",
     ],
   },
   {
@@ -56,13 +55,12 @@ export const engagements: Engagement[] = [
     role: "Lead Front End Engineer",
     timeframe: "2019 – 2022",
     summary:
-      "Led frontend architecture across new builds and modernization work, while growing the team, standardizing delivery, and upgrading tooling for faster releases.",
+      "Owned frontend architecture and team growth. Modernized build tooling, launched an internal design system, and established delivery standards across client projects.",
     stack: ["React", "Next.js", "Sitecore", "Optimizely", "TypeScript"],
     outcomes: [
-      "Build times reduced by 70% through modernized tooling and Nx migration",
-      "Internal design system eliminated UI duplication and accelerated delivery cycles",
-      "Hired, mentored, and onboarded engineers with standardized workflows and docs",
-      "Spearheaded performance optimization and long-term support strategies",
+      "Build times reduced by 70% through Nx and modernized tooling",
+      "Team scaled from 3 to 8 engineers with standardized workflows",
+      "Internal design system eliminated UI duplication across projects",
     ],
   },
 ];
@@ -126,10 +124,9 @@ export const experienceHighlights: ExperienceItem[] = [
     type: "Contractor",
     timeframe: "Oct 2021 – current",
     bullets: [
-      "Created a modern design system based on React, Storybook, and Tailwind, which became the foundation for 80% of new projects and improved developer onboarding time by ~30%.",
-      "Built and maintained complex applications with authentication, custom middlewares, caching strategies, and mobile apps using React Native and Next.js, serving more than 100k active users.",
-      "Integrated multiple enterprise-level CMS platforms (ContentStack, Optimizely, Adobe AEM) with REST and GraphQL APIs, ensuring scalable and flexible content delivery for international clients.",
-      "Refactored legacy projects to adopt modern stacks and best practices, reducing technical debt and improving performance scores by up to 40% in Lighthouse audits.",
+      "Created a React + Tailwind design system adopted by 80% of new projects, cutting onboarding time by ~30%.",
+      "Built Next.js and React Native apps serving 100k+ active users with auth, middleware, and caching.",
+      "Integrated enterprise CMS platforms via REST and GraphQL for international content delivery.",
     ],
   },
   {
@@ -141,9 +138,9 @@ export const experienceHighlights: ExperienceItem[] = [
     type: "Contractor",
     timeframe: "Jun 2024 – current",
     bullets: [
-      "Refactored token management with Style Dictionary, enabling platform-specific tokens from a single source and ensuring consistency across all platforms.",
-      "Automated design-to-code workflow by building a Figma-to-GitHub sync script with API integrations, reducing manual hand-offs and speeding up token updates.",
-      "Built and maintained reusable Cedar Design System components, accelerating product delivery and ensuring UI consistency across REI platforms.",
+      "Refactored design tokens with Style Dictionary for cross-platform consistency.",
+      "Automated Figma-to-GitHub sync, eliminating manual hand-offs from design to code.",
+      "Built reusable Cedar components that accelerated delivery across REI platforms.",
     ],
   },
   {
@@ -155,10 +152,8 @@ export const experienceHighlights: ExperienceItem[] = [
     type: "Contractor",
     timeframe: "Oct 2022 – Apr 2024",
     bullets: [
-      "Delivered and maintained multiple Vue.js and WordPress projects, ensuring stability and scalability for high-traffic client sites.",
-      "Designed and implemented custom Gutenberg Blocks, enhancing editorial workflows and extending WordPress site functionality.",
-      "Integrated REST APIs and optimized rendering performance, improving load times and user experience on content-rich websites.",
-      "Partnered with designers to translate UI/UX requirements into modular Vue.js components, streamlining collaboration and reusability.",
+      "Delivered high-traffic Vue.js and WordPress sites with custom Gutenberg blocks.",
+      "Optimized rendering and API integration, improving load times on content-rich properties.",
     ],
   },
   {
@@ -169,11 +164,9 @@ export const experienceHighlights: ExperienceItem[] = [
     role: "Lead Front End Engineer",
     timeframe: "Apr 2019 – Oct 2022",
     bullets: [
-      "Directed front-end architecture and execution for new builds and legacy modernization, ensuring alignment with client goals.",
-      "Hired, mentored, and onboarded engineers, while establishing standardized workflows and documentation that improved team efficiency.",
-      "Reduced build times by 70% through modernized build tooling, significantly boosting developer productivity.",
-      "Launched an internal design system to unify UI patterns, eliminating duplication and accelerating development cycles.",
-      "Spearheaded performance optimization and long-term support strategies, improving scalability and product lifecycle management.",
+      "Grew the frontend team from 3 to 8 engineers while standardizing delivery workflows.",
+      "Reduced build times by 70% through modernized tooling and Nx migration.",
+      "Launched an internal design system that eliminated UI duplication across projects.",
     ],
   },
   {
@@ -184,9 +177,8 @@ export const experienceHighlights: ExperienceItem[] = [
     role: "UI Engineer",
     timeframe: "Jul 2018 – Apr 2019",
     bullets: [
-      "Developed and maintained a React Native real estate app with advanced search, map views, and location-based features.",
-      "Enhanced user experience by integrating maps, filters, geolocation, and deep linking into the mobile app.",
-      "Built admin dashboards, reusing UI patterns and business logic across web and mobile platforms to maximize efficiency.",
+      "Developed a React Native real estate app with maps, filters, and geolocation.",
+      "Built admin dashboards reusing logic across web and mobile platforms.",
     ],
   },
   {
@@ -197,9 +189,8 @@ export const experienceHighlights: ExperienceItem[] = [
     role: "UI Engineer",
     timeframe: "Aug 2018 – Mar 2019",
     bullets: [
-      "Built the MVP of a tax automation platform, replacing manual workflows with an automated system for businesses and individuals.",
-      "Implemented backend logic and UI for automatic tax calculations, scheduling, and payment processing.",
-      "Eliminated repetitive compliance tasks by automating workflows, saving users hundreds of hours annually.",
+      "Built the MVP of a tax automation platform, replacing manual workflows for businesses.",
+      "Automated tax calculations and payment scheduling, saving users hundreds of hours annually.",
     ],
   },
 ];
