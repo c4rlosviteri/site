@@ -46,7 +46,10 @@ const metaItems = [site.location, site.timezone].filter(
     {site.availability && (
       <Reveal variant="fade-in" delay={200}>
         <p class="inline-flex items-center gap-sm font-mono text-caption uppercase tracking-[0.10em] text-nd-text-secondary border border-nd-border px-md py-sm mb-2xl">
-          <span class="w-[6px] h-[6px] rounded-full bg-nd-accent shrink-0" aria-hidden="true"></span>
+          <span class="relative flex h-[6px] w-[6px] shrink-0" aria-hidden="true">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-nd-accent opacity-30"></span>
+            <span class="relative inline-flex rounded-full h-[6px] w-[6px] bg-nd-accent"></span>
+          </span>
           {site.availability}
         </p>
       </Reveal>

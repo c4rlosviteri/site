@@ -10,7 +10,7 @@ const { cta } = Astro.props;
 const isExternal = cta.external ?? /^https?:\/\//.test(cta.href);
 
 const baseClasses =
-  "group inline-flex items-center gap-sm font-mono text-label uppercase tracking-[0.06em] min-h-[44px] px-md py-sm transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-nd-text-display focus-visible:outline-offset-2 whitespace-nowrap";
+  "group inline-flex items-center gap-sm font-mono text-label uppercase tracking-[0.06em] min-h-[44px] px-md py-sm transition-all duration-200 hover:-translate-y-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-nd-text-display focus-visible:outline-offset-2 whitespace-nowrap";
 
 const variantClasses: Record<CTA["kind"], string> = {
   primary:

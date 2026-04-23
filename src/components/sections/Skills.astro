@@ -13,7 +13,7 @@ import Reveal from "../ui/Reveal.astro";
   <div class="mt-2xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
     {skills.map((category, i) => (
       <Reveal variant="fade-up" delay={i * 70}>
-        <div class="group border border-nd-border hover:border-nd-border-visible bg-nd-surface hover:bg-nd-surface-raised transition-all duration-300 p-xl md:p-2xl h-full">
+        <div class="group border border-nd-border hover:border-nd-border-visible bg-nd-surface hover:bg-nd-surface-raised transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] p-xl md:p-2xl h-full">
 
           <!-- Category title -->
           <h3 class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled mb-lg">
