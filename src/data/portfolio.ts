@@ -3,6 +3,7 @@ import type {
   SupportingWork,
   Capability,
   ExperienceItem,
+  SkillCategory,
   AboutContent,
 } from "./types";
 
@@ -191,6 +192,76 @@ export const experienceHighlights: ExperienceItem[] = [
     bullets: [
       "Built the MVP of a tax automation platform, replacing manual workflows for businesses.",
       "Automated tax calculations and payment scheduling, saving users hundreds of hours annually.",
+    ],
+  },
+];
+
+export const skills: SkillCategory[] = [
+  {
+    title: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "Vue",
+      "TypeScript",
+      "React Native",
+      "Astro",
+      "Tailwind CSS",
+      "HTML / CSS",
+    ],
+  },
+  {
+    title: "Design Systems",
+    items: [
+      "Storybook",
+      "Style Dictionary",
+      "Design Tokens",
+      "Figma API",
+      "Component Architecture",
+      "Accessibility (WCAG)",
+    ],
+  },
+  {
+    title: "CMS & APIs",
+    items: [
+      "ContentStack",
+      "Optimizely",
+      "Adobe AEM",
+      "WordPress",
+      "Sitecore",
+      "GraphQL",
+      "REST",
+    ],
+  },
+  {
+    title: "Build & Tooling",
+    items: [
+      "Nx",
+      "Vite",
+      "Webpack",
+      "CI/CD",
+      "Git",
+      "Monorepos",
+    ],
+  },
+  {
+    title: "Performance",
+    items: [
+      "Core Web Vitals",
+      "Lighthouse",
+      "Bundle Analysis",
+      "Caching Strategies",
+      "Code Splitting",
+    ],
+  },
+  {
+    title: "Mobile",
+    items: [
+      "React Native",
+      "Responsive Design",
+      "Cross-Platform",
+      "Deep Linking",
+      "Geolocation",
     ],
   },
 ];

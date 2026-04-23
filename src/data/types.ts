@@ -42,6 +42,11 @@ export type ExperienceItem = {
   bullets: string[];
 };
 
+export type SkillCategory = {
+  title: string;
+  items: string[];
+};
+
 export type AboutContent = {
   narrative: string[];
   sasNote?: string;
