@@ -19,7 +19,7 @@ export const engagements: Engagement[] = [
       "A component library and documentation platform built from scratch. Became the foundation for most new projects across the agency, with theming, accessibility patterns, and CI-driven releases.",
     stack: ["React", "TypeScript", "Tailwind", "Storybook", "Next.js"],
     outcomes: [
-      "Adopted by 80% of new projects within the first year",
+      "Adopted by 40% of new projects within the first year",
       "Cut developer onboarding time from days to hours",
       "Legacy refactors improved Lighthouse scores by up to 40%",
     ],
@@ -117,7 +117,7 @@ export const experienceHighlights: ExperienceItem[] = [
     type: "Contractor",
     timeframe: "Oct 2021 – current",
     bullets: [
-      "Created a React + Tailwind design system adopted by 80% of new projects, cutting onboarding time by ~30%.",
+      "Created a React + Tailwind design system adopted by 40% of new projects, cutting onboarding time by ~30%.",
       "Built Next.js and React Native apps serving 100k+ active users with auth, middleware, and caching.",
       "Integrated enterprise CMS platforms via REST and GraphQL for international content delivery.",
     ],
