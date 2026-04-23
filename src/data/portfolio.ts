@@ -121,19 +121,19 @@ export const experienceHighlights: ExperienceItem[] = [
     label: "Senior UI Engineer",
     timeframe: "2021 – Present",
     detail:
-      "Contracting with Huge and REI — building design systems, scaling applications, and automating design-to-code workflows.",
+      "Building design systems at scale, modernizing legacy platforms, and bridging design-to-code workflows for product teams.",
   },
   {
     label: "Lead Front End Engineer",
     timeframe: "2019 – 2022",
     detail:
-      "Led frontend architecture and team growth at Verndale. Launched an internal design system and cut build times by 70%.",
+      "Owned frontend architecture, grew the engineering team from 3 to 8, and established delivery standards across client work.",
   },
   {
     label: "Frontend Engineer",
     timeframe: "2018 – 2019",
     detail:
-      "Shipped React Native apps and Vue.js frontends at Dreamcode and AMP Agency. Built the Factu tax automation MVP.",
+      "Shipped cross-platform mobile apps and marketing sites. Built an internal tax automation tool from scratch.",
   },
 ];
 
