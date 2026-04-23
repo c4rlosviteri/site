@@ -10,58 +10,55 @@ import Reveal from "../ui/Reveal.astro";
     <SectionLabel text="Experience" tag="h2" id="experience-heading" />
   </Reveal>
 
-  <div class="mt-2xl">
-    <!-- Table header (desktop only) -->
-    <div class="hidden md:grid grid-cols-[1.2fr_1fr_140px] gap-md pb-sm border-b border-nd-border mb-0">
-      <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled">Company</span>
-      <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled">Role</span>
-      <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled text-right">Period</span>
-    </div>
-
+  <div class="mt-2xl flex flex-col">
     {experienceHighlights.map((item, i) => (
       <Reveal variant="fade-up" delay={i * 60}>
-        <div class="group border-b border-nd-border py-lg md:py-md hover:bg-nd-surface transition-colors duration-200 -mx-md px-md md:-mx-xl md:px-xl">
+        <div class="group relative border-t border-nd-border py-xl md:py-2xl pl-0 md:pl-xl transition-colors duration-200">
+          
+          <!-- Left accent bar -->
+          <span
+            class="hidden md:block absolute left-0 top-xl bottom-xl w-[2px] bg-nd-border group-hover:bg-nd-accent transition-colors duration-300"
+            aria-hidden="true"
+          ></span>
           
           <!-- Main row -->
-          <div class="flex flex-col md:grid md:grid-cols-[1.2fr_1fr_140px] md:items-baseline gap-xs md:gap-md">
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-xs md:gap-md">
             
-            <!-- Company -->
-            <div>
-              <span class="font-display text-[20px] md:text-[22px] text-nd-text-display leading-tight tracking-[-0.02em]">
-                {item.company}
-              </span>
-              <span class="md:hidden font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em] ml-sm">
-                {item.timeframe}
-              </span>
+            <!-- Left: Company + description -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-sm flex-wrap">
+                <h3 class="font-display text-[22px] md:text-[26px] text-nd-text-display leading-tight tracking-[-0.02em]">
+                  {item.company}
+                </h3>
+                {item.type && (
+                  <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-nd-text-disabled border border-nd-border px-2xs py-[1px]">
+                    {item.type}
+                  </span>
+                )}
+              </div>
+              <p class="text-nd-text-disabled text-sm mt-2xs max-w-[50ch]">
+                {item.description}
+              </p>
             </div>
             
-            <!-- Role -->
-            <div class="flex flex-wrap items-center gap-x-sm gap-y-2xs">
-              <span class="text-nd-text-secondary text-sm">
+            <!-- Right: Role + period -->
+            <div class="md:text-right shrink-0 md:pl-xl">
+              <p class="text-nd-text-secondary text-sm">
                 {item.role}
-              </span>
-              {item.type && (
-                <span class="font-mono text-[10px] uppercase tracking-[0.10em] text-nd-text-disabled border border-nd-border px-2xs py-[2px]">
-                  {item.type}
-                </span>
-              )}
+              </p>
+              <p class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em] mt-2xs">
+                {item.timeframe}
+              </p>
             </div>
-            
-            <!-- Period (desktop) -->
-            <span class="hidden md:block font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em] text-right">
-              {item.timeframe}
-            </span>
             
           </div>
-          
-          <!-- Description (mobile only, or always visible) -->
-          <p class="text-nd-text-disabled text-sm mt-xs max-w-[60ch]">
-            {item.description}
-          </p>
           
         </div>
       </Reveal>
     ))}
+    
+    <!-- Bottom border -->
+    <div class="border-t border-nd-border"></div>
   </div>
 
 </section>
