@@ -7,9 +7,6 @@ import Reveal from "../ui/Reveal.astro";
 const primaryCta: CTA = { label: "Get in touch", href: `mailto:${site.email}`, kind: "primary" };
 const ctas: CTA[] = [
   primaryCta,
-  site.linkedin
-    ? { label: "LinkedIn", href: site.linkedin, kind: "secondary", external: true }
-    : null,
   site.resumeUrl
     ? { label: "Resume", href: site.resumeUrl, kind: "ghost", external: true }
     : null,
@@ -22,79 +19,65 @@ const metaItems = [site.location, site.timezone, site.availability].filter(
 
 <section
   id="hero"
-  class="min-h-screen flex flex-col justify-end pb-4xl pt-4xl px-md md:px-xl max-w-content mx-auto relative"
+  class="min-h-[92vh] flex flex-col justify-end pb-3xl md:pb-4xl pt-4xl px-md md:px-xl max-w-content mx-auto relative"
 >
   <!-- Dot grid only behind hero, very faint -->
-  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-20" aria-hidden="true"></div>
+  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-[0.12]" aria-hidden="true"></div>
 
   <div class="relative z-10">
 
-    <!-- Label: mono uppercase, snaps in immediately -->
+    <!-- Label: mono uppercase -->
     <Reveal variant="fade-in" delay={0}>
-      <p class="font-mono text-label uppercase tracking-[0.12em] text-nd-text-disabled mb-lg">
+      <p class="font-mono text-label uppercase tracking-[0.14em] text-nd-text-disabled mb-md">
         {site.title}
       </p>
     </Reveal>
 
-    <!-- Name: the centrepiece — large, tight, display font -->
+    <!-- Name: massive, tight, display font -->
     <Reveal variant="fade-up" delay={100}>
-      <h1 class="font-display text-[clamp(56px,10vw,120px)] leading-[0.92] tracking-[-0.03em] text-nd-text-display mb-2xl max-w-[14ch]">
+      <h1 class="font-display text-[clamp(64px,12vw,140px)] leading-[0.88] tracking-[-0.04em] text-nd-text-display mb-xl max-w-[14ch]">
         {site.name}
       </h1>
     </Reveal>
 
-    <!-- Tagline: one punchy line, larger than before -->
+    <!-- Tagline + intro block -->
     <Reveal variant="fade-up" delay={280}>
-      <div class="max-w-[54rem] mb-xl">
-        <p class="font-mono text-caption uppercase tracking-[0.12em] text-nd-text-primary mb-md">
+      <div class="max-w-[56rem] mb-2xl">
+        <p class="font-mono text-caption uppercase tracking-[0.12em] text-nd-text-secondary mb-sm">
           {site.tagline}
         </p>
-        <p class="text-nd-text-secondary text-subheading md:text-[20px] max-w-[48ch] leading-[1.6] font-body">
+        <p class="text-nd-text-secondary text-subheading md:text-[19px] max-w-[50ch] leading-[1.65] font-body">
           {site.intro}
         </p>
       </div>
     </Reveal>
 
-    <!-- Thin rule — separates the copy block from actions -->
+    <!-- Horizontal rule -->
     <Reveal variant="fade-in" delay={420}>
       <hr class="border-nd-border mb-xl" aria-hidden="true" />
     </Reveal>
 
-    <!-- CTAs -->
+    <!-- CTAs + metadata row -->
     <Reveal variant="fade-up" delay={480}>
-      <div class="flex flex-wrap gap-sm mb-2xl">
-        {ctas.map((cta) => <CTAButton cta={cta} />)}
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-lg">
+        <div class="flex flex-wrap gap-sm">
+          {ctas.map((cta) => <CTAButton cta={cta} />)}
+        </div>
+        <div class="flex flex-wrap gap-x-lg gap-y-xs font-mono text-caption text-nd-text-disabled uppercase tracking-[0.10em]">
+          {metaItems.map((item) => (
+            <span class="flex items-center gap-xs">
+              {item === site.availability && (
+                <span
+                  class="inline-block w-[5px] h-[5px] rounded-full bg-nd-accent flex-shrink-0"
+                  aria-hidden="true"
+                ></span>
+              )}
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </Reveal>
 
-    <!-- Metadata: location · timezone · availability -->
-    <Reveal variant="fade-in" delay={650}>
-      <div class="flex flex-wrap gap-x-lg gap-y-xs font-mono text-caption text-nd-text-disabled uppercase tracking-[0.10em]">
-        {metaItems.map((item) => (
-          <span class="flex items-center gap-xs">
-            {item === site.availability && (
-              <span
-                class="inline-block w-[5px] h-[5px] rounded-full bg-nd-accent flex-shrink-0"
-                aria-hidden="true"
-              ></span>
-            )}
-            {item}
-          </span>
-        ))}
-      </div>
-    </Reveal>
-
-  </div>
-
-  <!-- Scroll hint — fades out once user starts scrolling (CSS only) -->
-  <div
-    class="absolute bottom-xl left-1/2 -translate-x-1/2 flex flex-col items-center gap-xs opacity-20 pointer-events-none"
-    aria-hidden="true"
-  >
-    <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-nd-text-disabled">Scroll</span>
-    <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="animate-bounce-slow">
-      <rect x="0.5" y="0.5" width="11" height="17" rx="5.5" stroke="currentColor" stroke-opacity="0.5"/>
-      <rect x="5" y="4" width="2" height="4" rx="1" fill="currentColor" fill-opacity="0.6"/>
-    </svg>
   </div>
 </section>

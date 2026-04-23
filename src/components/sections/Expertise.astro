@@ -10,20 +10,22 @@ import Reveal from "../ui/Reveal.astro";
     <SectionLabel text="Expertise" tag="h2" id="expertise-heading" />
   </Reveal>
 
-  <div class="mt-2xl grid grid-cols-1 md:grid-cols-3 gap-sm">
+  <div class="mt-2xl grid grid-cols-1 md:grid-cols-3 gap-lg">
     {capabilities.map((cap, i) => (
-      <Reveal variant="fade-up" delay={i * 80}>
-        <div class="group border border-nd-border hover:border-nd-border-visible bg-nd-surface hover:bg-nd-surface-raised transition-colors duration-300 p-xl flex flex-col gap-lg h-full">
+      <Reveal variant="fade-up" delay={i * 90}>
+        <div class="group border border-nd-border hover:border-nd-border-visible bg-nd-surface hover:bg-nd-surface-raised transition-all duration-300 p-xl md:p-2xl flex flex-col gap-lg h-full">
 
-          <!-- Index + title -->
-          <div>
-            <span class="font-mono text-label text-nd-text-disabled tracking-[0.10em] block mb-sm">
+          <!-- Large decorative index -->
+          <div class="flex items-baseline justify-between">
+            <span class="font-display text-[clamp(48px,5vw,72px)] leading-none text-nd-border-visible group-hover:text-nd-accent/30 transition-colors duration-500 tracking-[-0.03em]">
               0{i + 1}
             </span>
-            <h3 class="font-body text-heading font-medium text-nd-text-display leading-tight">
-              {cap.title}
-            </h3>
           </div>
+
+          <!-- Title -->
+          <h3 class="font-body text-heading font-medium text-nd-text-display leading-tight tracking-[-0.01em]">
+            {cap.title}
+          </h3>
 
           <!-- Summary -->
           <p class="text-nd-text-secondary text-sm leading-relaxed flex-1">

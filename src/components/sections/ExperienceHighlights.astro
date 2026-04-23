@@ -12,9 +12,9 @@ import Reveal from "../ui/Reveal.astro";
 
   <!-- Timeline wrapper -->
   <div class="mt-2xl relative">
-    <!-- Vertical line on desktop: runs along the timeframe column -->
+    <!-- Vertical line on desktop -->
     <div
-      class="hidden md:block absolute left-[152px] top-0 bottom-0 w-px bg-nd-border"
+      class="hidden md:block absolute left-[160px] top-0 bottom-0 w-px bg-nd-border"
       aria-hidden="true"
     ></div>
 
@@ -22,14 +22,14 @@ import Reveal from "../ui/Reveal.astro";
       <Reveal variant="fade-up" delay={i * 90}>
         <div class="relative flex flex-col md:flex-row md:items-start gap-sm md:gap-0 py-lg border-t border-nd-border group">
 
-          <!-- Timeframe: fixed-width column on desktop -->
-          <span class="md:w-[152px] font-mono text-caption uppercase tracking-[0.08em] text-nd-text-disabled shrink-0 md:pr-xl md:pt-[3px]">
+          <!-- Timeframe -->
+          <span class="md:w-[160px] font-mono text-caption uppercase tracking-[0.08em] text-nd-text-disabled shrink-0 md:pr-xl md:pt-[4px]">
             {item.timeframe}
           </span>
 
-          <!-- Node dot on timeline line -->
+          <!-- Node dot -->
           <span
-            class="hidden md:block absolute left-[148px] top-[calc(1.5rem+6px)] w-[9px] h-[9px] rounded-full border border-nd-border-visible bg-nd-black group-hover:border-nd-accent group-hover:bg-nd-accent transition-colors duration-300 z-10"
+            class="hidden md:block absolute left-[156px] top-[calc(1.5rem+8px)] w-[9px] h-[9px] rounded-full border border-nd-border-visible bg-nd-black group-hover:border-nd-accent group-hover:bg-nd-accent transition-colors duration-300 z-10"
             aria-hidden="true"
           ></span>
 

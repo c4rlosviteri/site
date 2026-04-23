@@ -1,15 +1,15 @@
 :root {
-  --black: #000000;
+  --black: #0a0a0a;
   --surface: #111111;
-  --surface-raised: #1a1a1a;
-  --border: #222222;
-  --border-visible: #333333;
-  --text-disabled: #666666;
-  --text-secondary: #999999;
-  --text-primary: #e8e8e8;
-  --text-display: #ffffff;
+  --surface-raised: #161616;
+  --border: #1f1f1f;
+  --border-visible: #2a2a2a;
+  --text-disabled: #555555;
+  --text-secondary: #888888;
+  --text-primary: #d4d4d4;
+  --text-display: #f0f0f0;
   --accent: #78f0ff;
-  --accent-subtle: rgba(120, 240, 255, 0.15);
+  --accent-subtle: rgba(120, 240, 255, 0.12);
   --success: #4a9e5c;
   --warning: #d4a843;
   --interactive: #5b9bf6;
@@ -23,15 +23,16 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   --space-4xl: 96px;
+  --space-5xl: 128px;
 
   --font-display: "Doto", "Space Mono", monospace;
   --font-body: "Space Grotesk", "DM Sans", system-ui, sans-serif;
   --font-mono: "Space Mono", "JetBrains Mono", "SF Mono", monospace;
 
-  --display-xl: 72px;
-  --display-lg: 48px;
-  --display-md: 36px;
-  --heading: 24px;
+  --display-xl: 80px;
+  --display-lg: 52px;
+  --display-md: 40px;
+  --heading: 26px;
   --subheading: 18px;
   --body: 16px;
   --body-sm: 14px;
@@ -62,13 +63,22 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--body);
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--text-primary);
   background-color: var(--black);
-  background-image:
-    radial-gradient(circle at top right, rgba(120, 240, 255, 0.12), transparent 26rem),
-    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent 22rem);
   min-height: 100vh;
+}
+
+/* Subtle radial glow — warmer, more restrained */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(120, 240, 255, 0.04), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255, 255, 255, 0.03), transparent 50%);
 }
 
 a {
@@ -77,8 +87,8 @@ a {
 }
 
 ::selection {
-  background: rgba(120, 240, 255, 0.9);
-  color: var(--black);
+  background: rgba(120, 240, 255, 0.25);
+  color: var(--text-display);
 }
 
 ul,
@@ -96,6 +106,21 @@ img {
   outline-offset: 3px;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-visible);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-disabled);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -110,22 +135,24 @@ img {
   }
 }
 
+/* Dot grid — more refined, smaller dots */
 .dot-grid-subtle {
   background-image: radial-gradient(
     circle,
-    var(--border) 0.5px,
-    transparent 0.5px
+    var(--border-visible) 0.4px,
+    transparent 0.4px
   );
-  background-size: 12px 12px;
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
 }
 
 /* ─── Reveal animations ───────────────────────────────────────── */
-/* Sharp deceleration easing: cubic-bezier(0.16, 1, 0.3, 1) */
 
 @keyframes reveal-fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -149,12 +176,12 @@ img {
 [data-reveal="fade-up"].is-revealed {
   opacity: 1;
   transform: none;
-  animation: reveal-fade-up 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: reveal-fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 [data-reveal="fade-in"].is-revealed {
   opacity: 1;
-  animation: reveal-fade-in 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: reveal-fade-in 550ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -168,15 +195,7 @@ img {
   }
 }
 
-/* ─── Scroll hint bounce ───────────────────────────────────────── */
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(5px); }
-}
-.animate-bounce-slow {
-  animation: bounce-slow 2s ease-in-out infinite;
-}
-
+/* ─── Section rule ───────────────────────────────────────── */
 .section-rule {
   border-top: 1px solid var(--border);
   margin-inline: auto;
