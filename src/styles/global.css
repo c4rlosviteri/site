@@ -8,8 +8,8 @@
   --text-secondary: #888888;
   --text-primary: #d4d4d4;
   --text-display: #f0f0f0;
-  --accent: #78f0ff;
-  --accent-subtle: rgba(120, 240, 255, 0.12);
+  --accent: #ff3b30;
+  --accent-subtle: rgba(255, 59, 48, 0.12);
   --success: #4a9e5c;
   --warning: #d4a843;
   --interactive: #5b9bf6;
@@ -77,7 +77,7 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(120, 240, 255, 0.04), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(255, 59, 48, 0.04), transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255, 255, 255, 0.03), transparent 50%);
 }
 
@@ -87,7 +87,7 @@ a {
 }
 
 ::selection {
-  background: rgba(120, 240, 255, 0.25);
+  background: rgba(255, 59, 48, 0.25);
   color: var(--text-display);
 }
 
