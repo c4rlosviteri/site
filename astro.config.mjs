@@ -1,12 +1,9 @@
 import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
+import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   output: "static",
-  integrations: [sitemap()],
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  integrations: [tailwind(), sitemap()],
   site: "https://carlosviteri.me",
 });
