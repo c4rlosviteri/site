@@ -10,40 +10,56 @@ import Reveal from "../ui/Reveal.astro";
     <SectionLabel text="Experience" tag="h2" id="experience-heading" />
   </Reveal>
 
-  <!-- Timeline wrapper -->
-  <div class="mt-2xl relative">
-    <!-- Vertical line on desktop -->
-    <div
-      class="hidden md:block absolute left-[160px] top-0 bottom-0 w-px bg-nd-border"
-      aria-hidden="true"
-    ></div>
-
+  <div class="mt-2xl flex flex-col">
     {experienceHighlights.map((item, i) => (
-      <Reveal variant="fade-up" delay={i * 90}>
-        <div class="relative flex flex-col md:flex-row md:items-start gap-sm md:gap-0 py-lg border-t border-nd-border group">
+      <Reveal variant="fade-up" delay={i * 80}>
+        <article class="group border-t border-nd-border py-2xl md:py-3xl relative">
 
-          <!-- Timeframe -->
-          <span class="md:w-[160px] font-mono text-caption uppercase tracking-[0.08em] text-nd-text-disabled shrink-0 md:pr-xl md:pt-[4px]">
-            {item.timeframe}
-          </span>
-
-          <!-- Node dot -->
-          <span
-            class="hidden md:block absolute left-[156px] top-[calc(1.5rem+8px)] w-[9px] h-[9px] rounded-full border border-nd-border-visible bg-nd-black group-hover:border-nd-accent group-hover:bg-nd-accent transition-colors duration-300 z-10"
-            aria-hidden="true"
-          ></span>
-
-          <!-- Content -->
-          <div class="md:pl-xl flex flex-col gap-xs">
-            <h3 class="font-body text-subheading font-medium text-nd-text-display group-hover:text-nd-text-display transition-colors duration-200">
-              {item.label}
-            </h3>
-            <span class="text-nd-text-secondary text-sm leading-relaxed max-w-[52ch]">
-              {item.detail}
-            </span>
+          <!-- Header: company + role row -->
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-sm mb-sm">
+            <div>
+              <h3 class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]">
+                {item.company}
+              </h3>
+              <p class="text-nd-text-secondary text-sm mt-xs max-w-[48ch]">
+                {item.description}
+              </p>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-2xs shrink-0">
+              <span class="font-mono text-caption text-nd-text-secondary uppercase tracking-[0.08em]">
+                {item.timeframe}
+              </span>
+              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
+                {item.location}
+              </span>
+            </div>
           </div>
 
-        </div>
+          <!-- Role + type -->
+          <div class="flex items-center gap-sm mb-xl">
+            <span class="text-nd-text-primary text-sm font-medium">
+              {item.role}
+            </span>
+            {item.type && (
+              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
+                — {item.type}
+              </span>
+            )}
+          </div>
+
+          <!-- Bullets -->
+          <ul class="flex flex-col gap-sm">
+            {item.bullets.map((bullet) => (
+              <li class="flex items-start gap-md">
+                <span class="text-nd-accent mt-[3px] shrink-0 font-mono text-caption" aria-hidden="true">—</span>
+                <span class="text-nd-text-secondary text-sm leading-relaxed">
+                  {bullet}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+        </article>
       </Reveal>
     ))}
 

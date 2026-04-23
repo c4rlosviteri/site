@@ -33,9 +33,13 @@ export type Capability = {
 };
 
 export type ExperienceItem = {
-  label: string;
+  company: string;
+  description?: string;
+  location: string;
+  role: string;
+  type?: string;
   timeframe: string;
-  detail: string;
+  bullets: string[];
 };
 
 export type AboutContent = {

@@ -118,24 +118,89 @@ export const capabilities: Capability[] = [
 
 export const experienceHighlights: ExperienceItem[] = [
   {
-    label: "Huge",
-    timeframe: "2021 – Present",
-    detail: "Senior UI Engineer — shared design systems, legacy modernization, and platform scaling.",
+    company: "Huge",
+    description:
+      "Global design and technology agency building AI-driven digital experiences.",
+    location: "Remote",
+    role: "Senior UI Engineer",
+    type: "Contractor",
+    timeframe: "Oct 2021 – current",
+    bullets: [
+      "Created a modern design system based on React, Storybook, and Tailwind, which became the foundation for 80% of new projects and improved developer onboarding time by ~30%.",
+      "Built and maintained complex applications with authentication, custom middlewares, caching strategies, and mobile apps using React Native and Next.js, serving more than 100k active users.",
+      "Integrated multiple enterprise-level CMS platforms (ContentStack, Optimizely, Adobe AEM) with REST and GraphQL APIs, ensuring scalable and flexible content delivery for international clients.",
+      "Refactored legacy projects to adopt modern stacks and best practices, reducing technical debt and improving performance scores by up to 40% in Lighthouse audits.",
+    ],
   },
   {
-    label: "REI",
-    timeframe: "2024 – Present",
-    detail: "Senior Web UI Engineer — Cedar design system, token infrastructure, and design-to-code automation.",
+    company: "REI",
+    description:
+      "U.S. outdoor retail cooperative with nationwide stores and e-commerce.",
+    location: "Remote",
+    role: "Senior Web UI Engineer",
+    type: "Contractor",
+    timeframe: "Jun 2024 – current",
+    bullets: [
+      "Refactored token management with Style Dictionary, enabling platform-specific tokens from a single source and ensuring consistency across all platforms.",
+      "Automated design-to-code workflow by building a Figma-to-GitHub sync script with API integrations, reducing manual hand-offs and speeding up token updates.",
+      "Built and maintained reusable Cedar Design System components, accelerating product delivery and ensuring UI consistency across REI platforms.",
+    ],
   },
   {
-    label: "Verndale",
-    timeframe: "2019 – 2022",
-    detail: "Lead Front End Engineer — team growth from 3 to 8, delivery standards, and tooling modernization.",
+    company: "AMP Agency",
+    description:
+      "Full-service digital marketing and advertising agency.",
+    location: "Remote",
+    role: "Senior Frontend Engineer",
+    type: "Contractor",
+    timeframe: "Oct 2022 – Apr 2024",
+    bullets: [
+      "Delivered and maintained multiple Vue.js and WordPress projects, ensuring stability and scalability for high-traffic client sites.",
+      "Designed and implemented custom Gutenberg Blocks, enhancing editorial workflows and extending WordPress site functionality.",
+      "Integrated REST APIs and optimized rendering performance, improving load times and user experience on content-rich websites.",
+      "Partnered with designers to translate UI/UX requirements into modular Vue.js components, streamlining collaboration and reusability.",
+    ],
   },
   {
-    label: "Dreamcode / AMP Agency",
-    timeframe: "2018 – 2019",
-    detail: "Frontend Engineer — cross-platform apps, marketing sites, and internal tooling.",
+    company: "Verndale",
+    description:
+      "Digital experience agency focused on design, strategy, and development.",
+    location: "Remote",
+    role: "Lead Front End Engineer",
+    timeframe: "Apr 2019 – Oct 2022",
+    bullets: [
+      "Directed front-end architecture and execution for new builds and legacy modernization, ensuring alignment with client goals.",
+      "Hired, mentored, and onboarded engineers, while establishing standardized workflows and documentation that improved team efficiency.",
+      "Reduced build times by 70% through modernized build tooling, significantly boosting developer productivity.",
+      "Launched an internal design system to unify UI patterns, eliminating duplication and accelerating development cycles.",
+      "Spearheaded performance optimization and long-term support strategies, improving scalability and product lifecycle management.",
+    ],
+  },
+  {
+    company: "Dreamcode",
+    description:
+      "Software development company specializing in staff augmentation and full-stack project delivery.",
+    location: "Remote",
+    role: "UI Engineer",
+    timeframe: "Jul 2018 – Apr 2019",
+    bullets: [
+      "Developed and maintained a React Native real estate app with advanced search, map views, and location-based features.",
+      "Enhanced user experience by integrating maps, filters, geolocation, and deep linking into the mobile app.",
+      "Built admin dashboards, reusing UI patterns and business logic across web and mobile platforms to maximize efficiency.",
+    ],
+  },
+  {
+    company: "Factu",
+    description:
+      "Ecuadorian platform for efficiently managing and downloading electronic invoices.",
+    location: "Remote",
+    role: "UI Engineer",
+    timeframe: "Aug 2018 – Mar 2019",
+    bullets: [
+      "Built the MVP of a tax automation platform, replacing manual workflows with an automated system for businesses and individuals.",
+      "Implemented backend logic and UI for automatic tax calculations, scheduling, and payment processing.",
+      "Eliminated repetitive compliance tasks by automating workflows, saving users hundreds of hours annually.",
+    ],
   },
 ];
 
