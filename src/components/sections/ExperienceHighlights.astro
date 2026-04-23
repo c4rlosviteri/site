@@ -10,61 +10,58 @@ import Reveal from "../ui/Reveal.astro";
     <SectionLabel text="Experience" tag="h2" id="experience-heading" />
   </Reveal>
 
-  <div class="mt-2xl flex flex-col">
-    {experienceHighlights.map((item, i) => (
-      <Reveal variant="fade-up" delay={i * 80}>
-        <article class="group border-t border-nd-border py-2xl md:py-3xl relative">
+  <div class="mt-2xl">
+    <!-- Table header (desktop only) -->
+    <div class="hidden md:grid grid-cols-[1.2fr_1fr_140px] gap-md pb-sm border-b border-nd-border mb-0">
+      <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled">Company</span>
+      <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled">Role</span>
+      <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled text-right">Period</span>
+    </div>
 
-          <!-- Header: company + role row -->
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-sm mb-sm">
+    {experienceHighlights.map((item, i) => (
+      <Reveal variant="fade-up" delay={i * 60}>
+        <div class="group border-b border-nd-border py-lg md:py-md hover:bg-nd-surface transition-colors duration-200 -mx-md px-md md:-mx-xl md:px-xl">
+          
+          <!-- Main row -->
+          <div class="flex flex-col md:grid md:grid-cols-[1.2fr_1fr_140px] md:items-baseline gap-xs md:gap-md">
+            
+            <!-- Company -->
             <div>
-              <h3 class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]">
+              <span class="font-display text-[20px] md:text-[22px] text-nd-text-display leading-tight tracking-[-0.02em]">
                 {item.company}
-              </h3>
-              <p class="text-nd-text-secondary text-sm mt-xs max-w-[48ch]">
-                {item.description}
-              </p>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-2xs shrink-0">
-              <span class="font-mono text-caption text-nd-text-secondary uppercase tracking-[0.08em]">
+              </span>
+              <span class="md:hidden font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em] ml-sm">
                 {item.timeframe}
               </span>
-              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
-                {item.location}
-              </span>
             </div>
-          </div>
-
-          <!-- Role + type -->
-          <div class="flex items-center gap-sm mb-xl">
-            <span class="text-nd-text-primary text-sm font-medium">
-              {item.role}
-            </span>
-            {item.type && (
-              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
-                — {item.type}
+            
+            <!-- Role -->
+            <div class="flex flex-wrap items-center gap-x-sm gap-y-2xs">
+              <span class="text-nd-text-secondary text-sm">
+                {item.role}
               </span>
-            )}
-          </div>
-
-          <!-- Bullets -->
-          <ul class="flex flex-col gap-sm">
-            {item.bullets.map((bullet) => (
-              <li class="flex items-start gap-md">
-                <span class="text-nd-accent mt-[3px] shrink-0 font-mono text-caption" aria-hidden="true">—</span>
-                <span class="text-nd-text-secondary text-sm leading-relaxed">
-                  {bullet}
+              {item.type && (
+                <span class="font-mono text-[10px] uppercase tracking-[0.10em] text-nd-text-disabled border border-nd-border px-2xs py-[2px]">
+                  {item.type}
                 </span>
-              </li>
-            ))}
-          </ul>
-
-        </article>
+              )}
+            </div>
+            
+            <!-- Period (desktop) -->
+            <span class="hidden md:block font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em] text-right">
+              {item.timeframe}
+            </span>
+            
+          </div>
+          
+          <!-- Description (mobile only, or always visible) -->
+          <p class="text-nd-text-disabled text-sm mt-xs max-w-[60ch]">
+            {item.description}
+          </p>
+          
+        </div>
       </Reveal>
     ))}
-
-    <!-- Bottom border -->
-    <div class="border-t border-nd-border"></div>
   </div>
 
 </section>

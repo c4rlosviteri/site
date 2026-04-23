@@ -14,12 +14,12 @@ export const engagements: Engagement[] = [
     clientLabel: "",
     sector: "",
     role: "",
-    timeframe: "2021 – 2024",
+    timeframe: "",
     summary:
       "A component library and documentation platform built from scratch. Became the foundation for most new projects across the agency, with theming, accessibility patterns, and CI-driven releases.",
     stack: ["React", "TypeScript", "Tailwind", "Storybook", "Next.js"],
     outcomes: [
-      "Adopted by 40% of new projects within the first year",
+      "Adopted by 80% of new projects within the first year",
       "Cut developer onboarding time from days to hours",
       "Legacy refactors improved Lighthouse scores by up to 40%",
     ],
@@ -30,7 +30,7 @@ export const engagements: Engagement[] = [
     clientLabel: "",
     sector: "",
     role: "",
-    timeframe: "2024 – Present",
+    timeframe: "",
     summary:
       "An automated workflow that syncs design tokens from Figma to GitHub via API integrations. Eliminates manual hand-offs and keeps design and engineering in continuous alignment.",
     stack: ["Style Dictionary", "Figma API", "TypeScript", "GitHub Actions"],
@@ -46,7 +46,7 @@ export const engagements: Engagement[] = [
     clientLabel: "",
     sector: "",
     role: "",
-    timeframe: "2019 – 2022",
+    timeframe: "",
     summary:
       "A unified build and delivery setup for a growing frontend team. Included a monorepo with shared tooling, an internal component library, and documentation that scaled with the team.",
     stack: ["Nx", "React", "Next.js", "TypeScript", "Webpack"],
@@ -156,7 +156,8 @@ export const experienceHighlights: ExperienceItem[] = [
     role: "Lead Front End Engineer",
     timeframe: "Apr 2019 – Oct 2022",
     bullets: [
-      "Reduced build times by 70% through modernized tooling and TS migration.",
+      "Standardized the hiring process and authored onboarding documentation that cut ramp-up time for new engineers.",
+      "Reduced build times by 70% through modernized tooling and TypeScript migration.",
       "Launched an internal design system that eliminated UI duplication across projects.",
     ],
   },
