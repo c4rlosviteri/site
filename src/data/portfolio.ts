@@ -45,7 +45,7 @@ export const engagements: Engagement[] = [
     outcomes: [
       "Automated design-to-code workflow via Figma-to-GitHub sync, cutting manual hand-offs",
       "Refactored token management with Style Dictionary for cross-platform consistency",
-      "Reusable Cedar components accelerating product delivery across REI platforms",
+      "Reusable components accelerating product delivery across retail platforms",
     ],
   },
   {
@@ -118,22 +118,24 @@ export const capabilities: Capability[] = [
 
 export const experienceHighlights: ExperienceItem[] = [
   {
-    label: "Senior UI Engineer",
+    label: "Huge",
     timeframe: "2021 – Present",
-    detail:
-      "Building design systems at scale, modernizing legacy platforms, and bridging design-to-code workflows for product teams.",
+    detail: "Senior UI Engineer — shared design systems, legacy modernization, and platform scaling.",
   },
   {
-    label: "Lead Front End Engineer",
+    label: "REI",
+    timeframe: "2024 – Present",
+    detail: "Senior Web UI Engineer — Cedar design system, token infrastructure, and design-to-code automation.",
+  },
+  {
+    label: "Verndale",
     timeframe: "2019 – 2022",
-    detail:
-      "Owned frontend architecture, grew the engineering team from 3 to 8, and established delivery standards across client work.",
+    detail: "Lead Front End Engineer — team growth from 3 to 8, delivery standards, and tooling modernization.",
   },
   {
-    label: "Frontend Engineer",
+    label: "Dreamcode / AMP Agency",
     timeframe: "2018 – 2019",
-    detail:
-      "Shipped cross-platform mobile apps and marketing sites. Built an internal tax automation tool from scratch.",
+    detail: "Frontend Engineer — cross-platform apps, marketing sites, and internal tooling.",
   },
 ];
 

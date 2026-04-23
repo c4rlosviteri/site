@@ -29,13 +29,10 @@ import Reveal from "../ui/Reveal.astro";
             <div>
               <h3
                 id={`eng-${eng.slug}-title`}
-                class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] mb-xs tracking-[-0.02em]"
+                class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]"
               >
                 {eng.title}
               </h3>
-              <p class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
-                {eng.clientLabel}
-              </p>
             </div>
             <div class="flex flex-col items-start md:items-end gap-2xs shrink-0">
               <span class="font-mono text-caption text-nd-text-secondary uppercase tracking-[0.08em]">{eng.sector}</span>
