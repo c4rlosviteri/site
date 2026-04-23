@@ -1,0 +1,104 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} | ${site.title}`,
+  description = `${site.tagline}. ${site.intro}`,
+} = Astro.props;
+
+const siteUrl = new URL(site.siteUrl);
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const socialImageURL = new URL(site.socialImage, siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content={`Portfolio site for ${site.name}`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={`Portfolio site for ${site.name}`} />
+
+    <!-- Favicons & manifest -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Doto:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- No-JS fallback: reveal animations must not hide content when JS is disabled -->
+    <noscript>
+      <style>
+        [data-reveal] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
+
+    <!-- JSON-LD Person Schema -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: site.name,
+      jobTitle: site.title,
+      description: site.intro,
+      email: site.email,
+      url: site.siteUrl,
+      image: socialImageURL.href,
+      sameAs: [],
+      worksFor: {
+        "@type": "Organization",
+        name: "Independent Consultant",
+      },
+      knowsAbout: [
+        "Frontend Architecture",
+        "Design Systems",
+        "Accessibility",
+        "Performance Optimization",
+      ],
+    })} />
+  </head>
+  <body class="bg-nd-black text-nd-text-primary font-body antialiased">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-nd-text-display focus:text-nd-black focus:px-md focus:py-sm focus:font-mono focus:text-label uppercase"
+    >
+      Skip to content
+    </a>
+    <main id="main-content" class="relative z-10">
+      <slot />
+    </main>
+  </body>
+</html>

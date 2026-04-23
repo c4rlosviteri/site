@@ -1,0 +1,81 @@
+---
+import { site } from "../../data/site";
+import type { CTA } from "../../data/types";
+import SectionLabel from "../ui/SectionLabel.astro";
+import CTAButton from "../ui/CTAButton.astro";
+import Reveal from "../ui/Reveal.astro";
+
+const emailCta: CTA = { label: "Email me", href: `mailto:${site.email}`, kind: "primary" };
+const ctas: CTA[] = [
+  emailCta,
+  site.linkedin
+    ? { label: "LinkedIn", href: site.linkedin, kind: "secondary", external: true }
+    : null,
+  site.resumeUrl
+    ? { label: "Download resume", href: site.resumeUrl, kind: "ghost", external: true }
+    : null,
+].filter((cta): cta is CTA => Boolean(cta));
+
+const metaItems = [site.location, site.timezone].filter(
+  (item): item is string => Boolean(item)
+);
+---
+
+<section id="contact" class="py-4xl max-w-content mx-auto px-md md:px-xl relative overflow-hidden" aria-labelledby="contact-title">
+
+  <!-- Subtle dot-grid background, denser than about section -->
+  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-15" aria-hidden="true"></div>
+
+  <div class="relative z-10">
+
+    <Reveal variant="fade-in" delay={0}>
+      <SectionLabel text="Contact" />
+    </Reveal>
+
+    <!-- Large heading — matches hero weight -->
+    <Reveal variant="fade-up" delay={80}>
+      <h2 id="contact-title" class="font-display text-[clamp(40px,7vw,88px)] leading-[0.95] tracking-[-0.03em] text-nd-text-display mt-xl mb-lg max-w-[14ch]">
+        Let's work<br/>together.
+      </h2>
+    </Reveal>
+
+    <Reveal variant="fade-up" delay={140}>
+      <p class="max-w-[40ch] text-nd-text-secondary text-[17px] leading-[1.7] mb-2xl">
+        Open to senior frontend, design system, and accessibility-focused roles with product teams that need sharper standards and faster delivery.
+      </p>
+    </Reveal>
+
+    <!-- Availability badge -->
+    {site.availability && (
+      <Reveal variant="fade-in" delay={200}>
+        <p class="inline-flex items-center gap-sm font-mono text-caption uppercase tracking-[0.10em] text-nd-text-secondary border border-nd-border px-md py-sm mb-2xl">
+          <span class="relative flex h-[8px] w-[8px]" aria-hidden="true">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-nd-accent opacity-60"></span>
+            <span class="relative inline-flex rounded-full h-[8px] w-[8px] bg-nd-accent"></span>
+          </span>
+          {site.availability}
+        </p>
+      </Reveal>
+    )}
+
+    <!-- CTA cluster -->
+    <Reveal variant="fade-up" delay={320}>
+      <div class="flex flex-wrap gap-sm mb-2xl">
+        {ctas.map((cta) => <CTAButton cta={cta} />)}
+      </div>
+    </Reveal>
+
+    <!-- Footer metadata + copyright -->
+    <Reveal variant="fade-in" delay={460}>
+      <div class="flex flex-wrap items-center justify-between gap-md pt-xl border-t border-nd-border">
+        <div class="flex flex-wrap gap-md font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
+          {metaItems.map((item) => <span>{item}</span>)}
+        </div>
+        <span class="font-mono text-caption text-nd-text-disabled tracking-[0.06em]">
+          © {new Date().getFullYear()} {site.name}
+        </span>
+      </div>
+    </Reveal>
+
+  </div>
+</section>

@@ -1,0 +1,127 @@
+---
+import { engagements, saas } from "../../data/portfolio";
+import SectionLabel from "../ui/SectionLabel.astro";
+import Tag from "../ui/Tag.astro";
+import Reveal from "../ui/Reveal.astro";
+---
+
+<section id="engagements" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl" aria-labelledby="engagements-heading">
+
+  <Reveal variant="fade-in" delay={0}>
+    <SectionLabel text="Selected Engagements" tag="h2" id="engagements-heading" />
+  </Reveal>
+
+  <div class="mt-2xl flex flex-col gap-0">
+    {engagements.map((eng, i) => (
+      <Reveal variant="fade-up" delay={i * 100}>
+        <article
+          class="group border-t border-nd-border pt-xl pb-2xl relative pl-lg md:pl-xl transition-colors duration-300"
+          aria-labelledby={`eng-${eng.slug}-title`}
+        >
+          <!-- Accent left border — always present but dim, brightens to accent on hover -->
+          <span
+            class="absolute left-0 top-0 bottom-0 w-[2px] bg-nd-border-visible group-hover:bg-nd-accent transition-colors duration-300"
+            aria-hidden="true"
+          ></span>
+
+          <!-- Header row: title left, sector / timeframe right -->
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-sm mb-lg">
+            <div>
+              <h3
+                id={`eng-${eng.slug}-title`}
+                class="font-display text-display-md md:text-display-lg text-nd-text-display leading-tight mb-xs"
+              >
+                {eng.title}
+              </h3>
+              <p class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
+                {eng.clientLabel}
+              </p>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-xs shrink-0">
+              <span class="font-mono text-caption text-nd-text-secondary uppercase tracking-[0.08em]">{eng.sector}</span>
+              <span class="font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">{eng.timeframe}</span>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <p class="text-nd-text-primary text-[17px] leading-[1.7] mb-xl max-w-[62ch]">
+            {eng.summary}
+          </p>
+
+          <!-- Role / Stack row -->
+          <div class="flex flex-col gap-sm mb-xl">
+            <div class="flex items-baseline gap-md">
+              <span class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-disabled">Role</span>
+              <span class="text-nd-text-secondary text-sm">{eng.role}</span>
+            </div>
+            <div class="flex items-baseline gap-md">
+              <span class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-disabled">Stack</span>
+              <div class="flex flex-wrap gap-xs">
+                {eng.stack.map((s) => (
+                  <Tag text={s} variant="technical" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Outcomes: leading numbers highlighted -->
+          <div>
+            <span class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-disabled mb-md block">
+              Key Outcomes
+            </span>
+            <ul class="flex flex-col gap-sm">
+              {eng.outcomes.map((outcome, j) => {
+                // split a leading number/% from the rest for visual highlight
+                const match = outcome.match(/^([0-9][0-9.,]*\s*[%x+]?)\s*(.*)/);
+                return (
+                  <Reveal as="li" variant="fade-up" delay={i * 100 + 80 + j * 50} class="flex items-start gap-md">
+                    <span class="text-nd-text-disabled mt-[3px] shrink-0" aria-hidden="true">→</span>
+                    {match ? (
+                      <span class="text-nd-text-primary text-sm leading-relaxed">
+                        <strong class="text-nd-text-display font-body font-medium">{match[1]}</strong>
+                        {" "}{match[2]}
+                      </span>
+                    ) : (
+                      <span class="text-nd-text-primary text-sm leading-relaxed">{outcome}</span>
+                    )}
+                  </Reveal>
+                );
+              })}
+            </ul>
+          </div>
+
+        </article>
+      </Reveal>
+    ))}
+
+    <!-- SaaS supporting block — visually differentiated, lower hierarchy -->
+    <Reveal variant="fade-up" delay={engagements.length * 100 + 60}>
+      <article class="border-t border-nd-border pt-xl pb-xl" aria-labelledby="saas-title">
+        <div class="flex items-start gap-xl">
+          <div class="flex-1">
+            <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled block mb-sm">
+              Also — Independent Product
+            </span>
+            <h3 id="saas-title" class="font-display text-heading md:text-display-md text-nd-text-display mb-xs">
+              {saas.href ? <a href={saas.href} target="_blank" rel="noreferrer" class="hover:text-nd-accent transition-colors">{saas.title}</a> : saas.title}
+            </h3>
+            <span class="font-mono text-caption text-nd-text-secondary uppercase tracking-[0.08em]">
+              {saas.role}
+            </span>
+
+            <p class="text-nd-text-secondary text-sm mt-md mb-lg max-w-[52ch] leading-relaxed">
+              {saas.summary}
+            </p>
+
+            <div class="flex flex-wrap gap-xs">
+              {saas.stack.map((s) => (
+                <Tag text={s} variant="technical" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+    </Reveal>
+  </div>
+
+</section>

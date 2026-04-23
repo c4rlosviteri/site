@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: "fade-up" | "fade-in";
+  /** Delay in milliseconds before the reveal triggers */
+  delay?: number;
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+}
+
+const { variant = "fade-up", delay = 0, as = "div", class: className }: Props = Astro.props;
+const Tag = as;
+---
+
+<Tag
+  data-reveal={variant}
+  data-delay={delay > 0 ? delay : undefined}
+  class:list={["reveal-wrapper", className]}
+>
+  <slot />
+</Tag>

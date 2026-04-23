@@ -1,0 +1,54 @@
+---
+import { experienceHighlights } from "../../data/portfolio";
+import SectionLabel from "../ui/SectionLabel.astro";
+import Reveal from "../ui/Reveal.astro";
+---
+
+<section id="experience" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl" aria-labelledby="experience-heading">
+
+  <Reveal variant="fade-in" delay={0}>
+    <SectionLabel text="Experience" tag="h2" id="experience-heading" />
+  </Reveal>
+
+  <!-- Timeline wrapper -->
+  <div class="mt-2xl relative">
+    <!-- Vertical line on desktop: runs along the timeframe column -->
+    <div
+      class="hidden md:block absolute left-[152px] top-0 bottom-0 w-px bg-nd-border"
+      aria-hidden="true"
+    ></div>
+
+    {experienceHighlights.map((item, i) => (
+      <Reveal variant="fade-up" delay={i * 90}>
+        <div class="relative flex flex-col md:flex-row md:items-start gap-sm md:gap-0 py-lg border-t border-nd-border group">
+
+          <!-- Timeframe: fixed-width column on desktop -->
+          <span class="md:w-[152px] font-mono text-caption uppercase tracking-[0.08em] text-nd-text-disabled shrink-0 md:pr-xl md:pt-[3px]">
+            {item.timeframe}
+          </span>
+
+          <!-- Node dot on timeline line -->
+          <span
+            class="hidden md:block absolute left-[148px] top-[calc(1.5rem+6px)] w-[9px] h-[9px] rounded-full border border-nd-border-visible bg-nd-black group-hover:border-nd-accent group-hover:bg-nd-accent transition-colors duration-300 z-10"
+            aria-hidden="true"
+          ></span>
+
+          <!-- Content -->
+          <div class="md:pl-xl flex flex-col gap-xs">
+            <h3 class="font-body text-subheading font-medium text-nd-text-display group-hover:text-nd-text-display transition-colors duration-200">
+              {item.label}
+            </h3>
+            <span class="text-nd-text-secondary text-sm leading-relaxed max-w-[52ch]">
+              {item.detail}
+            </span>
+          </div>
+
+        </div>
+      </Reveal>
+    ))}
+
+    <!-- Bottom border -->
+    <div class="border-t border-nd-border"></div>
+  </div>
+
+</section>

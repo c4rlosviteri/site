@@ -1,0 +1,38 @@
+---
+import type { CTA } from "../../data/types";
+
+interface Props {
+  cta: CTA;
+  class?: string;
+}
+
+const { cta } = Astro.props;
+const isExternal = cta.external ?? /^https?:\/\//.test(cta.href);
+
+const baseClasses =
+  "group inline-flex items-center gap-sm font-mono text-label uppercase tracking-[0.06em] min-h-[44px] px-md py-sm transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-nd-text-display focus-visible:outline-offset-2 whitespace-nowrap";
+
+const variantClasses: Record<CTA["kind"], string> = {
+  primary:
+    "bg-nd-text-display text-nd-black hover:bg-nd-text-primary active:bg-nd-text-secondary",
+  secondary:
+    "border border-nd-border-visible text-nd-text-primary hover:border-nd-text-primary active:text-nd-text-secondary",
+  ghost:
+    "text-nd-text-secondary hover:text-nd-text-primary active:text-nd-text-disabled",
+};
+---
+
+<a
+  href={cta.href}
+  class:list={[baseClasses, variantClasses[cta.kind], Astro.props.class]}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+>
+  {cta.label}
+  {cta.kind === "primary" && (
+    <span
+      class="inline-block transition-transform duration-150 group-hover:translate-x-[3px]"
+      aria-hidden="true"
+    >→</span>
+  )}
+</a>

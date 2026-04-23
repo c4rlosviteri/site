@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#050505"/>
+  <rect x="28" y="28" width="1144" height="574" rx="28" stroke="#222222" stroke-width="2"/>
+  <circle cx="1030" cy="140" r="180" fill="url(#glow)" opacity=".55"/>
+  <circle cx="220" cy="520" r="220" fill="url(#glowSoft)" opacity=".28"/>
+  <path d="M120 122h104l98 243 98-243h86L357 500h-70L120 122Z" fill="#F4F4F4"/>
+  <path d="M120 122h236v72H197V500h-77V122Z" fill="#78F0FF"/>
+  <g fill="#F4F4F4" font-family="Arial, sans-serif">
+    <text x="550" y="246" font-size="38" letter-spacing="6" opacity=".68">CARLOS VITERI</text>
+    <text x="550" y="326" font-size="72" font-weight="700">Software Engineer</text>
+    <text x="550" y="392" font-size="34" opacity=".82">Frontend systems, design infrastructure,</text>
+    <text x="550" y="436" font-size="34" opacity=".82">accessibility, and performance.</text>
+  </g>
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1030 140) rotate(90) scale(180)">
+      <stop stop-color="#78F0FF"/>
+      <stop offset="1" stop-color="#78F0FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowSoft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 520) rotate(90) scale(220)">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

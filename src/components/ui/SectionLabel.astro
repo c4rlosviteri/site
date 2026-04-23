@@ -1,0 +1,14 @@
+---
+interface Props {
+  text: string;
+  tag?: keyof HTMLElementTagNameMap;
+  id?: string;
+}
+
+const { text, tag = "span", id } = Astro.props;
+const Tag = tag;
+---
+
+<Tag id={id} class="font-mono text-label uppercase tracking-[0.08em] text-nd-text-secondary">
+  {text}
+</Tag>

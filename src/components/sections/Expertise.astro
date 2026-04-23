@@ -1,0 +1,51 @@
+---
+import { capabilities } from "../../data/portfolio";
+import SectionLabel from "../ui/SectionLabel.astro";
+import Reveal from "../ui/Reveal.astro";
+---
+
+<section id="expertise" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl" aria-labelledby="expertise-heading">
+
+  <Reveal variant="fade-in" delay={0}>
+    <SectionLabel text="Expertise" tag="h2" id="expertise-heading" />
+  </Reveal>
+
+  <div class="mt-2xl grid grid-cols-1 md:grid-cols-3 gap-sm">
+    {capabilities.map((cap, i) => (
+      <Reveal variant="fade-up" delay={i * 80}>
+        <div class="group border border-nd-border hover:border-nd-border-visible bg-nd-surface hover:bg-nd-surface-raised transition-colors duration-300 p-xl flex flex-col gap-lg h-full">
+
+          <!-- Index + title -->
+          <div>
+            <span class="font-mono text-label text-nd-text-disabled tracking-[0.10em] block mb-sm">
+              0{i + 1}
+            </span>
+            <h3 class="font-body text-heading font-medium text-nd-text-display leading-tight">
+              {cap.title}
+            </h3>
+          </div>
+
+          <!-- Summary -->
+          <p class="text-nd-text-secondary text-sm leading-relaxed flex-1">
+            {cap.summary}
+          </p>
+
+          <!-- Divider -->
+          <hr class="border-nd-border" />
+
+          <!-- Item list -->
+          <ul class="flex flex-col gap-sm">
+            {cap.items.map((item) => (
+              <li class="font-mono text-caption uppercase tracking-[0.06em] text-nd-text-secondary flex items-start gap-sm">
+                <span class="text-nd-text-disabled mt-px shrink-0" aria-hidden="true">—</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+        </div>
+      </Reveal>
+    ))}
+  </div>
+
+</section>

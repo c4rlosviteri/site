@@ -1,0 +1,39 @@
+---
+import { about } from "../../data/portfolio";
+import SectionLabel from "../ui/SectionLabel.astro";
+import Reveal from "../ui/Reveal.astro";
+---
+
+<section id="about" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl relative" aria-labelledby="about-heading">
+  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-15" aria-hidden="true"></div>
+
+  <div class="relative z-10 flex flex-col md:flex-row md:gap-4xl">
+
+    <!-- Left: sticky label column on desktop -->
+    <div class="md:w-[200px] shrink-0">
+      <Reveal variant="fade-in" delay={0}>
+        <SectionLabel text="About" tag="h2" id="about-heading" />
+      </Reveal>
+    </div>
+
+    <!-- Right: narrative -->
+    <div class="mt-xl md:mt-0 max-w-[58ch]">
+      {about.narrative.map((paragraph, i) => (
+        <Reveal variant="fade-up" delay={80 + i * 120}>
+          <p class="text-nd-text-primary text-[17px] md:text-subheading leading-[1.75] mb-xl">
+            {paragraph}
+          </p>
+        </Reveal>
+      ))}
+
+      {about.sasNote && (
+        <Reveal variant="fade-in" delay={80 + about.narrative.length * 120 + 80}>
+          <p class="text-nd-text-secondary text-sm leading-relaxed border-l-2 border-nd-border-visible pl-md">
+            {about.sasNote}
+          </p>
+        </Reveal>
+      )}
+    </div>
+
+  </div>
+</section>
