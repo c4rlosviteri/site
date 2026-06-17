@@ -1,6 +1,5 @@
 ---
 import { engagements, saas } from "../../data/portfolio";
-import SectionLabel from "../ui/SectionLabel.astro";
 import Tag from "../ui/Tag.astro";
 import Reveal from "../ui/Reveal.astro";
 ---
@@ -8,7 +7,9 @@ import Reveal from "../ui/Reveal.astro";
 <section id="engagements" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl" aria-labelledby="engagements-heading">
 
   <Reveal variant="fade-in" delay={0}>
-    <SectionLabel text="Selected Work" tag="h2" id="engagements-heading" />
+    <h2 id="engagements-heading" class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]">
+      Selected Work
+    </h2>
   </Reveal>
 
   <div class="mt-2xl flex flex-col gap-0">

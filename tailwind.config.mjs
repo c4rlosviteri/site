@@ -10,7 +10,7 @@ export default {
           "surface-raised": "#1a1a1a",
           border: "#222222",
           "border-visible": "#333333",
-          "text-disabled": "#666666",
+          "text-disabled": "#7a7a7a",
           "text-secondary": "#999999",
           "text-primary": "#e8e8e8",
           "text-display": "#ffffff",

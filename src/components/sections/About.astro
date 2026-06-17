@@ -1,6 +1,5 @@
 ---
 import { about } from "../../data/portfolio";
-import SectionLabel from "../ui/SectionLabel.astro";
 import Reveal from "../ui/Reveal.astro";
 ---
 
@@ -11,7 +10,9 @@ import Reveal from "../ui/Reveal.astro";
 
     <div class="md:w-[200px] shrink-0">
       <Reveal variant="fade-in" delay={0}>
-        <SectionLabel text="About" tag="h2" id="about-heading" />
+        <h2 id="about-heading" class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]">
+          About
+        </h2>
       </Reveal>
     </div>
 
@@ -26,7 +27,7 @@ import Reveal from "../ui/Reveal.astro";
 
       {about.sasNote ? (
         <Reveal variant="fade-in" delay={80 + about.narrative.length * 120 + 80}>
-          <p class="text-nd-text-secondary text-sm leading-relaxed border-l border-nd-border-visible pl-md">
+          <p class="text-nd-text-secondary text-sm leading-relaxed bg-nd-surface px-md py-sm rounded-[4px]">
             {about.sasNote}
           </p>
         </Reveal>

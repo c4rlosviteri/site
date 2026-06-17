@@ -4,7 +4,7 @@
   --surface-raised: #161616;
   --border: #1f1f1f;
   --border-visible: #2a2a2a;
-  --text-disabled: #555555;
+  --text-disabled: #7a7a7a;
   --text-secondary: #888888;
   --text-primary: #d4d4d4;
   --text-display: #f0f0f0;
@@ -199,7 +199,7 @@ img {
   }
 }
 
-[data-reveal] {
+[data-reveal-ready] [data-reveal] {
   opacity: 0;
 }
 

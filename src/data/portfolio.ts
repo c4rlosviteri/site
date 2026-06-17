@@ -109,20 +109,6 @@ export const capabilities: Capability[] = [
 
 export const experienceHighlights: ExperienceItem[] = [
   {
-    company: "Huge",
-    description:
-      "Global design and technology agency building AI-driven digital experiences.",
-    location: "Remote",
-    role: "Senior UI Engineer",
-    type: "Contractor",
-    timeframe: "Oct 2021 – current",
-    bullets: [
-      "Created a React + Tailwind design system adopted by 40% of new projects, cutting onboarding time by ~30%.",
-      "Built Next.js and React Native apps serving 100k+ active users with auth, middleware, and caching.",
-      "Integrated enterprise CMS platforms via REST and GraphQL for international content delivery.",
-    ],
-  },
-  {
     company: "REI",
     description:
       "U.S. outdoor retail cooperative with nationwide stores and e-commerce.",

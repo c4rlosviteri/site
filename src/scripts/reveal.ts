@@ -3,6 +3,8 @@ function initReveal() {
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+  document.documentElement.setAttribute("data-reveal-ready", "");
+
   if (prefersReducedMotion) {
     document.querySelectorAll("[data-reveal]").forEach((el) => {
       (el as HTMLElement).style.opacity = "1";
@@ -38,6 +40,12 @@ function initReveal() {
   document.querySelectorAll("[data-reveal]").forEach((el) => {
     observer.observe(el);
   });
+
+  setTimeout(() => {
+    document.querySelectorAll("[data-reveal]:not(.is-revealed)").forEach((el) => {
+      (el as HTMLElement).classList.add("is-revealed");
+    });
+  }, 4000);
 }
 
 if (document.readyState === "loading") {
