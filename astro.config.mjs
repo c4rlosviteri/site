@@ -5,5 +5,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   output: "static",
   integrations: [tailwind(), sitemap()],
-  site: "https://carlosviteri.me",
+  site: "https://carlosviteri.dev",
 });
