@@ -1,24 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#050505"/>
-  <rect x="28" y="28" width="1144" height="574" rx="28" stroke="#222222" stroke-width="2"/>
-  <circle cx="1030" cy="140" r="180" fill="url(#glow)" opacity=".55"/>
-  <circle cx="220" cy="520" r="220" fill="url(#glowSoft)" opacity=".28"/>
-  <path d="M120 122h104l98 243 98-243h86L357 500h-70L120 122Z" fill="#F4F4F4"/>
-  <path d="M120 122h236v72H197V500h-77V122Z" fill="#78F0FF"/>
-  <g fill="#F4F4F4" font-family="Arial, sans-serif">
-    <text x="550" y="246" font-size="38" letter-spacing="6" opacity=".68">CARLOS VITERI</text>
-    <text x="550" y="326" font-size="72" font-weight="700">Software Engineer</text>
-    <text x="550" y="392" font-size="34" opacity=".82">Frontend systems, design infrastructure,</text>
-    <text x="550" y="436" font-size="34" opacity=".82">accessibility, and performance.</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Carlos Viteri — Full-Stack Software Engineer</title>
+  <desc id="desc">Portfolio social card with a connected system diagram.</desc>
   <defs>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1030 140) rotate(90) scale(180)">
-      <stop stop-color="#78F0FF"/>
-      <stop offset="1" stop-color="#78F0FF" stop-opacity="0"/>
+    <radialGradient id="signalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 294) rotate(90) scale(270)">
+      <stop stop-color="#FF4E3D" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#FF4E3D" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowSoft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 520) rotate(90) scale(220)">
-      <stop stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#2B3034" stroke-width="1" opacity=".42"/>
+    </pattern>
   </defs>
+
+  <rect width="1200" height="630" fill="#080A0C"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="930" cy="294" r="270" fill="url(#signalGlow)"/>
+  <path d="M0 74H1200" stroke="#2B3034"/>
+
+  <g transform="translate(54 21) scale(.53125)">
+    <rect width="64" height="64" fill="#FF4E3D"/>
+    <path d="M9 13H30V21H18V43H30V51H9V13Z" fill="#101419"/>
+    <path d="M33 13H41L46 39L51 13H59L51 51H41L33 13Z" fill="#101419"/>
+  </g>
+  <text x="106" y="44" fill="#F1F5F6" font-family="Arial, sans-serif" font-size="16" font-weight="700">Carlos Viteri</text>
+  <text x="1145" y="44" text-anchor="end" fill="#90999E" font-family="monospace" font-size="12">PORTFOLIO / 2026</text>
+
+  <text x="72" y="178" fill="#8FDFEB" font-family="monospace" font-size="15" letter-spacing="2">FULL-STACK · DESIGN SYSTEMS · ACCESSIBILITY</text>
+  <text x="68" y="276" fill="#F1F5F6" font-family="Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-3">Full-stack products.</text>
+  <text x="68" y="344" fill="#FF4E3D" font-family="Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-3">Frontend systems.</text>
+  <text x="72" y="414" fill="#BAC2C6" font-family="Arial, sans-serif" font-size="22">TypeScript, React, Next.js, APIs, accessibility,</text>
+  <text x="72" y="446" fill="#BAC2C6" font-family="Arial, sans-serif" font-size="22">and frontend architecture.</text>
+
+  <g stroke-linecap="round">
+    <path d="M865 224L975 170L1060 260L995 382L854 367L794 276Z" fill="none" stroke="#8FDFEB" stroke-opacity=".4"/>
+    <path d="M930 298L865 224M930 298L975 170M930 298L1060 260M930 298L995 382M930 298L854 367M930 298L794 276" stroke="#F1F5F6" stroke-opacity=".32"/>
+    <circle cx="930" cy="298" r="18" fill="#FF4E3D"/>
+    <circle cx="865" cy="224" r="8" fill="#F1F5F6"/>
+    <circle cx="975" cy="170" r="7" fill="#8FDFEB"/>
+    <circle cx="1060" cy="260" r="7" fill="#8FDFEB"/>
+    <circle cx="995" cy="382" r="7" fill="#8FDFEB"/>
+    <circle cx="854" cy="367" r="7" fill="#F1F5F6"/>
+    <circle cx="794" cy="276" r="7" fill="#F1F5F6"/>
+    <g fill="#BAC2C6" font-family="monospace" font-size="11" letter-spacing="1">
+      <text x="930" y="334" text-anchor="middle">PRODUCT</text>
+      <text x="865" y="207" text-anchor="middle">UI</text>
+      <text x="975" y="150" text-anchor="middle">API</text>
+      <text x="1060" y="243" text-anchor="middle">DATA</text>
+      <text x="995" y="407" text-anchor="middle">CI/CD</text>
+      <text x="854" y="394" text-anchor="middle">A11Y</text>
+      <text x="794" y="259" text-anchor="middle">TOKENS</text>
+    </g>
+  </g>
+
+  <path d="M72 548H1128" stroke="#2B3034"/>
+  <text x="72" y="586" fill="#90999E" font-family="monospace" font-size="13" letter-spacing="1">ECUADOR · REMOTE · UTC−5</text>
+  <text x="1128" y="586" text-anchor="end" fill="#F1F5F6" font-family="monospace" font-size="13">CARLOSVITERI.DEV</text>
 </svg>

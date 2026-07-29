@@ -3,81 +3,68 @@ import { site } from "../../data/site";
 import type { CTA } from "../../data/types";
 import CTAButton from "../ui/CTAButton.astro";
 import Reveal from "../ui/Reveal.astro";
+import SystemAtlas from "../ui/SystemAtlas.astro";
 
-const primaryCta: CTA = { label: "Get in touch", href: `mailto:${site.email}`, kind: "primary" };
-const ctas: CTA[] = [
-  primaryCta,
-  site.resumeUrl
-    ? { label: "Resume", href: site.resumeUrl, kind: "ghost", external: true }
-    : null,
-].filter((cta): cta is CTA => Boolean(cta));
-
-const metaItems = [site.location, site.timezone, site.availability].filter(
-  (item): item is string => Boolean(item)
-);
+const workCta: CTA = {
+  label: "View selected work",
+  href: "#work",
+  kind: "primary",
+};
+const emailCta: CTA = {
+  label: "Email me",
+  href: `mailto:${site.email}`,
+  kind: "secondary",
+};
 ---
 
-<section
-  id="hero"
-  class="min-h-[92vh] flex flex-col justify-end pb-3xl md:pb-4xl pt-4xl px-md md:px-xl max-w-content mx-auto relative"
->
-  <!-- Dot grid only behind hero, very faint -->
-  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-[0.12]" aria-hidden="true"></div>
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <div class="hero-glow" aria-hidden="true"></div>
 
-  <div class="relative z-10">
-
-    <!-- Label: mono uppercase -->
-    <Reveal variant="fade-in" delay={0}>
-      <p class="font-mono text-label uppercase tracking-[0.14em] text-nd-text-disabled mb-md">
-        {site.title}
+  <div class="hero-copy">
+    <Reveal variant="fade-in">
+      <p class="hero-identity">
+        <span class="status-dot" aria-hidden="true"></span>
+        {site.name} · {site.title}
       </p>
     </Reveal>
 
-    <!-- Name: massive, tight, display font -->
-    <Reveal variant="fade-up" delay={100}>
-      <h1 class="font-display text-[clamp(64px,12vw,140px)] leading-[0.88] tracking-[-0.04em] text-nd-text-display mb-xl max-w-[14ch]">
-        {site.name}
+    <Reveal variant="fade-up" delay={80}>
+      <h1 id="hero-title">
+        Full-stack products.{" "}
+        <span>Frontend systems.</span>
       </h1>
     </Reveal>
 
-    <!-- Tagline + intro block -->
-    <Reveal variant="fade-up" delay={280}>
-      <div class="max-w-[56rem] mb-2xl">
-        <p class="font-mono text-caption uppercase tracking-[0.12em] text-nd-text-secondary mb-sm">
-          {site.tagline}
-        </p>
-        <p class="text-nd-text-secondary text-subheading md:text-[19px] max-w-[50ch] leading-[1.65] font-body">
-          {site.intro}
-        </p>
+    <Reveal variant="fade-up" delay={160}>
+      <p class="hero-intro">{site.intro}</p>
+    </Reveal>
+
+    <Reveal variant="fade-up" delay={230}>
+      <div class="hero-actions">
+        <CTAButton cta={workCta} />
+        <CTAButton cta={emailCta} />
       </div>
     </Reveal>
-
-    <!-- Horizontal rule -->
-    <Reveal variant="fade-in" delay={420}>
-      <hr class="border-nd-border mb-xl" aria-hidden="true" />
-    </Reveal>
-
-    <!-- CTAs + metadata row -->
-    <Reveal variant="fade-up" delay={480}>
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-lg">
-        <div class="flex flex-wrap gap-sm">
-          {ctas.map((cta) => <CTAButton cta={cta} />)}
-        </div>
-        <div class="flex flex-wrap gap-x-lg gap-y-xs font-mono text-caption text-nd-text-disabled uppercase tracking-[0.10em]">
-          {metaItems.map((item) => (
-            <span class="flex items-center gap-xs">
-              {item === site.availability && (
-                <span class="relative flex h-[6px] w-[6px] shrink-0" aria-hidden="true">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-nd-accent opacity-30"></span>
-                  <span class="relative inline-flex rounded-full h-[6px] w-[6px] bg-nd-accent"></span>
-                </span>
-              )}
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-    </Reveal>
-
   </div>
+
+  <Reveal variant="fade-in" delay={180} class="hero-atlas">
+    <SystemAtlas />
+  </Reveal>
+
+  <Reveal variant="fade-up" delay={310} class="proof-rail">
+    <dl>
+      <div>
+        <dt>Build pipeline</dt>
+        <dd><strong>70%</strong> faster</dd>
+      </div>
+      <div>
+        <dt>Lighthouse</dt>
+        <dd>Up to <strong>40%</strong> higher score</dd>
+      </div>
+      <div>
+        <dt>Team growth</dt>
+        <dd>Supported <strong>3 → 8</strong> engineers</dd>
+      </div>
+    </dl>
+  </Reveal>
 </section>

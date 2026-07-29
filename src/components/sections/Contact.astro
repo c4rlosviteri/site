@@ -1,78 +1,41 @@
 ---
 import { site } from "../../data/site";
-import type { CTA } from "../../data/types";
-import SectionLabel from "../ui/SectionLabel.astro";
-import CTAButton from "../ui/CTAButton.astro";
 import Reveal from "../ui/Reveal.astro";
-
-const emailCta: CTA = { label: "Email me", href: `mailto:${site.email}`, kind: "primary" };
-const ctas: CTA[] = [
-  emailCta,
-  site.resumeUrl
-    ? { label: "Download resume", href: site.resumeUrl, kind: "ghost", external: true }
-    : null,
-].filter((cta): cta is CTA => Boolean(cta));
-
-const metaItems = [site.location, site.timezone].filter(
-  (item): item is string => Boolean(item)
-);
 ---
 
-<section id="contact" class="py-4xl md:py-5xl max-w-content mx-auto px-md md:px-xl relative overflow-hidden" aria-labelledby="contact-title">
+<section
+  id="contact"
+  class="contact-section"
+  aria-labelledby="contact-title"
+>
+  <Reveal variant="fade-up">
+    <p class="contact-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      {site.availability}
+    </p>
+    <h2 id="contact-title">You can reach me by email.</h2>
+    <p class="contact-intro">
+      I am interested in senior full-stack roles, especially frontend platform,
+      design systems, and accessibility. I prefer remote teams where engineers
+      care about code quality and product decisions.
+    </p>
+    <div class="contact-actions">
+      <a class="contact-link" href={`mailto:${site.email}`}>
+        <span>{site.email}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <button class="copy-email" type="button" data-copy-email data-email={site.email}>
+        Copy email
+      </button>
+    </div>
+    <p class="copy-status" data-copy-status aria-live="polite"></p>
+  </Reveal>
 
-  <!-- Dot grid background -->
-  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden="true"></div>
-
-  <div class="relative z-10">
-
-    <Reveal variant="fade-in" delay={0}>
-      <SectionLabel text="Contact" />
-    </Reveal>
-
-    <!-- Large heading -->
-    <Reveal variant="fade-up" delay={80}>
-      <h2 id="contact-title" class="font-display text-[clamp(48px,9vw,100px)] leading-[0.92] tracking-[-0.04em] text-nd-text-display mt-xl mb-2xl max-w-[12ch]">
-        Let's build something sharp.
-      </h2>
-    </Reveal>
-
-    <Reveal variant="fade-up" delay={140}>
-      <p class="max-w-[44ch] text-nd-text-secondary text-[17px] leading-[1.7] mb-2xl">
-        Open to senior frontend, design system, and accessibility-focused roles with product teams that need sharper standards and faster delivery.
-      </p>
-    </Reveal>
-
-    <!-- Availability badge -->
-    {site.availability && (
-      <Reveal variant="fade-in" delay={200}>
-        <p class="inline-flex items-center gap-sm font-mono text-caption uppercase tracking-[0.10em] text-nd-text-secondary border border-nd-border px-md py-sm mb-2xl">
-          <span class="relative flex h-[6px] w-[6px] shrink-0" aria-hidden="true">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-nd-accent opacity-30"></span>
-            <span class="relative inline-flex rounded-full h-[6px] w-[6px] bg-nd-accent"></span>
-          </span>
-          {site.availability}
-        </p>
-      </Reveal>
-    )}
-
-    <!-- CTA cluster -->
-    <Reveal variant="fade-up" delay={320}>
-      <div class="flex flex-wrap gap-sm mb-3xl">
-        {ctas.map((cta) => <CTAButton cta={cta} />)}
-      </div>
-    </Reveal>
-
-    <!-- Footer metadata + copyright -->
-    <Reveal variant="fade-in" delay={460}>
-      <div class="flex flex-wrap items-center justify-between gap-md pt-xl border-t border-nd-border">
-        <div class="flex flex-wrap gap-md font-mono text-caption text-nd-text-disabled uppercase tracking-[0.08em]">
-          {metaItems.map((item) => <span>{item}</span>)}
-        </div>
-        <span class="font-mono text-caption text-nd-text-disabled tracking-[0.06em]">
-          © {new Date().getFullYear()} {site.name}
-        </span>
-      </div>
-    </Reveal>
-
-  </div>
+  <footer>
+    <p>{site.location} · {site.timezone}</p>
+    <p>English / Español</p>
+    <p>© {new Date().getFullYear()} {site.name}</p>
+  </footer>
 </section>
+
+<script src="../../scripts/copy-email.ts"></script>

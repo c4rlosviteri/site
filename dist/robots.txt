@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carlosviteri.me/sitemap-index.xml
+Sitemap: https://carlosviteri.dev/sitemap-index.xml

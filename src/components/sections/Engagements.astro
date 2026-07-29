@@ -1,110 +1,122 @@
 ---
 import { engagements, saas } from "../../data/portfolio";
-import Tag from "../ui/Tag.astro";
 import Reveal from "../ui/Reveal.astro";
+import ProjectVisual from "../ui/ProjectVisual.astro";
+
+const visuals = {
+  "react-design-system": "design-system",
+  "figma-pipeline": "pipeline",
+  "frontend-platform": "platform",
+} as const;
 ---
 
-<section id="engagements" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl" aria-labelledby="engagements-heading">
-
-  <Reveal variant="fade-in" delay={0}>
-    <h2 id="engagements-heading" class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]">
-      Selected Work
-    </h2>
+<section id="work" class="content-section work-section" aria-labelledby="work-title">
+  <Reveal variant="fade-up">
+    <header class="section-intro">
+      <h2 id="work-title">Selected work.</h2>
+      <p>
+        Three client projects and one product I built. Open each case to see
+        the problem, technical decisions, and results.
+      </p>
+    </header>
   </Reveal>
 
-  <div class="mt-2xl flex flex-col gap-0">
-    {engagements.map((eng, i) => (
-      <Reveal variant="fade-up" delay={i * 100}>
-        <article
-          class="group border-t border-nd-border pt-2xl pb-3xl md:pb-4xl relative"
-          aria-labelledby={`eng-${eng.slug}-title`}
-        >
-          <!-- Two-column layout on desktop -->
-          <div class="flex flex-col lg:flex-row lg:gap-4xl">
-            
-            <!-- Left: Title + Stack -->
-            <div class="lg:w-[40%] lg:shrink-0">
-              <h3
-                id={`eng-${eng.slug}-title`}
-                class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em] mb-xl group-hover:text-nd-accent transition-colors duration-300"
-              >
-                {eng.title}
-              </h3>
-              
-              <div class="flex flex-wrap gap-xs">
-                {eng.stack.map((s) => (
-                  <Tag text={s} variant="technical" />
-                ))}
-              </div>
-            </div>
-
-            <!-- Right: Summary + Outcomes -->
-            <div class="mt-xl lg:mt-0">
-              <p class="text-nd-text-primary text-[17px] leading-[1.75] mb-2xl max-w-[56ch]">
-                {eng.summary}
-              </p>
-
-              <div class="flex flex-col gap-md">
-                {eng.outcomes.map((outcome, j) => {
-                  const match = outcome.match(/^([0-9][0-9.,]*\s*[%x+]?)\s*(.*)/);
-                  return (
-                    <Reveal as="div" variant="fade-up" delay={i * 100 + 80 + j * 50} class="flex items-start gap-md">
-                      <span class="w-[6px] h-[6px] rounded-full bg-nd-accent mt-[8px] shrink-0" aria-hidden="true"></span>
-                      {match ? (
-                        <p class="text-nd-text-primary text-sm leading-relaxed">
-                          <strong class="text-nd-text-display font-body font-medium text-[15px]">{match[1]}</strong>
-                          {" "}{match[2]}
-                        </p>
-                      ) : (
-                        <p class="text-nd-text-primary text-sm leading-relaxed">{outcome}</p>
-                      )}
-                    </Reveal>
-                  );
-                })}
-              </div>
-            </div>
-
-          </div>
-        </article>
-      </Reveal>
-    ))}
-
-    <!-- Side Project -->
-    <Reveal variant="fade-up" delay={engagements.length * 100 + 60}>
-      <article class="border-t border-nd-border pt-2xl pb-3xl" aria-labelledby="saas-title">
-        <div class="flex flex-col lg:flex-row lg:gap-4xl">
-          
-          <div class="lg:w-[40%] lg:shrink-0">
-            <span class="font-mono text-label uppercase tracking-[0.10em] text-nd-text-disabled block mb-sm">
-              Side Project
-            </span>
-            <h3 id="saas-title" class="font-display text-heading md:text-display-md text-nd-text-display mb-xl tracking-[-0.02em]">
-              {saas.href ? <a href={saas.href} target="_blank" rel="noreferrer" class="hover:text-nd-accent transition-colors duration-300">{saas.title}</a> : saas.title}
-            </h3>
-            <div class="flex flex-wrap gap-xs">
-              {saas.stack.map((s) => (
-                <Tag text={s} variant="technical" />
-              ))}
-            </div>
-          </div>
-
-          <div class="mt-xl lg:mt-0">
-            <p class="text-nd-text-primary text-[17px] leading-[1.75] mb-2xl max-w-[56ch]">
-              {saas.summary}
-            </p>
-            <div class="flex flex-col gap-md">
-              {saas.outcomes.map((outcome) => (
-                <div class="flex items-start gap-md">
-                  <span class="w-[6px] h-[6px] rounded-full bg-nd-accent mt-[8px] shrink-0" aria-hidden="true"></span>
-                  <p class="text-nd-text-primary text-sm leading-relaxed">{outcome}</p>
+  <div class="case-list">
+    {
+      engagements.map((engagement, index) => (
+        <Reveal variant="fade-up" delay={index * 70}>
+          <details id={engagement.slug} class="case-study">
+            <summary>
+              <div class="case-heading">
+                <div class="case-meta">
+                  <p>{engagement.sector}</p>
+                  <span>{engagement.timeframe}</span>
                 </div>
-              ))}
-            </div>
-          </div>
+                <h3>{engagement.title}</h3>
+                <span>{engagement.summary}</span>
+                <small>{engagement.evidenceLabel}</small>
+              </div>
 
-        </div>
-      </article>
-    </Reveal>
+              <ProjectVisual
+                variant={visuals[engagement.slug as keyof typeof visuals]}
+              />
+
+              <div class="case-signal">
+                <span>{engagement.outcomes[0]}</span>
+                <span class="case-toggle">
+                  <i aria-hidden="true"></i>
+                  Technical notes
+                </span>
+              </div>
+            </summary>
+
+            <div class="case-detail">
+              <div>
+                <h4>Technical notes</h4>
+                <dl>
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{engagement.role}</dd>
+                  </div>
+                  <div>
+                    <dt>Project</dt>
+                    <dd>{engagement.clientLabel}</dd>
+                  </div>
+                  <div>
+                    <dt>Constraint</dt>
+                    <dd>{engagement.constraint}</dd>
+                  </div>
+                  <div>
+                    <dt>Decision</dt>
+                    <dd>{engagement.decision}</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div>
+                <h4>Results</h4>
+                <ul>
+                  {engagement.outcomes.map((outcome) => <li>{outcome}</li>)}
+                </ul>
+              </div>
+
+              <div>
+                <h4>Stack</h4>
+                <ul class="stack-list">
+                  {engagement.stack.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            </div>
+          </details>
+        </Reveal>
+      ))
+    }
   </div>
 
+  <Reveal variant="fade-up">
+    <article class="product-case" aria-labelledby="motion-deck-title">
+      <div class="product-copy">
+        <p>{saas.timeframe}</p>
+        <h3 id="motion-deck-title">{saas.title}</h3>
+        <span>{saas.summary}</span>
+        <small>
+          Live product. The preview is reconstructed from the public website.
+        </small>
+
+        <ul>
+          {saas.outcomes.map((outcome) => <li>{outcome}</li>)}
+        </ul>
+
+        {
+          saas.href && (
+            <a href={saas.href} target="_blank" rel="noopener noreferrer">
+              Visit Motion Deck <span aria-hidden="true">↗</span>
+            </a>
+          )
+        }
+      </div>
+
+      <ProjectVisual variant="product" />
+    </article>
+  </Reveal>
 </section>

@@ -1,57 +1,45 @@
-function initReveal() {
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+const revealTargets = document.querySelectorAll<HTMLElement>("[data-reveal]");
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
 
-  document.documentElement.setAttribute("data-reveal-ready", "");
-
-  if (prefersReducedMotion) {
-    document.querySelectorAll("[data-reveal]").forEach((el) => {
-      (el as HTMLElement).style.opacity = "1";
-    });
-    return;
-  }
-
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
 
-        const el = entry.target as HTMLElement;
-        const delay = parseInt(el.dataset.delay ?? "0", 10) || 0;
+        const element = entry.target as HTMLElement;
+        const delay = Number.parseInt(element.dataset.delay ?? "0", 10) || 0;
+        const variant = element.dataset.reveal;
 
-        const trigger = () => el.classList.add("is-revealed");
+        element.animate(
+          [
+            {
+              opacity: 0,
+              transform:
+                variant === "fade-up" ? "translate3d(0, 24px, 0)" : "none",
+              filter: "blur(4px)",
+            },
+            {
+              opacity: 1,
+              transform: "translate3d(0, 0, 0)",
+              filter: "blur(0)",
+            },
+          ],
+          {
+            duration: variant === "fade-up" ? 680 : 520,
+            delay,
+            easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+            fill: "backwards",
+          }
+        );
 
-        if (delay > 0) {
-          setTimeout(trigger, delay);
-        } else {
-          trigger();
-        }
-
-        observer.unobserve(el);
-      });
+        observer.unobserve(element);
+      }
     },
-    {
-      threshold: 0.08,
-      rootMargin: "0px 0px -48px 0px",
-    }
+    { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
   );
 
-  document.querySelectorAll("[data-reveal]").forEach((el) => {
-    observer.observe(el);
-  });
-
-  setTimeout(() => {
-    document.querySelectorAll("[data-reveal]:not(.is-revealed)").forEach((el) => {
-      (el as HTMLElement).classList.add("is-revealed");
-    });
-  }, 4000);
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    initReveal();
-  });
-} else {
-  initReveal();
+  revealTargets.forEach((element) => observer.observe(element));
 }

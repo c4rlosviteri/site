@@ -1,0 +1,197 @@
+---
+interface Props {
+  variant: "design-system" | "pipeline" | "platform" | "product";
+}
+
+const { variant } = Astro.props;
+
+const descriptions = {
+  "design-system":
+    "Reconstructed design-system workspace showing accessible component documentation, interaction states, and implementation properties.",
+  pipeline:
+    "Reconstructed token delivery workflow from Figma through validation to web, iOS, and Android packages.",
+  platform:
+    "Reconstructed monorepo dependency map linking applications, shared UI, tokens, data access, and build tooling.",
+  product:
+    "Reconstructed Motion Deck dashboard showing revenue, reservations, occupancy, classes, and a mobile client view.",
+};
+---
+
+<figure class:list={["project-visual", `project-visual--${variant}`]}>
+  <div class="visual-specimen" aria-hidden="true">
+  {
+    variant === "design-system" && (
+      <div class="ds-preview">
+        <div class="ds-toolbar">
+          <strong>COMPONENT EVIDENCE</strong>
+          <span>Button / accessible primitive</span>
+          <i>MODEL</i>
+        </div>
+        <div class="ds-workspace">
+          <div class="ds-navigation">
+            <small>FOUNDATIONS</small>
+            <span>Color</span>
+            <span>Typography</span>
+            <small>COMPONENTS</small>
+            <span class="is-current">Button</span>
+            <span>Dialog</span>
+            <span>Form field</span>
+          </div>
+          <div class="ds-canvas">
+            <small>PRIMARY / DEFAULT</small>
+            <b>Continue <i>→</i></b>
+            <div class="ds-states">
+              <span>Default</span>
+              <span>Focus</span>
+              <span>Disabled</span>
+            </div>
+          </div>
+          <div class="ds-inspector">
+            <small>PROPERTIES</small>
+            <dl>
+              <div><dt>height</dt><dd>44px</dd></div>
+              <div><dt>radius</dt><dd>4px</dd></div>
+              <div><dt>contrast</dt><dd>7.2:1</dd></div>
+            </dl>
+            <strong>✓ Keyboard tested</strong>
+          </div>
+        </div>
+        <div class="ds-footer">
+          <span>Accessibility encoded at component level</span>
+          <span>40% adoption</span>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    variant === "pipeline" && (
+      <div class="token-preview">
+        <div class="token-header">
+          <strong>TOKEN RELEASE</strong>
+          <span>RECONSTRUCTED</span>
+        </div>
+        <div class="token-stages">
+          <span class="is-complete">Figma</span>
+          <i></i>
+          <span class="is-complete">Transform</span>
+          <i></i>
+          <span class="is-active">Validate</span>
+          <i></i>
+          <span>Publish</span>
+        </div>
+        <div class="token-body">
+          <div class="token-diff">
+            <small>semantic/color.json</small>
+            <code><em>−</em> action.primary <b>#ED4A41</b></code>
+            <code><i>+</i> action.primary <strong>{`{red.600}`}</strong></code>
+            <code><i>+</i> focus.ring <strong>{`{cyan.400}`}</strong></code>
+            <code><span> </span> text.inverse <strong>{`{gray.0}`}</strong></code>
+          </div>
+          <div class="token-targets">
+            <small>BUILD TARGETS</small>
+            <div><strong>WEB</strong><span>Package</span></div>
+            <div><strong>iOS</strong><span>Swift</span></div>
+            <div><strong>ANDROID</strong><span>XML</span></div>
+          </div>
+        </div>
+        <div class="token-footer">
+          <span>Delivery: days → minutes</span>
+          <strong>0 rollout regressions</strong>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    variant === "platform" && (
+      <div class="graph-preview">
+        <div class="graph-header">
+          <strong>WORKSPACE GRAPH</strong>
+          <span>RECONSTRUCTED</span>
+        </div>
+        <div class="graph-canvas">
+          <svg viewBox="0 0 560 250" preserveAspectRatio="none">
+            <path d="M82 58L226 52L363 71L484 49" />
+            <path d="M82 58L155 177L282 192L363 71" />
+            <path d="M226 52L282 192L438 179L484 49" />
+            <path d="M155 177L438 179" />
+          </svg>
+          <span class="graph-node graph-node--app">shop-web<small>APP</small></span>
+          <span class="graph-node graph-node--admin">admin<small>APP</small></span>
+          <span class="graph-node graph-node--ui">ui-kit<small>PACKAGE</small></span>
+          <span class="graph-node graph-node--data">data-access<small>PACKAGE</small></span>
+          <span class="graph-node graph-node--tokens">tokens<small>PACKAGE</small></span>
+          <span class="graph-node graph-node--tools">build-tools<small>TOOLING</small></span>
+        </div>
+        <div class="graph-metrics">
+          <div><span>TEAM</span><strong>3 → 8</strong></div>
+          <div><span>MODEL</span><strong>SHARED UI</strong></div>
+          <div class="graph-build"><span>BUILD TIME</span><strong>−70%</strong></div>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    variant === "product" && (
+      <div class="motion-preview">
+        <div class="motion-topbar">
+          <strong>MotionDeck</strong>
+          <span><i></i> En vivo · Quito</span>
+        </div>
+        <div class="motion-shell">
+          <div class="motion-nav">
+            <b>MD</b>
+            <span class="is-current">Panel</span>
+            <span>Clases</span>
+            <span>Clientes</span>
+            <span>Pagos</span>
+          </div>
+          <div class="motion-dashboard">
+            <div class="motion-heading">
+              <span>Resumen de julio</span>
+              <strong>Pulso del estudio</strong>
+            </div>
+            <div class="motion-kpis">
+              <div><span>Ingresos</span><strong>$8.420</strong><i>+12,4%</i></div>
+              <div><span>Reservas</span><strong>486</strong><i>+16,7%</i></div>
+              <div class="motion-occupancy">
+                <span>Ocupación</span>
+                <strong>82%</strong>
+                <i></i>
+              </div>
+            </div>
+            <div class="motion-lower">
+              <div class="motion-chart">
+                <span>Ingresos por semana</span>
+                <div>
+                  <i style="--bar: 45%"></i>
+                  <i style="--bar: 62%"></i>
+                  <i style="--bar: 54%"></i>
+                  <i style="--bar: 78%"></i>
+                  <i style="--bar: 91%"></i>
+                  <i style="--bar: 82%"></i>
+                </div>
+              </div>
+              <div class="motion-classes">
+                <span>Próximas clases</span>
+                <p><b>06:30</b> Yoga flow <i>14/16</i></p>
+                <p><b>09:00</b> Barre sculpt <i>11/12</i></p>
+                <p><b>18:30</b> Indoor cycling <i>22/24</i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="motion-mobile">
+          <small>CLIENTE / HOY</small>
+          <strong>Hola, Martina</strong>
+          <span>Barre sculpt · 18:30</span>
+          <b>Confirmada</b>
+        </div>
+      </div>
+    )
+  }
+  </div>
+  <figcaption class="sr-only">{descriptions[variant]}</figcaption>
+</figure>

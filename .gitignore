@@ -30,6 +30,7 @@ pnpm-debug.log*
 
 # Cache
 .cache/
+.impeccable/
 *.tsbuildinfo
 
 # Vercel

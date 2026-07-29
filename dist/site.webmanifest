@@ -1,12 +1,12 @@
 {
-  "name": "Carlos Viteri",
+  "name": "Carlos Viteri — Full-Stack Software Engineer",
   "short_name": "Carlos Viteri",
-  "description": "Senior frontend engineer helping product teams modernize platforms, scale design systems, and ship accessible interfaces with less friction.",
+  "description": "Full-stack engineer working with TypeScript, React, Next.js, design systems, web accessibility, APIs, and frontend architecture.",
   "start_url": "/",
   "display": "standalone",
   "scope": "/",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#080a0c",
+  "theme_color": "#080a0c",
   "icons": [
     {
       "src": "/favicon-32x32.png",

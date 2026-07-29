@@ -2,15 +2,14 @@ import type { SiteContent } from "./types";
 
 export const site: SiteContent = {
   name: "Carlos Viteri",
-  title: "Software Engineer",
-  tagline:
-    "Frontend systems, design infrastructure, and accessible product experiences",
+  title: "Full-Stack Software Engineer",
+  tagline: "Full-stack · Design systems · Accessibility",
   intro:
-    "Senior frontend engineer helping product teams modernize platforms, scale design systems, and ship accessible interfaces with less friction.",
+    "I build web products with TypeScript, React, Next.js, APIs, and data. I also build design systems and accessible frontend tools for product teams.",
   email: "me@carlosviteri.dev",
   siteUrl: "https://carlosviteri.dev",
-  socialImage: "/social-card.svg",
-  location: "Remote, Ecuador",
-  timezone: "UTC-5",
-  availability: "Open to full-time opportunities",
+  socialImage: "/social-card.png",
+  location: "Ecuador · Remote",
+  timezone: "UTC−5",
+  availability: "Open to senior full-stack roles",
 };

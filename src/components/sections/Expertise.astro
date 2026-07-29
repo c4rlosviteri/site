@@ -1,57 +1,44 @@
 ---
 import { capabilities } from "../../data/portfolio";
-import SectionLabel from "../ui/SectionLabel.astro";
 import Reveal from "../ui/Reveal.astro";
 ---
 
-<section id="expertise" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl" aria-labelledby="expertise-heading">
-
-  <Reveal variant="fade-in" delay={0}>
-    <SectionLabel text="Expertise" tag="h2" id="expertise-heading" />
-  </Reveal>
-
-  <div class="mt-2xl grid grid-cols-1 md:grid-cols-3 gap-lg">
-    {capabilities.map((cap, i) => (
-      <Reveal variant="fade-up" delay={i * 90}>
-        <div class="group border border-nd-border hover:border-nd-border-visible bg-nd-surface hover:bg-nd-surface-raised transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] p-xl md:p-2xl h-full">
-
-          <!-- Large decorative index -->
-          <div class="h-[72px] flex items-start">
-            <span class="font-display text-[clamp(48px,5vw,72px)] leading-none text-nd-border-visible group-hover:text-nd-accent transition-colors duration-500 tracking-[-0.03em]">
-              0{i + 1}
-            </span>
-          </div>
-
-          <!-- Title: fixed min-height for cross-card alignment -->
-          <div class="min-h-[58px] mt-lg">
-            <h3 class="font-body text-heading font-medium text-nd-text-display leading-tight tracking-[-0.01em]">
-              {cap.title}
-            </h3>
-          </div>
-
-          <!-- Summary: fixed min-height with line clamp -->
-          <div class="min-h-[72px] mt-lg">
-            <p class="text-nd-text-secondary text-sm leading-relaxed line-clamp-3">
-              {cap.summary}
-            </p>
-          </div>
-
-          <!-- Divider -->
-          <hr class="border-nd-border mt-xl" />
-
-          <!-- Item list -->
-          <ul class="flex flex-col gap-sm mt-lg">
-            {cap.items.map((item) => (
-              <li class="font-mono text-caption uppercase tracking-[0.06em] text-nd-text-secondary flex items-start gap-sm group/item">
-                <span class="w-[5px] h-[5px] rounded-full bg-nd-border-visible group-hover:bg-nd-accent transition-colors duration-300 shrink-0 mt-[10px]" aria-hidden="true"></span>
-                <span class="leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-      </Reveal>
-    ))}
+<section
+  id="practice"
+  class="content-section practice-section"
+  aria-labelledby="practice-title"
+>
+  <div class="practice-intro">
+    <Reveal variant="fade-up">
+      <h2 id="practice-title">What I work on.</h2>
+    </Reveal>
+    <Reveal variant="fade-up" delay={90}>
+      <p>
+        My main areas are product development, design systems, accessibility,
+        and frontend platform work.
+      </p>
+    </Reveal>
   </div>
 
+  <ol class="capability-stack" aria-label="Engineering layers">
+    {
+      capabilities.map((capability, index) => (
+        <Reveal as="li" variant="fade-up" delay={index * 80}>
+          <article>
+            <div class="layer-index" aria-hidden="true">
+              <span>Layer</span>
+              <strong>{index + 1}</strong>
+            </div>
+            <div class="layer-copy">
+              <h3>{capability.title}</h3>
+              <p>{capability.summary}</p>
+            </div>
+            <ul>
+              {capability.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        </Reveal>
+      ))
+    }
+  </ol>
 </section>

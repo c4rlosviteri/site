@@ -1,0 +1,45 @@
+<figure class="system-atlas" data-system-atlas>
+  <div class="atlas-viewport">
+    <canvas data-atlas-canvas aria-hidden="true"></canvas>
+    <div class="atlas-fallback" aria-hidden="true">
+      <span class="fallback-orbit fallback-orbit--one"></span>
+      <span class="fallback-orbit fallback-orbit--two"></span>
+      <span class="fallback-core"></span>
+    </div>
+    <div class="atlas-readout" aria-hidden="true">
+      <span>INTERFACE</span>
+      <span>SYSTEM</span>
+      <span>RUNTIME</span>
+    </div>
+    <span class="atlas-coordinate atlas-coordinate--top" aria-hidden="true">
+      SYSTEM MAP / LIVE
+    </span>
+    <span class="atlas-coordinate atlas-coordinate--bottom" aria-hidden="true">
+      3 LAYERS · 12 NODES
+    </span>
+  </div>
+
+  <figcaption>
+    <span>
+      System map
+      <small class="atlas-instruction atlas-instruction--fine">Move pointer to rotate</small>
+      <small class="atlas-instruction atlas-instruction--coarse">3D system map</small>
+    </span>
+    <button
+      class="atlas-toggle"
+      type="button"
+      data-atlas-toggle
+      aria-pressed="false"
+      hidden
+    >
+      Pause motion
+    </button>
+  </figcaption>
+
+  <p class="sr-only">
+    A 3D diagram showing product, UI, accessibility, API, data, and delivery
+    layers.
+  </p>
+</figure>
+
+<script src="../../scripts/system-atlas.ts"></script>

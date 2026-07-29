@@ -1,38 +1,42 @@
 ---
-import { about } from "../../data/portfolio";
+import { about, skills } from "../../data/portfolio";
 import Reveal from "../ui/Reveal.astro";
 ---
 
-<section id="about" class="py-3xl md:py-4xl max-w-content mx-auto px-md md:px-xl relative" aria-labelledby="about-heading">
-  <div class="dot-grid-subtle absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden="true"></div>
+<section id="about" class="content-section about-section" aria-labelledby="about-title">
+  <Reveal variant="fade-up">
+    <h2 id="about-title">
+      I started in frontend. Now I work across the stack.
+    </h2>
+  </Reveal>
 
-  <div class="relative z-10 flex flex-col md:flex-row md:gap-4xl">
-
-    <div class="md:w-[200px] shrink-0">
-      <Reveal variant="fade-in" delay={0}>
-        <h2 id="about-heading" class="font-display text-display-md md:text-display-lg text-nd-text-display leading-[1.05] tracking-[-0.02em]">
-          About
-        </h2>
-      </Reveal>
+  <div class="about-grid">
+    <div class="about-narrative">
+      {
+        about.narrative.map((paragraph, index) => (
+          <Reveal variant="fade-up" delay={index * 70}>
+            <p>{paragraph}</p>
+          </Reveal>
+        ))
+      }
     </div>
 
-    <div class="mt-xl md:mt-0 max-w-[58ch]">
-      {about.narrative.map((paragraph, i) => (
-        <Reveal variant="fade-up" delay={80 + i * 120}>
-          <p class="text-nd-text-primary text-[17px] md:text-subheading leading-[1.75] mb-xl">
-            {paragraph}
-          </p>
-        </Reveal>
-      ))}
-
-      {about.sasNote ? (
-        <Reveal variant="fade-in" delay={80 + about.narrative.length * 120 + 80}>
-          <p class="text-nd-text-secondary text-sm leading-relaxed bg-nd-surface px-md py-sm rounded-[4px]">
-            {about.sasNote}
-          </p>
-        </Reveal>
-      ) : null}
-    </div>
-
+    <Reveal variant="fade-in" class="about-practice">
+      <header>
+        <p class="eyebrow">Technical stack</p>
+        <h3>Tools I use in production.</h3>
+      </header>
+      <div class="practice-list">
+        {
+          skills.map((category) => (
+            <section>
+              <h4>{category.title}</h4>
+              <p>{category.items.join(" · ")}</p>
+            </section>
+          ))
+        }
+      </div>
+      {about.sasNote && <blockquote class="founder-note">{about.sasNote}</blockquote>}
+    </Reveal>
   </div>
 </section>

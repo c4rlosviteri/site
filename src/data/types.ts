@@ -12,6 +12,9 @@ export type Engagement = {
   sector: string;
   role: string;
   timeframe: string;
+  evidenceLabel: string;
+  constraint: string;
+  decision: string;
   summary: string;
   stack: string[];
   outcomes: string[];
@@ -21,6 +24,7 @@ export type SupportingWork = {
   title: string;
   summary: string;
   role: string;
+  timeframe?: string;
   stack: string[];
   outcomes: string[];
   href?: string;
@@ -30,16 +34,6 @@ export type Capability = {
   title: string;
   summary: string;
   items: string[];
-};
-
-export type ExperienceItem = {
-  company: string;
-  description?: string;
-  location: string;
-  role: string;
-  type?: string;
-  timeframe: string;
-  bullets: string[];
 };
 
 export type SkillCategory = {

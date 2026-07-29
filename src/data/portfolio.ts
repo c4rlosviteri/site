@@ -2,7 +2,6 @@ import type {
   Engagement,
   SupportingWork,
   Capability,
-  ExperienceItem,
   SkillCategory,
   AboutContent,
 } from "./types";
@@ -10,50 +9,68 @@ import type {
 export const engagements: Engagement[] = [
   {
     slug: "react-design-system",
-    title: "React Design System",
-    clientLabel: "",
-    sector: "",
-    role: "",
-    timeframe: "",
+    title: "React design system for multiple teams",
+    clientLabel: "Multi-product platform",
+    sector: "Design systems",
+    role: "Lead frontend engineer",
+    timeframe: "2019–2022 · Internal platform",
+    evidenceLabel:
+      "Reconstructed view. The original client code is confidential.",
+    constraint:
+      "Several teams needed to work independently, but UI and accessibility patterns were becoming inconsistent.",
+    decision:
+      "I shipped tokens, accessible components, documentation, and release automation as one versioned system.",
     summary:
-      "A component library and documentation platform built from scratch. Became the foundation for most new projects across the agency, with theming, accessibility patterns, and CI-driven releases.",
-    stack: ["React", "TypeScript", "Tailwind", "Storybook", "Next.js"],
+      "I built a React component library, design tokens, and Storybook documentation to reduce repeated UI work. Accessibility rules were included in the component APIs.",
+    stack: ["React", "TypeScript", "Storybook", "Style Dictionary", "Next.js"],
     outcomes: [
-      "Adopted by 40% of new projects within the first year",
-      "Cut developer onboarding time from days to hours",
-      "Legacy refactors improved Lighthouse scores by up to 40%",
+      "Adopted by 40% of new projects in its first year",
+      "Reduced developer onboarding from days to hours",
+      "Improved Lighthouse scores by up to 40% on migrated products",
     ],
   },
   {
     slug: "figma-pipeline",
-    title: "Figma-to-Code Pipeline",
-    clientLabel: "",
-    sector: "",
-    role: "",
-    timeframe: "",
+    title: "Figma-to-code token pipeline",
+    clientLabel: "Cross-platform workflow",
+    sector: "Automation",
+    role: "Design systems engineer",
+    timeframe: "2024–Present · Client project",
+    evidenceLabel:
+      "Reconstructed workflow. The production code is confidential.",
+    constraint:
+      "Token changes were shared manually and often became different across web, iOS, and Android.",
+    decision:
+      "I converted each token change into validated platform packages released through CI.",
     summary:
-      "An automated workflow that syncs design tokens from Figma to GitHub via API integrations. Eliminates manual hand-offs and keeps design and engineering in continuous alignment.",
-    stack: ["Style Dictionary", "Figma API", "TypeScript", "GitHub Actions"],
+      "I built a pipeline that converts Figma tokens into versioned packages for web, iOS, and Android. Validation and CI made each change reviewable and repeatable.",
+    stack: ["Figma API", "TypeScript", "Style Dictionary", "GitHub Actions"],
     outcomes: [
-      "Token delivery reduced from days to minutes",
-      "Single source of truth across web, iOS, and Android",
-      "Zero regressions on design token updates after rollout",
+      "Reduced token delivery from days to minutes",
+      "Kept web, iOS, and Android tokens in sync",
+      "Shipped token updates with zero regressions after rollout",
     ],
   },
   {
     slug: "frontend-platform",
-    title: "Frontend Team Platform",
-    clientLabel: "",
-    sector: "",
-    role: "",
-    timeframe: "",
+    title: "Frontend platform for a growing team",
+    clientLabel: "Frontend team platform",
+    sector: "Frontend platform",
+    role: "Lead engineer",
+    timeframe: "2019–2022 · Team platform",
+    evidenceLabel:
+      "Reconstructed dependency map. The original architecture is confidential.",
+    constraint:
+      "The team was losing time with duplicated tooling, slow builds, and different project setups.",
+    decision:
+      "I moved shared packages and build tooling into a monorepo while keeping each application independently deployable.",
     summary:
-      "A unified build and delivery setup for a growing frontend team. Included a monorepo with shared tooling, an internal component library, and documentation that scaled with the team.",
-    stack: ["Nx", "React", "Next.js", "TypeScript", "Webpack"],
+      "I moved shared components, tooling, and build configuration into a monorepo. This reduced build time and gave every project the same setup.",
+    stack: ["Nx", "React", "Next.js", "TypeScript", "CI/CD"],
     outcomes: [
-      "Build times reduced by 70% across all projects",
-      "Team scaled from 3 to 8 engineers without delivery slowdown",
-      "Internal design system eliminated repeated UI work",
+      "Reduced build times by 70% across active projects",
+      "Supported team growth from 3 to 8 engineers",
+      "Eliminated repeated UI work through shared foundations",
     ],
   },
 ];
@@ -61,187 +78,81 @@ export const engagements: Engagement[] = [
 export const saas: SupportingWork = {
   title: "Motion Deck",
   summary:
-    "A management platform for gyms, yoga studios, and fitness businesses covering scheduling, memberships, payments, and day-to-day operations in one system.",
-  role: "Founder & Lead Developer",
-  stack: ["Next.js", "TypeScript", "Convex", "Polar", "Tailwind"],
+    "I built Motion Deck, a management platform for gyms and studios. I work on the product UI, backend, data model, authentication, payments, notifications, and production support.",
+  role: "Founder & full-stack engineer",
+  timeframe: "Founder and engineer · Live product",
+  stack: ["Next.js", "TypeScript", "Convex", "Polar", "Resend"],
   outcomes: [
-    "Launched v1.0 to production, onboarding 10+ studios",
-    "Built the full product end to end, including admin tools, booking flows, payments, and automated notifications",
+    "Launched v1.0 and onboarded more than 10 studios",
+    "Built the admin, booking, payment, and notification flows",
+    "Maintain the product and handle production support",
   ],
   href: "https://motiondeck.fit",
 };
 
 export const capabilities: Capability[] = [
   {
-    title: "Frontend Architecture",
+    title: "Product engineering",
     summary:
-      "Designing scalable, maintainable frontend systems that teams can actually ship with.",
+      "I build product features across the UI, APIs, and data layer.",
     items: [
-      "Application architecture and module boundaries",
-      "State management patterns and data flow",
-      "Migration strategy and incremental adoption",
-      "Build and tooling pipeline optimization",
+      "React, Next.js, Vue, and TypeScript",
+      "API integrations, serverless data, auth, and payments",
+      "State management, loading, errors, and async flows",
+      "Feature work from planning to production",
     ],
   },
   {
-    title: "Design Systems & Accessibility",
+    title: "Design systems",
     summary:
-      "Building component systems that bridge design and engineering while meeting accessibility standards.",
+      "I build shared components, tokens, documentation, and tools for designers and developers.",
     items: [
-      "Design system architecture and token strategy",
-      "WCAG 2.1 AA compliance auditing and remediation",
-      "Figma-to-code workflow automation",
-      "Component API design and documentation",
+      "Component API and token architecture",
+      "Storybook documentation and contribution rules",
+      "Figma-to-code automation",
+      "Web, iOS, and Android release workflows",
     ],
   },
   {
-    title: "Performance & Delivery",
+    title: "Accessibility and performance",
     summary:
-      "Identifying and eliminating frontend bottlenecks to ship faster and more reliably.",
+      "I include accessibility and performance requirements in the implementation and CI.",
     items: [
-      "Core Web Vitals optimization and Lighthouse auditing",
-      "Bundle analysis and code splitting strategy",
-      "CI/CD pipeline design for frontend teams",
-      "CMS integration (ContentStack, Optimizely, AEM)",
-    ],
-  },
-];
-
-export const experienceHighlights: ExperienceItem[] = [
-  {
-    company: "REI",
-    description:
-      "U.S. outdoor retail cooperative with nationwide stores and e-commerce.",
-    location: "Remote",
-    role: "Senior Web UI Engineer",
-    type: "Contractor",
-    timeframe: "Jun 2024 – current",
-    bullets: [
-      "Refactored design tokens with Style Dictionary for cross-platform consistency.",
-      "Automated Figma-to-GitHub sync, eliminating manual hand-offs from design to code.",
-      "Built reusable Cedar components that accelerated delivery across REI platforms.",
-    ],
-  },
-  {
-    company: "AMP Agency",
-    description: "Full-service digital marketing and advertising agency.",
-    location: "Remote",
-    role: "Senior Frontend Engineer",
-    type: "Contractor",
-    timeframe: "Oct 2022 – Apr 2024",
-    bullets: [
-      "Delivered high-traffic Vue.js and WordPress sites with custom Gutenberg blocks.",
-      "Optimized rendering and API integration, improving load times on content-rich properties.",
-    ],
-  },
-  {
-    company: "Verndale",
-    description:
-      "Digital experience agency focused on design, strategy, and development.",
-    location: "Remote",
-    role: "Lead Front End Engineer",
-    timeframe: "Apr 2019 – Oct 2022",
-    bullets: [
-      "Standardized the hiring process and authored onboarding documentation that cut ramp-up time for new engineers.",
-      "Reduced build times by 70% through modernized tooling and TypeScript migration.",
-      "Launched an internal design system that eliminated UI duplication across projects.",
-    ],
-  },
-  {
-    company: "Dreamcode",
-    description:
-      "Software development company specializing in staff augmentation and full-stack project delivery.",
-    location: "Remote",
-    role: "UI Engineer",
-    timeframe: "Jul 2018 – Apr 2019",
-    bullets: [
-      "Developed a React Native real estate app with maps, filters, and geolocation.",
-      "Built admin dashboards reusing logic across web and mobile platforms.",
-    ],
-  },
-  {
-    company: "Factu",
-    description:
-      "Ecuadorian platform for efficiently managing and downloading electronic invoices.",
-    location: "Remote",
-    role: "UI Engineer",
-    timeframe: "Aug 2018 – Mar 2019",
-    bullets: [
-      "Built the MVP of a tax automation platform, replacing manual workflows for businesses.",
-      "Automated tax calculations and payment scheduling, saving users hundreds of hours annually.",
+      "WCAG 2.2 AA reviews and fixes",
+      "Keyboard, screen reader, and reduced-motion support",
+      "Core Web Vitals and bundle optimization",
+      "Automated tests, CI checks, and monitoring",
     ],
   },
 ];
 
 export const skills: SkillCategory[] = [
   {
-    title: "Frontend",
-    items: [
-      "React",
-      "Next.js",
-      "Vue",
-      "TypeScript",
-      "React Native",
-      "Astro",
-      "Tailwind CSS",
-      "HTML / CSS",
-    ],
+    title: "Product stack",
+    items: ["React", "Next.js", "Vue", "TypeScript", "Convex", "GraphQL", "REST"],
   },
   {
-    title: "Design Systems",
+    title: "Systems",
     items: [
       "Storybook",
       "Style Dictionary",
       "Design Tokens",
       "Figma API",
-      "Component Architecture",
-      "Accessibility (WCAG)",
+      "WCAG",
     ],
   },
   {
-    title: "CMS & APIs",
-    items: [
-      "ContentStack",
-      "Optimizely",
-      "Adobe AEM",
-      "WordPress",
-      "Sitecore",
-      "GraphQL",
-      "REST",
-    ],
-  },
-  {
-    title: "Build & Tooling",
-    items: ["Nx", "Vite", "Webpack", "CI/CD", "Git", "Monorepos"],
-  },
-  {
-    title: "Performance",
-    items: [
-      "Core Web Vitals",
-      "Lighthouse",
-      "Bundle Analysis",
-      "Caching Strategies",
-      "Code Splitting",
-    ],
-  },
-  {
-    title: "Mobile",
-    items: [
-      "React Native",
-      "Responsive Design",
-      "Cross-Platform",
-      "Deep Linking",
-      "Geolocation",
-    ],
+    title: "Delivery",
+    items: ["Nx", "Vite", "CI/CD", "Core Web Vitals", "Monorepos"],
   },
 ];
 
 export const about: AboutContent = {
   narrative: [
-    "I work across product UI, frontend architecture, and design systems. I started in design, so I care about the visual layer, but I also care about module boundaries, bundle cost, documentation quality, and whether a team can ship confidently without fighting its own stack.",
-    "Teams usually bring me in when a frontend platform needs clearer standards, when accessibility debt is slowing releases, or when a design system needs to become a practical delivery tool instead of a side project.",
-    "Based in Ecuador, working remotely with US and global teams. Bilingual Spanish/English.",
+    "I started as a frontend developer, working close to design. Over time I moved into design systems, frontend architecture, APIs, and data.",
+    "I am most useful when a problem needs both design and engineering: a shared component library, accessibility fixes, slow builds, or a feature with frontend and backend work.",
+    "I work remotely from Ecuador with teams in the Americas and other regions. I speak English and Spanish.",
   ],
   sasNote:
-    "I also founded Motion Deck, which keeps me close to product decisions, delivery tradeoffs, and the realities of maintaining software after launch.",
+    "Building Motion Deck gives me direct experience with product decisions, user feedback, support, and production issues.",
 };
