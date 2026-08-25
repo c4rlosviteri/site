@@ -13,7 +13,7 @@ export const engagements: Engagement[] = [
     clientLabel: "REI Cedar Project",
     sector: "Design systems",
     role: "Senior Web UI Engineer — Contractor",
-    timeframe: "2024–Present · REI",
+    timeframe: "Jun 2024–Present · REI",
     evidenceLabel:
       "Reconstructed view. The production implementation is confidential.",
     constraint:
@@ -42,7 +42,7 @@ export const engagements: Engagement[] = [
     clientLabel: "REI Cedar Project",
     sector: "Automation",
     role: "Senior Web UI Engineer — Contractor",
-    timeframe: "2024–Present · REI",
+    timeframe: "Jun 2024–Present · REI",
     evidenceLabel:
       "Reconstructed workflow. The production code is confidential.",
     constraint:
@@ -64,7 +64,7 @@ export const engagements: Engagement[] = [
     clientLabel: "Verndale",
     sector: "Frontend platform",
     role: "Lead Front End Engineer",
-    timeframe: "2019–2022 · Verndale",
+    timeframe: "Apr 2019–Oct 2022 · Verndale",
     evidenceLabel:
       "Reconstructed dependency map. The original architecture is confidential.",
     constraint:
@@ -202,8 +202,10 @@ export const about: AboutContent = {
   narrative: [
     "For 9+ years, I have grown from frontend implementation into design systems, architecture, APIs, data, and end-to-end product delivery.",
     "On the REI Cedar Project, I focus on scalable design-system architecture, efficient token reuse, cross-platform automation, and frontend performance—including reducing unnecessary rerenders.",
+    "From Oct 2022 to Apr 2024, I delivered high-traffic Vue.js and WordPress projects for AMP Agency, including custom Gutenberg blocks, REST integrations, and performance improvements.",
     "I also create reusable AI skills and MCP integrations for project workflows, and I use spec-driven development with T3 Code for my personal products.",
     "I work remotely from Ecuador with teams in the Americas and other regions. I speak English and Spanish.",
+    "I studied Computer Science at Escuela Politécnica Nacional in Quito from 2015 to 2017.",
   ],
   sasNote:
     "Building Motion Deck gives me direct experience with product decisions, user feedback, production support, and AI-assisted delivery from specification to release.",
