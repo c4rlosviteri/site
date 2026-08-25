@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = "Carlos Viteri — Full-Stack Engineer & Design Systems",
-  description = "Carlos Viteri is a full-stack engineer working with TypeScript, React, Next.js, design systems, web accessibility, APIs, and frontend architecture.",
+  title = "Carlos Viteri — Senior Frontend & Full-Stack Engineer",
+  description = "Carlos Viteri is a senior frontend and full-stack engineer with 9+ years of experience in TypeScript, React, Next.js, Vue, Node.js, design systems, performance, and AI-assisted development.",
 } = Astro.props;
 
 const siteUrl = new URL(site.siteUrl);
@@ -45,7 +45,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Carlos Viteri — full-stack engineer, design systems, and accessibility"
+      content="Carlos Viteri — senior frontend and full-stack engineer with 9+ years of experience"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,7 +54,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta name="twitter:image" content={socialImageURL} />
     <meta
       name="twitter:image:alt"
-      content="Carlos Viteri — full-stack engineer, design systems, and accessibility"
+      content="Carlos Viteri — senior frontend and full-stack engineer with 9+ years of experience"
     />
 
     <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
@@ -85,6 +85,9 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
         knowsLanguage: ["English", "Spanish"],
         knowsAbout: [
           "Full-stack software engineering",
+          "AI-assisted software engineering",
+          "Spec-driven development",
+          "Model Context Protocol",
           "Design systems",
           "Web accessibility",
           "Frontend architecture",
@@ -92,16 +95,19 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
           "TypeScript",
           "React",
           "Next.js",
+          "Node.js",
+          "Linux",
+          "Git",
         ],
         hasOccupation: {
           "@type": "Occupation",
-          name: "Full-Stack Software Engineer",
+          name: "Senior Frontend & Full-Stack Engineer",
           occupationLocation: {
             "@type": "Country",
             name: "Ecuador",
           },
           skills:
-            "TypeScript, React, Next.js, design systems, WCAG accessibility, API integration, performance optimization",
+            "TypeScript, JavaScript, React, Next.js, Vue, Node.js, Convex, SQL, Linux, Git, design systems, performance optimization, OpenAI Codex, Claude, Cursor, MCP, spec-driven development",
         },
       })}
     />

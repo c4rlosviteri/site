@@ -9,33 +9,40 @@ import type {
 export const engagements: Engagement[] = [
   {
     slug: "react-design-system",
-    title: "React design system for multiple teams",
-    clientLabel: "Multi-product platform",
+    title: "Scalable Cedar Design System refactor",
+    clientLabel: "REI Cedar Project",
     sector: "Design systems",
-    role: "Lead frontend engineer",
-    timeframe: "2019–2022 · Internal platform",
+    role: "Senior Web UI Engineer — Contractor",
+    timeframe: "2024–Present · REI",
     evidenceLabel:
-      "Reconstructed view. The original client code is confidential.",
+      "Reconstructed view. The production implementation is confidential.",
     constraint:
-      "Several teams needed to work independently, but UI and accessibility patterns were becoming inconsistent.",
+      "Cedar needed a token architecture that could scale across web, iOS, and Android without duplicated values or platform drift.",
     decision:
-      "I shipped tokens, accessible components, documentation, and release automation as one versioned system.",
+      "I refactored the design system and Style Dictionary pipeline around reusable semantic tokens and clearer platform boundaries.",
     summary:
-      "I built a React component library, design tokens, and Storybook documentation to reduce repeated UI work. Accessibility rules were included in the component APIs.",
-    stack: ["React", "TypeScript", "Storybook", "Style Dictionary", "Next.js"],
+      "I refactored the Cedar Design System into a scalable architecture that improves token reuse, reduces duplication, and supports consistent delivery across platforms.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Storybook",
+      "Style Dictionary",
+      "Figma API",
+      "GitHub Actions",
+    ],
     outcomes: [
-      "Adopted by 40% of new projects in its first year",
-      "Reduced developer onboarding from days to hours",
-      "Improved Lighthouse scores by up to 40% on migrated products",
+      "Improved token reuse across web, iOS, and Android",
+      "Reduced duplication through a scalable token architecture",
+      "Reduced unnecessary rerenders across REI experiences",
     ],
   },
   {
     slug: "figma-pipeline",
     title: "Figma-to-code token pipeline",
-    clientLabel: "Cross-platform workflow",
+    clientLabel: "REI Cedar Project",
     sector: "Automation",
-    role: "Design systems engineer",
-    timeframe: "2024–Present · Client project",
+    role: "Senior Web UI Engineer — Contractor",
+    timeframe: "2024–Present · REI",
     evidenceLabel:
       "Reconstructed workflow. The production code is confidential.",
     constraint:
@@ -48,16 +55,16 @@ export const engagements: Engagement[] = [
     outcomes: [
       "Reduced token delivery from days to minutes",
       "Kept web, iOS, and Android tokens in sync",
-      "Shipped token updates with zero regressions after rollout",
+      "Made token changes reviewable through validation and CI",
     ],
   },
   {
     slug: "frontend-platform",
     title: "Frontend platform for a growing team",
-    clientLabel: "Frontend team platform",
+    clientLabel: "Verndale",
     sector: "Frontend platform",
-    role: "Lead engineer",
-    timeframe: "2019–2022 · Team platform",
+    role: "Lead Front End Engineer",
+    timeframe: "2019–2022 · Verndale",
     evidenceLabel:
       "Reconstructed dependency map. The original architecture is confidential.",
     constraint:
@@ -65,12 +72,12 @@ export const engagements: Engagement[] = [
     decision:
       "I moved shared packages and build tooling into a monorepo while keeping each application independently deployable.",
     summary:
-      "I moved shared components, tooling, and build configuration into a monorepo. This reduced build time and gave every project the same setup.",
-    stack: ["Nx", "React", "Next.js", "TypeScript", "CI/CD"],
+      "I directed frontend architecture for new builds and legacy modernization, unifying shared components, tooling, documentation, and delivery workflows.",
+    stack: ["Nx", "React", "Next.js", "TypeScript", "Git", "CI/CD"],
     outcomes: [
-      "Reduced build times by 70% across active projects",
       "Supported team growth from 3 to 8 engineers",
       "Eliminated repeated UI work through shared foundations",
+      "Established documentation and async-friendly workflows",
     ],
   },
 ];
@@ -84,75 +91,120 @@ export const saas: SupportingWork = {
   stack: ["Next.js", "TypeScript", "Convex", "Polar", "Resend"],
   outcomes: [
     "Launched v1.0 and onboarded more than 10 studios",
-    "Built the admin, booking, payment, and notification flows",
-    "Maintain the product and handle production support",
+    "Built scheduling, membership, payment, and notification flows",
+    "Established spec-driven development with T3 Code and coding agents",
   ],
   href: "https://motiondeck.fit",
 };
 
 export const capabilities: Capability[] = [
   {
-    title: "Product engineering",
+    title: "Frontend & full-stack engineering",
     summary:
-      "I build product features across the UI, APIs, and data layer.",
+      "I build production web and mobile products across the UI, APIs, and data layer.",
     items: [
-      "React, Next.js, Vue, and TypeScript",
-      "API integrations, serverless data, auth, and payments",
-      "State management, loading, errors, and async flows",
-      "Feature work from planning to production",
+      "React, Next.js, Vue, Nuxt, React Native, and Expo",
+      "TypeScript, JavaScript, Node.js, Convex, REST APIs, and SQL",
+      "Authentication, payments, data modeling, and async flows",
+      "Linux, Git, CI/CD, and end-to-end product delivery",
     ],
   },
   {
-    title: "Design systems",
+    title: "Design systems & performance",
     summary:
-      "I build shared components, tokens, documentation, and tools for designers and developers.",
+      "I build scalable component systems and improve the rendering paths that power them.",
     items: [
       "Component API and token architecture",
-      "Storybook documentation and contribution rules",
-      "Figma-to-code automation",
-      "Web, iOS, and Android release workflows",
+      "Storybook, Style Dictionary, Figma API, and Tailwind",
+      "WCAG 2.1 AA and accessible interaction patterns",
+      "Core Web Vitals, bundle analysis, and render optimization",
     ],
   },
   {
-    title: "Accessibility and performance",
+    title: "AI-assisted engineering",
     summary:
-      "I include accessibility and performance requirements in the implementation and CI.",
+      "I design repeatable AI-assisted workflows that improve implementation, review, and debugging.",
     items: [
-      "WCAG 2.2 AA reviews and fixes",
-      "Keyboard, screen reader, and reduced-motion support",
-      "Core Web Vitals and bundle optimization",
-      "Automated tests, CI checks, and monitoring",
+      "OpenAI Codex, Claude, and Cursor",
+      "Reusable skills for project-specific workflows",
+      "Model Context Protocol integrations",
+      "Spec-driven development with T3 Code",
     ],
   },
 ];
 
 export const skills: SkillCategory[] = [
   {
-    title: "Product stack",
-    items: ["React", "Next.js", "Vue", "TypeScript", "Convex", "GraphQL", "REST"],
-  },
-  {
-    title: "Systems",
+    title: "Full-stack",
     items: [
-      "Storybook",
-      "Style Dictionary",
-      "Design Tokens",
-      "Figma API",
-      "WCAG",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Convex",
+      "REST APIs",
+      "SQL",
+      "Linux",
+      "Git",
     ],
   },
   {
-    title: "Delivery",
-    items: ["Nx", "Vite", "CI/CD", "Core Web Vitals", "Monorepos"],
+    title: "Frontend",
+    items: ["React", "Next.js", "Vue", "Nuxt", "React Native", "Expo"],
+  },
+  {
+    title: "Design systems",
+    items: [
+      "Storybook",
+      "Style Dictionary",
+      "Figma API",
+      "Tailwind",
+      "WCAG 2.1 AA",
+      "Token Architecture",
+    ],
+  },
+  {
+    title: "Platform & testing",
+    items: [
+      "Nx Monorepo",
+      "Vite",
+      "Webpack",
+      "GitHub Actions",
+      "Jest",
+      "Vitest",
+      "Cypress",
+      "CI/CD",
+    ],
+  },
+  {
+    title: "Performance",
+    items: [
+      "Core Web Vitals",
+      "Lighthouse",
+      "Bundle Analysis",
+      "Render Optimization",
+      "Code Splitting",
+    ],
+  },
+  {
+    title: "AI-assisted",
+    items: [
+      "OpenAI Codex",
+      "Claude",
+      "Cursor",
+      "T3 Code",
+      "MCP",
+      "Spec-Driven Development",
+    ],
   },
 ];
 
 export const about: AboutContent = {
   narrative: [
-    "I started as a frontend developer, working close to design. Over time I moved into design systems, frontend architecture, APIs, and data.",
-    "I am most useful when a problem needs both design and engineering: a shared component library, accessibility fixes, slow builds, or a feature with frontend and backend work.",
+    "For 9+ years, I have grown from frontend implementation into design systems, architecture, APIs, data, and end-to-end product delivery.",
+    "On the REI Cedar Project, I focus on scalable design-system architecture, efficient token reuse, cross-platform automation, and frontend performance—including reducing unnecessary rerenders.",
+    "I also create reusable AI skills and MCP integrations for project workflows, and I use spec-driven development with T3 Code for my personal products.",
     "I work remotely from Ecuador with teams in the Americas and other regions. I speak English and Spanish.",
   ],
   sasNote:
-    "Building Motion Deck gives me direct experience with product decisions, user feedback, support, and production issues.",
+    "Building Motion Deck gives me direct experience with product decisions, user feedback, production support, and AI-assisted delivery from specification to release.",
 };

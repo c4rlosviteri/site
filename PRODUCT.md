@@ -5,7 +5,7 @@
 brand
 
 ## Users
-Recruiters, hiring managers, and engineering leaders evaluating Carlos for senior frontend, design system, and accessibility-focused roles. They arrive via direct link or referral, scan for signal-to-noise ratio, and decide within 30 seconds whether to keep reading or bounce.
+Recruiters, hiring managers, and engineering leaders evaluating Carlos for senior frontend, full-stack JavaScript/TypeScript, design-system, performance, and AI-assisted engineering roles. They arrive via direct link or referral, scan for signal-to-noise ratio, and decide within 30 seconds whether to keep reading or bounce.
 
 ## Product Purpose
 Convert attention into conversations. The site must communicate senior-level craft, systems thinking, and delivery reliability without saying so explicitly. Every section should make the reader think "this person ships" rather than "this person is looking for work."
