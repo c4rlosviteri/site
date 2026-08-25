@@ -90,7 +90,7 @@ export const saas: SupportingWork = {
   timeframe: "Founder and engineer · Live product",
   stack: ["Next.js", "TypeScript", "Convex", "Polar", "Resend"],
   outcomes: [
-    "Launched v1.0 and onboarded more than 10 studios",
+    "Launched v1.0 and onboarded more than 20 client studios",
     "Built scheduling, membership, payment, and notification flows",
     "Established spec-driven development with T3 Code and coding agents",
   ],
