@@ -20,15 +20,11 @@ import Reveal from "../ui/Reveal.astro";
     </Reveal>
   </div>
 
-  <ol class="capability-stack" aria-label="Engineering layers">
+  <ul class="capability-stack" aria-label="Areas of expertise">
     {
       capabilities.map((capability, index) => (
         <Reveal as="li" variant="fade-up" delay={index * 80}>
           <article>
-            <div class="layer-index" aria-hidden="true">
-              <span>Layer</span>
-              <strong>{index + 1}</strong>
-            </div>
             <div class="layer-copy">
               <h3>{capability.title}</h3>
               <p>{capability.summary}</p>
@@ -40,5 +36,5 @@ import Reveal from "../ui/Reveal.astro";
         </Reveal>
       ))
     }
-  </ol>
+  </ul>
 </section>

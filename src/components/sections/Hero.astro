@@ -3,7 +3,6 @@ import { site } from "../../data/site";
 import type { CTA } from "../../data/types";
 import CTAButton from "../ui/CTAButton.astro";
 import Reveal from "../ui/Reveal.astro";
-import SystemAtlas from "../ui/SystemAtlas.astro";
 
 const workCta: CTA = {
   label: "View selected work",
@@ -18,12 +17,9 @@ const emailCta: CTA = {
 ---
 
 <section id="top" class="hero" aria-labelledby="hero-title">
-  <div class="hero-glow" aria-hidden="true"></div>
-
   <div class="hero-copy">
     <Reveal variant="fade-in">
       <p class="hero-identity">
-        <span class="status-dot" aria-hidden="true"></span>
         {site.name} · {site.title}
       </p>
     </Reveal>
@@ -46,25 +42,4 @@ const emailCta: CTA = {
       </div>
     </Reveal>
   </div>
-
-  <Reveal variant="fade-in" delay={180} class="hero-atlas">
-    <SystemAtlas />
-  </Reveal>
-
-  <Reveal variant="fade-up" delay={310} class="proof-rail">
-    <dl>
-      <div>
-        <dt>Experience</dt>
-        <dd><strong>9+</strong> years</dd>
-      </div>
-      <div>
-        <dt>Design delivery</dt>
-        <dd><strong>Days → minutes</strong></dd>
-      </div>
-      <div>
-        <dt>Team growth</dt>
-        <dd>Supported <strong>3 → 8</strong> engineers</dd>
-      </div>
-    </dl>
-  </Reveal>
 </section>

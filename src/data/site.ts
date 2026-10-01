@@ -5,7 +5,7 @@ export const site: SiteContent = {
   title: "Senior Frontend & Full-Stack Engineer",
   tagline: "TypeScript · AI-assisted development · Design systems",
   intro:
-    "I have 9+ years building production web and mobile products with TypeScript, React, Next.js, Vue, Node.js, and Convex. I specialize in frontend architecture, design systems, performance, and AI-assisted delivery.",
+    "I have more than 8 years of experience building web and mobile products. I specialize in frontend architecture, design systems, performance, and AI-assisted delivery.",
   email: "me@carlosviteri.dev",
   siteUrl: "https://carlosviteri.dev",
   socialImage: "/social-card.png",

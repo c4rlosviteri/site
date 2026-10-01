@@ -200,7 +200,7 @@ export const skills: SkillCategory[] = [
 
 export const about: AboutContent = {
   narrative: [
-    "For 9+ years, I have grown from frontend implementation into design systems, architecture, APIs, data, and end-to-end product delivery.",
+    "With more than 8 years of experience, I have grown from frontend implementation into design systems, architecture, APIs, data, and end-to-end product delivery.",
     "On the REI Cedar Project, I focus on scalable design-system architecture, efficient token reuse, cross-platform automation, and frontend performance—including reducing unnecessary rerenders.",
     "From Oct 2022 to Apr 2024, I delivered high-traffic Vue.js and WordPress projects for AMP Agency, including custom Gutenberg blocks, REST integrations, and performance improvements.",
     "I also create reusable AI skills and MCP integrations for project workflows, and I use spec-driven development with T3 Code for my personal products.",

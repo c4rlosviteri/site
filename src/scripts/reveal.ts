@@ -16,19 +16,17 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
         element.animate(
           [
             {
-              opacity: 0,
+              opacity: 0.8,
               transform:
-                variant === "fade-up" ? "translate3d(0, 24px, 0)" : "none",
-              filter: "blur(4px)",
+                variant === "fade-up" ? "translate3d(0, 12px, 0)" : "none",
             },
             {
               opacity: 1,
               transform: "translate3d(0, 0, 0)",
-              filter: "blur(0)",
             },
           ],
           {
-            duration: variant === "fade-up" ? 680 : 520,
+            duration: variant === "fade-up" ? 420 : 300,
             delay,
             easing: "cubic-bezier(0.16, 1, 0.3, 1)",
             fill: "backwards",

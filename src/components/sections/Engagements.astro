@@ -15,8 +15,7 @@ const visuals = {
     <header class="section-intro">
       <h2 id="work-title">Selected work.</h2>
       <p>
-        Three engineering case studies and one personal product. Open each case to see
-        the problem, technical decisions, and results.
+        Design systems, frontend architecture, and a product of my own.
       </p>
     </header>
   </Reveal>
@@ -33,13 +32,7 @@ const visuals = {
                   <span>{engagement.timeframe}</span>
                 </div>
                 <h3>{engagement.title}</h3>
-                <span>{engagement.summary}</span>
-                <small>{engagement.evidenceLabel}</small>
               </div>
-
-              <ProjectVisual
-                variant={visuals[engagement.slug as keyof typeof visuals]}
-              />
 
               <div class="case-signal">
                 <span>{engagement.outcomes[0]}</span>
@@ -49,6 +42,16 @@ const visuals = {
                 </span>
               </div>
             </summary>
+
+            <div class="case-preview">
+              <div class="case-description">
+                <p>{engagement.summary}</p>
+                <small>{engagement.evidenceLabel}</small>
+              </div>
+              <ProjectVisual
+                variant={visuals[engagement.slug as keyof typeof visuals]}
+              />
+            </div>
 
             <div class="case-detail">
               <div>
