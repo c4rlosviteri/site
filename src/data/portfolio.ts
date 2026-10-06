@@ -13,7 +13,7 @@ export const saas: SupportingWork = {
 export const capabilities: Capability[] = [
   {
     title: "Frontend engineering",
-    summary: "React, TypeScript, Next.js, and React Native. Reusable interfaces, application structure, and API integrations.",
+    summary: "React, Vue, Next.js, React Native, TypeScript, JavaScript, and Redux. Reusable components and accessible, customer-focused interfaces.",
   },
   {
     title: "Product & growth",
@@ -24,7 +24,11 @@ export const capabilities: Capability[] = [
     summary: "Component libraries, design-token pipelines, accessible interactions, and rendering optimization. Storybook, Style Dictionary, and Tailwind CSS.",
   },
   {
+    title: "APIs & backend",
+    summary: "Node.js, Convex, Python, and REST APIs. Backend logic and integrations for web applications.",
+  },
+  {
     title: "Testing & delivery",
-    summary: "Jest, Vitest, Cypress, and GitHub Actions. Coding agents and reusable skills support implementation and review.",
+    summary: "Automated testing with Jest, Vitest, Cypress, and React Testing Library; CI/CD with GitHub Actions. AI-assisted development and reusable agent skills.",
   },
 ];
