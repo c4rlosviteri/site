@@ -1,39 +1,18 @@
 ---
 import { site } from "../../data/site";
-import Reveal from "../ui/Reveal.astro";
 ---
 
-<section
-  id="contact"
-  class="contact-section"
-  aria-labelledby="contact-title"
->
-  <Reveal variant="fade-up">
-    <p class="contact-status">
-      <span class="status-dot" aria-hidden="true"></span>
-      {site.availability}
-    </p>
-    <h2 id="contact-title">You can reach me by email.</h2>
-    <p class="contact-intro">
-      I am interested in senior frontend, full-stack, and JavaScript/TypeScript
-      roles that combine product delivery, frontend architecture, design systems,
-      and practical AI-assisted engineering.
-    </p>
-    <div class="contact-actions">
-      <a class="contact-link" href={`mailto:${site.email}`}>
-        <span>{site.email}</span>
-        <span aria-hidden="true">↗</span>
-      </a>
-      <button class="copy-email" type="button" data-copy-email data-email={site.email}>
-        Copy email
-      </button>
-    </div>
-    <p class="copy-status" data-copy-status aria-live="polite"></p>
-  </Reveal>
-
+<section id="contact" class="contact-section" aria-labelledby="contact-title">
+  <h2 id="contact-title">Get in touch.</h2>
+  <div class="contact-actions">
+    <a class="contact-link" href={`mailto:${site.email}`}>
+      {site.email}<span aria-hidden="true">↗</span>
+    </a>
+    <button class="copy-email" type="button" data-copy-email data-email={site.email}>Copy email</button>
+  </div>
+  <p class="copy-status" data-copy-status aria-live="polite"></p>
   <footer>
     <p>{site.location} · {site.timezone}</p>
-    <p>English / Español</p>
     <p>© {new Date().getFullYear()} {site.name}</p>
   </footer>
 </section>

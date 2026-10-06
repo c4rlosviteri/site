@@ -1,0 +1,20 @@
+---
+import PostList from "../blog/PostList.astro";
+import { getBlogPosts } from "../../lib/blog";
+
+const posts = (await getBlogPosts()).slice(0, 3);
+const hasPublishedNotes = posts.some((post) => !post.data.draft);
+---
+
+<section id="writing" class="content-section writing-section" aria-labelledby="writing-title">
+  <div class="writing-intro">
+    <h2 id="writing-title">Learning, written down.</h2>
+    <div>
+      <p>{hasPublishedNotes
+        ? "Notes on frontend engineering, design systems, and building products."
+        : "I am preparing my first notes on frontend engineering and design systems."}</p>
+      <a class="text-link" href="/blog/">Visit the blog <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  {posts.length > 0 && <PostList posts={posts} />}
+</section>

@@ -20,7 +20,7 @@ buttons.forEach((button) => {
   button.addEventListener("click", async () => {
     const email = button.dataset.email;
     const status = button
-      .closest(".reveal-wrapper")
+      .closest("section")
       ?.querySelector<HTMLElement>("[data-copy-status]");
 
     if (!email) return;

@@ -5,21 +5,6 @@ export type CTA = {
   external?: boolean;
 };
 
-export type Engagement = {
-  slug: string;
-  title: string;
-  clientLabel: string;
-  sector: string;
-  role: string;
-  timeframe: string;
-  evidenceLabel: string;
-  constraint: string;
-  decision: string;
-  summary: string;
-  stack: string[];
-  outcomes: string[];
-};
-
 export type SupportingWork = {
   title: string;
   summary: string;
@@ -33,17 +18,6 @@ export type SupportingWork = {
 export type Capability = {
   title: string;
   summary: string;
-  items: string[];
-};
-
-export type SkillCategory = {
-  title: string;
-  items: string[];
-};
-
-export type AboutContent = {
-  narrative: string[];
-  sasNote?: string;
 };
 
 export type SiteContent = {

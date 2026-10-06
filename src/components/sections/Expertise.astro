@@ -1,40 +1,15 @@
 ---
 import { capabilities } from "../../data/portfolio";
-import Reveal from "../ui/Reveal.astro";
 ---
 
-<section
-  id="practice"
-  class="content-section practice-section"
-  aria-labelledby="practice-title"
->
-  <div class="practice-intro">
-    <Reveal variant="fade-up">
-      <h2 id="practice-title">What I work on.</h2>
-    </Reveal>
-    <Reveal variant="fade-up" delay={90}>
-      <p>
-        My main areas are frontend and full-stack development, scalable design
-        systems, performance, and AI-assisted engineering.
-      </p>
-    </Reveal>
-  </div>
-
-  <ul class="capability-stack" aria-label="Areas of expertise">
-    {
-      capabilities.map((capability, index) => (
-        <Reveal as="li" variant="fade-up" delay={index * 80}>
-          <article>
-            <div class="layer-copy">
-              <h3>{capability.title}</h3>
-              <p>{capability.summary}</p>
-            </div>
-            <ul>
-              {capability.items.map((item) => <li>{item}</li>)}
-            </ul>
-          </article>
-        </Reveal>
-      ))
-    }
+<section id="practice" class="content-section" aria-labelledby="practice-title">
+  <h2 id="practice-title">Core focus.</h2>
+  <ul class="capability-list" aria-label="Areas of expertise">
+    {capabilities.map((capability) => (
+      <li>
+        <h3>{capability.title}</h3>
+        <p>{capability.summary}</p>
+      </li>
+    ))}
   </ul>
 </section>

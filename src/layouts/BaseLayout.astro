@@ -1,16 +1,23 @@
 ---
 import "../styles/global.css";
+import "../styles/blog.css";
 import Header from "../components/sections/Header.astro";
 import { site } from "../data/site";
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: "en" | "es";
+  pageType?: "profile" | "website" | "article";
+  noIndex?: boolean;
 }
 
 const {
-  title = "Carlos Viteri — Senior Frontend & Full-Stack Engineer",
-  description = "Carlos Viteri is a senior frontend and full-stack engineer with more than 8 years of experience in TypeScript, React, Next.js, Vue, Node.js, design systems, performance, and AI-assisted development.",
+  title = "Carlos Viteri — Senior Frontend Engineer",
+  description = site.intro,
+  lang = "en",
+  pageType = "profile",
+  noIndex = false,
 } = Astro.props;
 
 const siteUrl = new URL(site.siteUrl);
@@ -19,7 +26,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,15 +34,15 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta name="author" content={site.name} />
     <meta
       name="robots"
-      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+      content={noIndex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"}
     />
     <meta name="theme-color" content="#080a0c" />
     <meta name="color-scheme" content="dark" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
 
-    <meta property="og:type" content="profile" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:locale" content={lang === "es" ? "es_EC" : "en_US"} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
@@ -45,7 +52,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Carlos Viteri — senior frontend and full-stack engineer with more than 8 years of experience"
+      content="Carlos Viteri — Senior Frontend Engineer, React and TypeScript"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,7 +61,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta name="twitter:image" content={socialImageURL} />
     <meta
       name="twitter:image:alt"
-      content="Carlos Viteri — senior frontend and full-stack engineer with more than 8 years of experience"
+      content="Carlos Viteri — Senior Frontend Engineer, React and TypeScript"
     />
 
     <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
@@ -63,7 +70,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <script
+    {Astro.url.pathname === "/" && <script
       is:inline
       type="application/ld+json"
       set:html={JSON.stringify({
@@ -74,27 +81,23 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
         image: socialImageURL.href,
         email: site.email,
         jobTitle: site.title,
-        description,
+        description: site.intro,
         knowsLanguage: ["English", "Spanish"],
         knowsAbout: [
-          "Full-stack software engineering",
-          "AI-assisted software engineering",
-          "Spec-driven development",
-          "Model Context Protocol",
-          "Design systems",
-          "Web accessibility",
-          "Frontend architecture",
-          "Core Web Vitals",
-          "TypeScript",
           "React",
+          "TypeScript",
+          "Frontend architecture",
+          "Design systems",
+          "Frontend performance",
+          "Web accessibility",
+          "Core Web Vitals",
           "Next.js",
-          "Node.js",
-          "Linux",
-          "Git",
+          "React Native",
+          "AI-assisted software engineering",
         ],
         hasOccupation: {
           "@type": "Occupation",
-          name: "Senior Frontend & Full-Stack Engineer",
+          name: site.title,
           occupationLocation: {
             "@type": "Country",
             name: "Ecuador",
@@ -103,12 +106,13 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
             "TypeScript, JavaScript, React, Next.js, Vue, Node.js, Convex, SQL, Linux, Git, design systems, performance optimization, OpenAI Codex, Claude, Cursor, MCP, spec-driven development",
         },
       })}
-    />
+    />}
+    <slot name="head" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
   </body>

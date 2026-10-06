@@ -1,0 +1,21 @@
+---
+import { saas } from "../../data/portfolio";
+---
+
+<section id="products" class="content-section" aria-labelledby="products-title">
+  <h2 id="products-title">Selected product.</h2>
+  <article class="product-case" aria-labelledby="motion-deck-title">
+    <div>
+      <h3 id="motion-deck-title">{saas.title}</h3>
+      <p class="product-role">{saas.role}</p>
+    </div>
+    <div class="product-copy">
+      <p>{saas.summary}</p>
+      <p class="product-proof">{saas.outcomes[0]}</p>
+      <p class="product-stack">{saas.stack.join(" · ")}</p>
+      {saas.href && <a class="text-link" href={saas.href} target="_blank" rel="noopener noreferrer">
+        Visit Motion Deck <span aria-hidden="true">↗</span>
+      </a>}
+    </div>
+  </article>
+</section>

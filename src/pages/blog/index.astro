@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostList from "../../components/blog/PostList.astro";
+import { getBlogPosts } from "../../lib/blog";
+import { site } from "../../data/site";
+import { Image } from "astro:assets";
+import portrait from "../../assets/carlos-viteri.png";
+
+const posts = await getBlogPosts();
+---
+
+<BaseLayout
+  title="Blog — Carlos Viteri"
+  description="Notes by Carlos Viteri on frontend engineering, design systems, performance, and building products."
+  pageType="website"
+>
+  <div class="blog-page">
+    <header class="blog-heading">
+      <h1>Notes from<br /><span>the work.</span></h1>
+      <div>
+        <div class="blog-author">
+          <Image src={portrait} alt="" width={48} height={48} format="webp" />
+          <span>{site.name}</span>
+        </div>
+        <p>A running record of what I learn, try, and build. Frontend engineering, design systems, and the small decisions that make products better.</p>
+        <p class="blog-language-note">Written in English and Español.</p>
+      </div>
+    </header>
+    <section aria-label="Blog posts">
+      <h2 class="sr-only">Articles</h2>
+      <PostList posts={posts} />
+    </section>
+    <footer class="blog-footer">
+      <a class="text-link" href="/">Back home <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href={`mailto:${site.email}`}>Get in touch</a>
+    </footer>
+  </div>
+</BaseLayout>

@@ -1,0 +1,79 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getBlogPosts, formatPostDate, readingMinutes } from "../../lib/blog";
+import { site } from "../../data/site";
+import { Image } from "astro:assets";
+import portrait from "../../assets/carlos-viteri.png";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const toc = headings.filter((heading) => heading.depth === 2);
+const isSpanish = post.data.lang === "es";
+const canonical = new URL(`/blog/${post.id}/`, site.siteUrl);
+---
+
+<BaseLayout
+  title={`${post.data.title} — Carlos Viteri`}
+  description={post.data.description}
+  lang={post.data.lang}
+  pageType="article"
+  noIndex={post.data.draft}
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={post.data.pubDate.toISOString()} />
+    {post.data.updatedDate && <meta property="article:modified_time" content={post.data.updatedDate.toISOString()} />}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.data.title,
+      description: post.data.description,
+      datePublished: post.data.pubDate.toISOString(),
+      dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+      inLanguage: post.data.lang,
+      author: { "@type": "Person", name: site.name, url: site.siteUrl },
+      mainEntityOfPage: canonical.href,
+      image: new URL(site.socialImage, site.siteUrl).href,
+    }).replace(/</g, "\\u003c")} />
+  </Fragment>
+  <article class="blog-page blog-article">
+    <a class="text-link blog-back" href="/blog/">← {isSpanish ? "Todos los artículos" : "All notes"}</a>
+    {post.data.draft && <p class="draft-notice">Draft preview — this article is excluded from production builds.</p>}
+    <header class="article-heading">
+      <div class="post-meta">
+        <time datetime={post.data.pubDate.toISOString()}>{formatPostDate(post)}</time>
+        <span>{readingMinutes(post)} {isSpanish ? "min de lectura" : "min read"}</span>
+      </div>
+      <h1>{post.data.title}</h1>
+      <p class="article-description">{post.data.description}</p>
+      <div class="article-byline blog-author">
+        <Image src={portrait} alt="" width={40} height={40} format="webp" />
+        <p>{site.name} · {isSpanish ? "Español" : "English"}</p>
+      </div>
+    </header>
+    <div class:list={["article-layout", { "article-layout--with-toc": toc.length > 1 }]}>
+      <div class="article-prose"><Content /></div>
+      {toc.length > 1 && (
+        <aside class="article-toc">
+          <nav aria-label={isSpanish ? "En este artículo" : "On this page"}>
+            <h2>{isSpanish ? "En este artículo" : "On this page"}</h2>
+            <ul>{toc.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
+          </nav>
+        </aside>
+      )}
+    </div>
+    <footer class="blog-footer">
+      <a class="text-link" href="/blog/">← {isSpanish ? "Más artículos" : "More notes"}</a>
+      <a class="text-link" href={`mailto:${site.email}`}>{isSpanish ? "Conversemos" : "Get in touch"}</a>
+    </footer>
+  </article>
+</BaseLayout>

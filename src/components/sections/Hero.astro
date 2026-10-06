@@ -1,45 +1,25 @@
 ---
+import { Image } from "astro:assets";
+import portrait from "../../assets/carlos-viteri.png";
 import { site } from "../../data/site";
-import type { CTA } from "../../data/types";
 import CTAButton from "../ui/CTAButton.astro";
-import Reveal from "../ui/Reveal.astro";
-
-const workCta: CTA = {
-  label: "View selected work",
-  href: "#work",
-  kind: "primary",
-};
-const emailCta: CTA = {
-  label: "Email me",
-  href: `mailto:${site.email}`,
-  kind: "secondary",
-};
 ---
 
 <section id="top" class="hero" aria-labelledby="hero-title">
-  <div class="hero-copy">
-    <Reveal variant="fade-in">
-      <p class="hero-identity">
-        {site.name} · {site.title}
-      </p>
-    </Reveal>
-
-    <Reveal variant="fade-up" delay={80}>
-      <h1 id="hero-title">
-        Frontend systems.{" "}
-        <span>Full-stack products.</span>
-      </h1>
-    </Reveal>
-
-    <Reveal variant="fade-up" delay={160}>
-      <p class="hero-intro">{site.intro}</p>
-    </Reveal>
-
-    <Reveal variant="fade-up" delay={230}>
-      <div class="hero-actions">
-        <CTAButton cta={workCta} />
-        <CTAButton cta={emailCta} />
-      </div>
-    </Reveal>
+  <div class="hero-identity">
+    <Image src={portrait} alt="" width={72} height={72} format="webp" loading="eager" />
+    <p>{site.name}</p>
+  </div>
+  <h1 id="hero-title">
+    Senior frontend engineer.
+    <span>React &amp; TypeScript.</span>
+  </h1>
+  <p class="hero-intro">{site.intro}</p>
+  <p class="hero-availability">
+    {site.availability}<br />
+    <span>Ecuador · {site.timezone} · English / Español</span>
+  </p>
+  <div class="hero-actions">
+    <CTAButton cta={{label: "Email me", href: `mailto:${site.email}`, kind: "primary"}} />
   </div>
 </section>
