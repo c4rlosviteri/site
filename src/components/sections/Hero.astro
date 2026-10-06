@@ -7,7 +7,7 @@ import CTAButton from "../ui/CTAButton.astro";
 
 <section id="top" class="hero" aria-labelledby="hero-title">
   <div class="hero-identity">
-    <Image src={portrait} alt="" width={72} height={72} format="webp" loading="eager" />
+    <Image src={portrait} alt="" width={72} height={72} densities={[1, 2, 3]} quality={90} format="webp" loading="eager" />
     <p>{site.name}</p>
   </div>
   <h1 id="hero-title">

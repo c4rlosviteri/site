@@ -5,7 +5,7 @@
 brand
 
 ## Users
-Recruiters, hiring managers, and engineering leaders evaluating Carlos for Senior Frontend Engineer roles with React, TypeScript, design systems, and performance. They arrive via direct link or referral. The initial scan should establish the role, relevant skills, a shipped personal product, remote location, and a direct way to make contact.
+Recruiters, hiring managers, and engineering leaders evaluating Carlos for Senior Frontend Engineer roles with React, TypeScript, design systems, performance, product delivery, and growth. They arrive via direct link or referral. The initial scan should establish the role, relevant skills, a shipped personal product, remote location, and a direct way to make contact.
 
 ## Product Purpose
 Convert attention into hiring conversations. State the role and full-time remote availability clearly, then support them with concrete product work. Contact is the primary action; Motion Deck is supporting evidence. Keep employment history, employer names, company billing arrangements, salary, and the private CV off the public site.

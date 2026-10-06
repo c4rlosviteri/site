@@ -19,7 +19,7 @@ const posts = await getBlogPosts();
       <h1>Notes from<br /><span>the work.</span></h1>
       <div>
         <div class="blog-author">
-          <Image src={portrait} alt="" width={48} height={48} format="webp" />
+          <Image src={portrait} alt="" width={48} height={48} densities={[1, 2, 3]} quality={90} format="webp" />
           <span>{site.name}</span>
         </div>
         <p>A running record of what I learn, try, and build. Frontend engineering, design systems, and the small decisions that make products better.</p>

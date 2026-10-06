@@ -5,7 +5,7 @@ export const site: SiteContent = {
   title: "Senior Frontend Engineer",
   tagline: "React · TypeScript · Design systems · Performance",
   intro:
-    "I build web and mobile interfaces with React and TypeScript, with a focus on reusable design systems and frontend performance.",
+    "I build web and mobile products with React and TypeScript, connecting design systems and performance with product delivery, adoption, and growth.",
   email: "me@carlosviteri.dev",
   siteUrl: "https://carlosviteri.dev",
   socialImage: "/social-card.png",
