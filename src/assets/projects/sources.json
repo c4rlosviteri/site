@@ -1,0 +1,22 @@
+{
+  "capturedOn": "2026-10-20",
+  "note": "Public project imagery illustrates the products; contribution descriptions are provided by Carlos.",
+  "images": [
+    {
+      "files": ["kw-map.webp", "kw-tour.webp"],
+      "source": "https://apps.apple.com/us/app/kw-real-estate/id652512924",
+      "type": "Official App Store screenshots"
+    },
+    { "files": ["zoom.png"], "source": "https://www.zoom.com/", "type": "Website screenshot" },
+    { "files": ["khov.png"], "source": "https://www.khov.com/", "type": "Website screenshot" },
+    { "files": ["cedars-sinai.png"], "source": "https://www.cedars-sinai.org/home.html", "type": "Website screenshot" },
+    { "files": ["lpga.png"], "source": "https://www.lpga.com/", "type": "Website screenshot" },
+    {
+      "files": ["apple.png"],
+      "source": "https://www.apple.com/iphone-duo/",
+      "asset": "https://www.apple.com/v/iphone-duo/d/images/meta/iphone-duo_overview__bmsaaq50eyaa_og.png?202610151723",
+      "type": "Official product image"
+    },
+    { "files": ["eatright.png"], "source": "https://www.eatright.org/", "type": "Website screenshot" }
+  ]
+}

@@ -1,8 +1,24 @@
+import type { ImageMetadata } from "astro";
+
 export type CTA = {
   label: string;
   href: string;
   kind: "primary" | "secondary" | "ghost";
   external?: boolean;
+};
+
+export type Project = {
+  id: string;
+  name: string;
+  headline: string;
+  description: string;
+  focus: string[];
+  href: string;
+  linkLabel: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  secondaryImage?: ImageMetadata;
+  secondaryImageAlt?: string;
 };
 
 export type SupportingWork = {

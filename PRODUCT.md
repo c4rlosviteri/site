@@ -8,7 +8,7 @@ brand
 Recruiters, hiring managers, and engineering leaders evaluating Carlos for Senior Frontend Engineer roles with React, TypeScript, design systems, performance, product delivery, and growth. They arrive via direct link or referral. The initial scan should establish the role, relevant skills, a shipped personal product, remote location, and a direct way to make contact.
 
 ## Product Purpose
-Convert attention into hiring conversations. State the role and full-time remote availability clearly, then support them with concrete product work. Contact is the primary action; Motion Deck is supporting evidence. Keep employment history, employer names, company billing arrangements, salary, and the private CV off the public site.
+Convert attention into hiring conversations. State the role and full-time remote availability clearly, then support them with concrete product work. Contact is the primary action; selected project contributions and Motion Deck are supporting evidence. Public project brands and Carlos’s contributions may appear in the work section. Keep employment history, employment relationships, company billing arrangements, salary, and the private CV off the public site.
 
 ## Brand Personality
 Precise, technical, confident. The voice is understated authority — showing competence through restraint and specificity rather than assertion. No filler, no hype.
@@ -17,7 +17,7 @@ Precise, technical, confident. The voice is understated authority — showing co
 Generic portfolio templates. Overly playful or illustrated personal sites. Anything that looks like a theme purchased from a marketplace.
 
 ## Design Principles
-- Keep the homepage linear and focused on Carlos: a short introduction, core skills, one shipped product, and contact. Keep the blog section and navigation hidden for now. Avoid illustrative dashboards, duplicate skill lists, decorative motion, and employment history.
+- Keep the homepage linear and focused on Carlos: a short introduction, selected project contributions with real imagery, core skills, one shipped personal product, and contact. Keep the blog section and blog navigation hidden for now. Avoid illustrative dashboards, duplicate skill lists, decorative motion, and employment history.
 - Show, don't tell: let the quality of execution speak for the capability
 - Restraint as signal: fewer elements, more considered
 - Engineered clarity: every visual choice should feel intentional, not decorative
