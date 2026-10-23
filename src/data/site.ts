@@ -5,7 +5,7 @@ export const site: SiteContent = {
   title: "Senior Frontend Engineer",
   tagline: "Design systems · Frontend architecture · Web & mobile",
   intro:
-    "I build design systems and shared foundations for web and mobile products. In 8+ years of frontend engineering, I’ve led EatRight’s frontend architecture with a focus on performance and accessibility, mentored three engineers, and built and launched my own product, Motion Deck.",
+    "I build design systems and shared foundations for web and mobile products. With 8+ years in frontend engineering, I focus on fast, accessible experiences and systems that are easy to maintain and evolve.",
   email: "me@carlosviteri.dev",
   linkedin: "https://www.linkedin.com/in/carlosviteridev/",
   siteUrl: "https://carlosviteri.dev",
