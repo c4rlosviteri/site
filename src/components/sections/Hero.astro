@@ -8,11 +8,11 @@ import CTAButton from "../ui/CTAButton.astro";
 <section id="top" class="hero" aria-labelledby="hero-title">
   <div class="hero-identity">
     <Image src={portrait} alt="" width={72} height={72} densities={[1, 2, 3]} quality={90} format="webp" loading="eager" />
-    <p>{site.name}</p>
+    <p>{site.name}<span class="hero-role">{site.title}</span></p>
   </div>
   <h1 id="hero-title">
-    Senior frontend engineer.
-    <span>React &amp; TypeScript.</span>
+    Frontend systems.
+    <span>Product ownership.</span>
   </h1>
   <p class="hero-intro">{site.intro}</p>
   <p class="hero-availability">
@@ -21,5 +21,11 @@ import CTAButton from "../ui/CTAButton.astro";
   </p>
   <div class="hero-actions">
     <CTAButton cta={{label: "Email me", href: `mailto:${site.email}`, kind: "primary"}} />
+    <a class="hero-work-link" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
   </div>
+  <ul class="hero-evidence" aria-label="Explore selected engineering work">
+    <li><a href="#eatright-title"><strong>Architecture &amp; accessibility</strong><span>EatRight · Frontend architecture lead</span></a></li>
+    <li><a href="#lpga-title"><strong>Shared web &amp; native foundations</strong><span>LPGA · Web, iOS &amp; Android</span></a></li>
+    <li><a href="#motion-deck-title"><strong>From idea to a live product</strong><span>Motion Deck · Founder &amp; engineer</span></a></li>
+  </ul>
 </section>

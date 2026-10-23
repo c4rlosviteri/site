@@ -9,6 +9,7 @@ import { site } from "../../data/site";
       {site.email}<span aria-hidden="true">↗</span>
     </a>
     <button class="copy-email" type="button" data-copy-email data-email={site.email}>Copy email</button>
+    {site.linkedin && <a class="contact-link contact-link--social" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>}
   </div>
   <p class="copy-status" data-copy-status aria-live="polite"></p>
   <footer>

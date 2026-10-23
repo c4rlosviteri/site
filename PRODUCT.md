@@ -5,7 +5,7 @@
 brand
 
 ## Users
-Recruiters, hiring managers, and engineering leaders evaluating Carlos for Senior Frontend Engineer roles with React, TypeScript, design systems, performance, product delivery, and growth. They arrive via direct link or referral. The initial scan should establish the role, relevant skills, a shipped personal product, remote location, and a direct way to make contact.
+Recruiters, hiring managers, and engineering leaders evaluating Carlos for Senior and Staff frontend, frontend platform, and design systems roles. They arrive via direct link or referral. The initial scan should establish a focus on reusable frontend systems, web and mobile delivery, technical leadership experience, a shipped personal product, remote location, and a direct way to make contact. Staff is a target role, not a title already held. Confirmed Verndale experience: led EatRight’s frontend architecture with performance and accessibility as central concerns; mentored three engineers who improved their skills and contributed to several projects. Do not attribute a Lead role to Huge. Keep employer-specific experience on LinkedIn rather than adding employment history to the website.
 
 ## Product Purpose
 Convert attention into hiring conversations. State the role and full-time remote availability clearly, then support them with concrete product work. Contact is the primary action; selected project contributions and Motion Deck are supporting evidence. Public project brands and Carlos’s contributions may appear in the work section. Keep employment history, employment relationships, company billing arrangements, salary, and the private CV off the public site.

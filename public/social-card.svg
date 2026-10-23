@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Carlos Viteri — Senior Frontend Engineer</title>
-  <desc id="desc">Carlos Viteri, React, TypeScript, design systems and frontend performance.</desc>
+  <desc id="desc">Carlos Viteri, frontend systems and product ownership. Design systems, React, TypeScript, web and mobile.</desc>
   <rect width="1200" height="630" fill="#080A0C"/>
   <text x="72" y="90" fill="#F1F5F6" font-family="Arial, sans-serif" font-size="24" font-weight="700">Carlos Viteri</text>
-  <text x="72" y="200" fill="#8FDFEB" font-family="monospace" font-size="18" letter-spacing="2">REACT · TYPESCRIPT</text>
-  <text x="68" y="300" fill="#F1F5F6" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-2">Senior frontend engineer.</text>
-  <text x="72" y="370" fill="#FF4E3D" font-family="Arial, sans-serif" font-size="30">Design systems &amp; frontend performance.</text>
+  <text x="72" y="143" fill="#B9C2C7" font-family="Arial, sans-serif" font-size="22">Senior Frontend Engineer</text>
+  <text x="68" y="280" fill="#F1F5F6" font-family="Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="-2">Frontend systems.</text>
+  <text x="68" y="370" fill="#FF4E3D" font-family="Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="-2">Product ownership.</text>
+  <text x="72" y="433" fill="#B9C2C7" font-family="Arial, sans-serif" font-size="23">Design systems · React · TypeScript · Web &amp; mobile</text>
   <text x="72" y="540" fill="#90999E" font-family="Arial, sans-serif" font-size="20">Ecuador · Remote · UTC−5</text>
   <text x="1128" y="540" text-anchor="end" fill="#F1F5F6" font-family="Arial, sans-serif" font-size="20">carlosviteri.dev</text>
 </svg>

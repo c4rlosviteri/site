@@ -13,7 +13,7 @@ interface Props {
 }
 
 const {
-  title = "Carlos Viteri — Senior Frontend Engineer",
+  title = "Carlos Viteri — Frontend Systems & Product Engineering",
   description = site.intro,
   lang = "en",
   pageType = "profile",
@@ -52,7 +52,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Carlos Viteri — Senior Frontend Engineer, React and TypeScript"
+      content="Carlos Viteri — Frontend systems and product ownership"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -61,7 +61,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
     <meta name="twitter:image" content={socialImageURL} />
     <meta
       name="twitter:image:alt"
-      content="Carlos Viteri — Senior Frontend Engineer, React and TypeScript"
+      content="Carlos Viteri — Frontend systems and product ownership"
     />
 
     <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
@@ -78,6 +78,7 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
         "@type": "Person",
         name: site.name,
         url: site.siteUrl,
+        sameAs: site.linkedin ? [site.linkedin] : undefined,
         image: socialImageURL.href,
         email: site.email,
         jobTitle: site.title,

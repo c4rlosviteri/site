@@ -52,12 +52,21 @@ img, svg { display: block; max-width: 100%; }
 .hero { padding-top: 8rem; padding-bottom: var(--section-space); }
 .hero-identity { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; color: var(--ink); font-size: 1.05rem; font-weight: 600; }
 .hero-identity img { flex-shrink: 0; border-radius: 50%; }
+.hero-role { display: block; margin-top: .2rem; color: var(--muted); font-size: .85rem; font-weight: 400; }
 .hero h1 { max-width: 26ch; color: var(--ink); font-size: clamp(2.25rem, 5vw, 4.25rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.1; text-wrap: balance; }
 .hero h1 span { display: block; color: var(--signal); }
 .hero-intro { max-width: 60ch; margin-top: 1.5rem; font-size: 1.1rem; text-wrap: pretty; }
 .hero-availability { margin-top: 1.25rem; color: var(--muted); font-size: .9rem; line-height: 1.75; }
 .hero-availability span { color: var(--faint); }
-.hero-actions { margin-top: 1.5rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 1.5rem; }
+.hero-work-link { display: inline-flex; align-items: center; gap: .6rem; min-height: 2.75rem; color: var(--ink); font-size: .9rem; }
+.hero-work-link:hover { text-decoration: underline; text-underline-offset: .3em; }
+.hero-work-link span { color: var(--signal); }
+.hero-evidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line-soft); }
+.hero-evidence a { display: block; min-height: 2.75rem; }
+.hero-evidence strong { display: block; color: var(--text); font-size: .85rem; font-weight: 600; line-height: 1.5; }
+.hero-evidence span { display: block; margin-top: .3rem; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.hero-evidence a:hover strong { color: var(--ink); text-decoration: underline; text-underline-offset: .25em; }
 .cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 3rem; padding: .75rem 1rem; color: var(--canvas-deep); background: var(--signal); font-size: .9rem; font-weight: 700; }
 .cta:hover { background: var(--signal-bright); }
 .cta--secondary, .cta--ghost { color: var(--ink); background: transparent; }
@@ -79,6 +88,7 @@ img, svg { display: block; max-width: 100%; }
 .contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; }
 .contact-link { display: inline-flex; align-items: center; gap: .75rem; min-height: 2.75rem; color: var(--ink); font-size: 1.1rem; font-weight: 600; }
 .contact-link span { color: var(--signal); }
+.contact-link--social { font-size: .9rem; }
 .copy-email { min-height: 2.75rem; padding: .4rem .6rem; border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: .85rem; text-decoration: underline; text-underline-offset: .25em; }
 .copy-email:hover { color: var(--ink); }
 .copy-status { min-height: 1.4rem; margin-top: .3rem; color: var(--cool); font-size: .8rem; }
@@ -89,6 +99,7 @@ img, svg { display: block; max-width: 100%; }
   .capability-list li, .product-case { grid-template-columns: 1fr; gap: .4rem; }
   .capability-list { gap: 1.3rem; }
   .product-copy { margin-top: .75rem; }
+  .hero-evidence { grid-template-columns: 1fr; gap: 1rem; }
 }
 @media (max-width: 480px) {
   .brand-name { display: none; }
