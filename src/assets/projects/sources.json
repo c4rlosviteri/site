@@ -10,7 +10,6 @@
     { "files": ["zoom.png"], "source": "https://www.zoom.com/", "type": "Website screenshot" },
     { "files": ["khov.png"], "source": "https://www.khov.com/", "type": "Website screenshot" },
     { "files": ["cedars-sinai.png"], "source": "https://www.cedars-sinai.org/home.html", "type": "Website screenshot" },
-    { "files": ["lpga.png"], "source": "https://www.lpga.com/", "type": "Website screenshot" },
     {
       "files": ["apple.png"],
       "source": "https://www.apple.com/iphone-duo/",

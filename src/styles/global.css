@@ -62,7 +62,7 @@ img, svg { display: block; max-width: 100%; }
 .hero-work-link { display: inline-flex; align-items: center; gap: .6rem; min-height: 2.75rem; color: var(--ink); font-size: .9rem; }
 .hero-work-link:hover { text-decoration: underline; text-underline-offset: .3em; }
 .hero-work-link span { color: var(--signal); }
-.hero-evidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line-soft); }
+.hero-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line-soft); }
 .hero-evidence a { display: block; min-height: 2.75rem; }
 .hero-evidence strong { display: block; color: var(--text); font-size: .85rem; font-weight: 600; line-height: 1.5; }
 .hero-evidence span { display: block; margin-top: .3rem; color: var(--muted); font-size: .8rem; line-height: 1.6; }
