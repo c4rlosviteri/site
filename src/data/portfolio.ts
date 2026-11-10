@@ -4,6 +4,7 @@ import kwTour from "../assets/projects/kw-tour.webp";
 import zoom from "../assets/projects/zoom.png";
 import khov from "../assets/projects/khov.png";
 import cedarsSinai from "../assets/projects/cedars-sinai.png";
+import lpga from "../assets/projects/lpga.png";
 import apple from "../assets/projects/apple.png";
 import eatright from "../assets/projects/eatright.png";
 
@@ -19,6 +20,18 @@ export const projects: Project[] = [
     linkLabel: "Visit website",
     image: eatright,
     imageAlt: "eatright.org homepage with food and nutrition resources from the Academy of Nutrition and Dietetics.",
+  },
+  {
+    id: "lpga",
+    name: "LPGA",
+    headline: "Shared foundations for web, iOS, and Android.",
+    description:
+      "Worked across LPGA’s web and React Native apps, contributing to a design system and reusable code shared between the projects. The scope connected shared engineering foundations with the fan experience across web, iOS, and Android.",
+    focus: ["Web & React Native", "iOS & Android", "Shared code"],
+    href: "https://www.lpga.com/",
+    linkLabel: "Visit website",
+    image: lpga,
+    imageAlt: "LPGA website showing tournament coverage, player scores, and the latest tour stories.",
   },
   {
     id: "keller-williams",
@@ -101,7 +114,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Web & native foundations",
-    summary: "React, TypeScript, Next.js, and React Native. Experience sharing code and design systems across web, iOS, and Android.",
+    summary: "React, TypeScript, Next.js, and React Native. Experience sharing code and design systems across web, iOS, and Android, including LPGA’s web and mobile apps.",
   },
   {
     title: "Technical leadership",
