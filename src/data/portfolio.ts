@@ -14,8 +14,8 @@ export const projects: Project[] = [
     name: "Academy of Nutrition and Dietetics",
     headline: "Frontend architecture led by accessibility and performance.",
     description:
-      "Led the frontend architecture for eatright.org, with performance and accessibility as central concerns. The work included full keyboard navigation and WCAG AAA compliance across the site’s food and nutrition resources.",
-    focus: ["Architecture leadership", "Accessibility", "WCAG AAA", "Performance"],
+      "Led frontend architecture for eatright.org, with performance, keyboard navigation, and accessibility central to the implementation. Mentored three engineers who went on to contribute across multiple projects.",
+    focus: ["Architecture leadership", "Accessibility", "Performance"],
     href: "https://www.eatright.org/",
     linkLabel: "Visit website",
     image: eatright,
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     name: "LPGA",
     headline: "Shared foundations for web, iOS, and Android.",
     description:
-      "Worked across LPGA’s web and React Native apps, contributing to a design system and reusable code shared between the projects. The scope connected shared engineering foundations with the fan experience across web, iOS, and Android.",
+      "Contributed to a shared design system and reusable code across LPGA’s website and React Native apps for iOS and Android.",
     focus: ["Web & React Native", "iOS & Android", "Shared code"],
     href: "https://www.lpga.com/",
     linkLabel: "Visit website",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     name: "Keller Williams",
     headline: "Maps, spatial search, and property discovery.",
     description:
-      "Built interactive maps, polygon-based searches, property galleries, and 3D tour experiences for the KW app. My contribution spanned spatial search and the visual discovery flows that help people explore a property before a visit.",
+      "Built interactive maps, polygon-based searches, property galleries, and 3D tours for the KW app.",
     focus: ["Maps & polygons", "Property galleries", "3D tours"],
     href: "https://apps.apple.com/us/app/kw-real-estate/id652512924",
     linkLabel: "View app",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     name: "Zoom",
     headline: "Connecting a design system to the CMS.",
     description:
-      "Contributed to the website’s design system and CMS integration, connecting reusable components with content-driven pages. Work at the intersection of the UI library, content delivery, and the production website.",
+      "Contributed to the website’s design system and CMS integration, connecting reusable components with content-driven pages.",
     focus: ["Design system", "CMS integration"],
     href: "https://www.zoom.com/",
     linkLabel: "Visit website",
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     name: "K. Hovnanian Homes",
     headline: "A shared system across the homebuying journey.",
     description:
-      "Contributed to the design system, personalization, and purchase experience. The work connected reusable UI with the product flows buyers use to explore options, personalize a home, and move toward a purchase.",
+      "Contributed to the design system, personalization, and purchase flows, connecting reusable UI across the homebuying journey.",
     focus: ["Design system", "Personalization", "Purchase experience"],
     href: "https://www.khov.com/",
     linkLabel: "Visit website",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     name: "Cedars-Sinai",
     headline: "A frontend refactor across the patient journey.",
     description:
-      "Contributed to a full website refactor covering search, provider directories, and the health articles blog. A broad frontend scope spanning how patients find care and how the site presents medical and editorial content.",
+      "Contributed to a full website refactor covering search, provider directories, and the health articles blog.",
     focus: ["Frontend refactor", "Search & directories", "Editorial content"],
     href: "https://www.cedars-sinai.org/home.html",
     linkLabel: "Visit website",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     name: "Apple",
     headline: "Product storytelling, frame by frame.",
     description:
-      "Contributed to the iPhone Duo, MacBook Neo, and iPadOS product pages, working on animations across several of these experiences. Hands-on frontend craft where timing, transitions, and visual detail are part of how a product is introduced.",
+      "Contributed to the iPhone Duo, MacBook Neo, and iPadOS product pages, including animation work.",
     focus: ["Product pages", "Web animation", "Visual storytelling"],
     href: "https://www.apple.com/",
     linkLabel: "Visit website",
@@ -118,7 +118,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Technical leadership",
-    summary: "Led EatRight’s frontend architecture with a focus on performance and accessibility. Mentored three engineers who developed their skills and went on to contribute across several projects. My leadership experience sits alongside hands-on frontend delivery.",
+    summary: "At Verndale, mentored three engineers and helped hire and onboard teammates as the distributed team grew from 3 to 8. Established technical documentation and asynchronous collaboration practices.",
   },
   {
     title: "Quality across the delivery cycle",

@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import { projects } from "../../data/portfolio";
+---
+
+<section id="work" class="content-section work-section" aria-labelledby="work-title">
+  <div class="work-intro">
+    <h2 id="work-title">Selected work.</h2>
+    <p>Architecture, accessibility, and shared systems. A closer look at what I contributed within each team.</p>
+  </div>
+
+  <ol class="work-list">
+    {projects.map((project, index) => (
+      <li class:list={["work-project", { "work-project--featured": index < 2 }]}>
+        {index === 2 && <p class="work-more">Further contributions</p>}
+        <article aria-labelledby={`${project.id}-title`}>
+          <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
+            <div class="work-heading">
+              <p id={`${project.id}-client`} class="work-client">{project.name}</p>
+              <h3 id={`${project.id}-title`}>{project.headline}</h3>
+            </div>
+            <p class="work-description">{project.description}</p>
+            <ul class="work-focus" aria-label="Contributions">
+              {project.focus.map((item) => <li>{item}</li>)}
+            </ul>
+            <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></span>
+            <figure class:list={["work-image", `work-image--${project.id}`]}>
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                widths={project.secondaryImage ? [96, 160, 240] : index < 2 ? [400, 640, 800, 1200] : [176, 352, 528]}
+                sizes={project.secondaryImage ? "(max-width: 600px) 32px, 64px" : index < 2 ? "(max-width: 600px) 90vw, (max-width: 912px) 42vw, 384px" : "(max-width: 600px) 88px, 176px"}
+                format="webp"
+                loading="lazy"
+                decoding="async"
+              />
+              {project.secondaryImage && <Image
+                src={project.secondaryImage}
+                alt={project.secondaryImageAlt ?? ""}
+                widths={[96, 160, 240]}
+                sizes="(max-width: 600px) 32px, 64px"
+                format="webp"
+                loading="lazy"
+                decoding="async"
+              />}
+            </figure>
+          </a>
+        </article>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .work-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1rem 2rem; margin-bottom: 2rem; }
+  .work-intro h2 { margin: 0; font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -.035em; }
+  .work-intro > p { max-width: 39ch; color: var(--muted); font-size: .925rem; text-wrap: pretty; }
+  .work-project { padding-block: 1.75rem; border-top: 1px solid var(--line-soft); }
+  .work-project--featured { padding-block: 2.5rem; }
+  .work-more { margin-bottom: 1.75rem; color: var(--faint); font-size: .8rem; font-weight: 600; }
+  .work-link { display: grid; grid-template-columns: minmax(0, 1fr) 11rem; align-items: start; column-gap: 2rem; }
+  .work-heading, .work-description, .work-focus, .work-visit { grid-column: 1; min-width: 0; }
+  .work-client { margin-bottom: .5rem; color: var(--muted); font-size: .8rem; font-weight: 600; }
+  .work-heading h3 { color: var(--ink); font-size: 1.2rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.35; text-wrap: pretty; }
+  .work-description { margin-top: .75rem; color: var(--muted); font-size: .925rem; line-height: 1.7; text-wrap: pretty; }
+  .work-focus { display: flex; flex-wrap: wrap; gap: .25rem .8rem; margin-top: .85rem; color: var(--text); font-size: .75rem; line-height: 1.6; }
+  .work-focus li + li::before { content: "/"; padding-right: .8rem; color: var(--faint); }
+  .work-visit { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; margin-top: .4rem; color: var(--ink); font-size: .8rem; font-weight: 600; }
+  .work-visit > span[aria-hidden] { color: var(--signal); transition: transform 200ms var(--ease-out); }
+  .work-link:hover .work-visit, .work-link:focus-visible .work-visit { text-decoration: underline; text-underline-offset: .3em; }
+  .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: translate(2px, -2px); }
+  .work-image { grid-column: 2; grid-row: 1 / span 4; align-self: center; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; min-width: 0; margin: 0; padding: .75rem; overflow: hidden; border-radius: 6px; background: var(--surface-high); }
+  .work-image img { width: 100%; height: auto; border-radius: 2px; }
+  .work-image--keller-williams { gap: .4rem; background: oklch(.32 .12 20); }
+  .work-image--keller-williams img { width: calc(50% - .2rem); max-height: 100%; object-fit: contain; }
+  .work-image--zoom { background: oklch(.32 .11 270); }
+  .work-image--khov { background: oklch(.74 .04 225); }
+  .work-image--cedars-sinai { background: oklch(.33 .09 20); }
+  .work-image--lpga { background: oklch(.3 .055 255); }
+  .work-image--eatright { background: oklch(.4 .065 140); }
+  .work-image--apple { padding: .5rem; background: white; }
+  .work-project--featured .work-link { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .work-project--featured h3 { font-size: clamp(1.35rem, 2.4vw, 1.65rem); letter-spacing: -.025em; line-height: 1.25; }
+  .work-project--featured .work-image { padding: 1rem; }
+
+  @media (max-width: 600px) {
+    .work-intro, .work-project--featured .work-link { grid-template-columns: 1fr; }
+    .work-intro { margin-bottom: 1.5rem; }
+    .work-project--featured { padding-block: 2rem; }
+    .work-link { grid-template-columns: minmax(0, 1fr) 5.5rem; column-gap: 1rem; }
+    .work-description, .work-focus, .work-visit { grid-column: 1 / -1; }
+    .work-image { grid-row: 1; align-self: start; padding: .5rem; }
+    .work-project--featured .work-image { grid-column: 1; grid-row: 5; aspect-ratio: 3 / 2; margin-top: 1.25rem; }
+    .work-image--keller-williams { gap: .25rem; }
+    .work-image--keller-williams img { width: calc(50% - .125rem); }
+    .work-heading h3 { font-size: 1.1rem; }
+    .work-project--featured h3 { font-size: 1.45rem; }
+    .work-description { font-size: .875rem; }
+    .work-focus { gap: .2rem .5rem; }
+    .work-focus li + li::before { padding-right: .5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .work-visit > span[aria-hidden] { transition: none; }
+    .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: none; }
+  }
+</style>
