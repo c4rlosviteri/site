@@ -1,4 +1,5 @@
 ---
+import Icon from "../ui/Icon.astro";
 import { Image } from "astro:assets";
 import portrait from "../../assets/carlos-viteri.png";
 import { site } from "../../data/site";
@@ -10,23 +11,28 @@ const availability = site.availability?.split(" · ") ?? [];
 <section id="top" class="hero" aria-labelledby="hero-title">
   <div class="hero-top">
     <div class="hero-identity">
-      <Image src={portrait} alt="" width={72} height={72} densities={[1, 2, 3]} quality={90} format="webp" loading="eager" />
+      <Image class="hero-avatar" src={portrait} alt="" width={72} height={72} densities={[1, 2, 3]} quality={90} format="webp" loading="eager" />
       <p>{site.name}<span class="hero-role">{site.title}</span></p>
     </div>
     <p class="hero-availability">
       <span class="hero-status"><span class="hero-status-dot" aria-hidden="true"></span>{availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}</span>
-      <span class="hero-locale">Ecuador · {site.timezone} · English / Español</span>
+      <span class="hero-locale">Ecuador · <span data-local-time data-time-zone="America/Guayaquil"></span>{site.timezone} · English / Español</span>
     </p>
   </div>
-  <h1 id="hero-title">
-    <span class="hero-line"><span>Frontend platforms.</span></span>
-    <span class="hero-line hero-line--accent"><span>Accessible by design.</span></span>
-  </h1>
+  <div class="hero-main">
+    <h1 id="hero-title">
+      <span class="hero-line"><span>Frontend platforms.</span></span>
+      <span class="hero-line hero-line--accent"><span>Accessible by design.</span></span>
+    </h1>
+    <figure class="hero-portrait">
+      <Image src={portrait} alt="Portrait of Carlos Viteri." widths={[320, 480, 640, 960]} sizes="(max-width: 900px) 0px, 18rem" quality={85} format="webp" loading="eager" />
+    </figure>
+  </div>
   <div class="hero-body">
     <p class="hero-intro">{site.intro}</p>
     <div class="hero-actions">
       <CTAButton cta={{label: "Email me", href: `mailto:${site.email}`, kind: "primary"}} />
-      <a class="hero-work-link" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+      <a class="hero-work-link" href="#work">Explore the work <Icon name="arrow-down" /></a>
     </div>
   </div>
   <ul class="hero-evidence" aria-label="Explore engineering experience">
@@ -35,3 +41,28 @@ const availability = site.availability?.split(" · ") ?? [];
     <li><a href="#practice"><strong>Technical leadership</strong><span>3 engineers mentored · Hiring &amp; onboarding</span></a></li>
   </ul>
 </section>
+
+<script>
+  // Show the current time where Carlos works, so a remote team can see the overlap at a glance.
+  const slots = document.querySelectorAll<HTMLElement>("[data-local-time]");
+
+  const update = () => {
+    slots.forEach((slot) => {
+      try {
+        const time = new Intl.DateTimeFormat("en-US", {
+          hour: "numeric",
+          minute: "2-digit",
+          timeZone: slot.dataset.timeZone,
+        }).format(new Date());
+        slot.textContent = `${time} local · `;
+      } catch {
+        slot.textContent = "";
+      }
+    });
+  };
+
+  if (slots.length > 0) {
+    update();
+    window.setInterval(update, 30_000);
+  }
+</script>

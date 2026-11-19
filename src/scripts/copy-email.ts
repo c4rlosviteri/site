@@ -23,6 +23,8 @@ buttons.forEach((button) => {
       .closest("section")
       ?.querySelector<HTMLElement>("[data-copy-status]");
 
+    const label = button.querySelector<HTMLElement>("[data-copy-label]");
+
     if (!email) return;
 
     try {
@@ -32,7 +34,7 @@ buttons.forEach((button) => {
         throw new Error("Clipboard unavailable");
       }
 
-      button.textContent = "Copied";
+      if (label) label.textContent = "Copied";
       button.dataset.state = "copied";
       if (status) status.textContent = "Email copied to clipboard.";
     } catch {
@@ -42,7 +44,7 @@ buttons.forEach((button) => {
     }
 
     window.setTimeout(() => {
-      button.textContent = "Copy email";
+      if (label) label.textContent = "Copy email";
       delete button.dataset.state;
       if (status) status.textContent = "";
     }, 2600);

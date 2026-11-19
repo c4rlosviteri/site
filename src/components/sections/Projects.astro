@@ -1,4 +1,5 @@
 ---
+import Icon from "../ui/Icon.astro";
 import { Image } from "astro:assets";
 import { projects } from "../../data/portfolio";
 
@@ -24,7 +25,7 @@ const index = projects.slice(3);
               <ul class="work-focus" aria-label="Contributions">
                 {project.focus.map((item) => <li>{item}</li>)}
               </ul>
-              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></span>
+              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <Icon name="arrow-up-right" /><span class="sr-only"> (opens in a new tab)</span></span>
             </div>
             <figure class="work-panel-image">
               <Image
@@ -56,7 +57,7 @@ const index = projects.slice(3);
               <ul class="work-focus" aria-label="Contributions">
                 {project.focus.map((item) => <li>{item}</li>)}
               </ul>
-              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></span>
+              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <Icon name="arrow-up-right" /><span class="sr-only"> (opens in a new tab)</span></span>
             </div>
             <figure class:list={["work-image", `work-image--${project.id}`]}>
               <Image
@@ -106,9 +107,8 @@ const index = projects.slice(3);
   .work-focus { display: flex; flex-wrap: wrap; gap: .25rem .8rem; color: var(--text); font-size: .8rem; line-height: 1.6; }
   .work-focus li + li::before { content: "/"; padding-right: .8rem; color: var(--faint); }
   .work-visit { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; color: var(--ink); font-size: .85rem; font-weight: 600; }
-  .work-visit > span[aria-hidden] { color: var(--signal); transition: transform 200ms var(--ease-out); }
+  .work-visit > .icon { color: var(--signal); }
   .work-link:hover .work-visit, .work-link:focus-visible .work-visit { text-decoration: underline; text-underline-offset: .3em; }
-  .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: translate(2px, -2px); }
 
   /* Featured: three panels. On tall, wide screens each slides over the one before. */
   .work-featured { display: grid; gap: 1.5rem; }
@@ -184,7 +184,7 @@ const index = projects.slice(3);
     .work-row-copy { grid-column: 1 / -1; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .work-visit > span[aria-hidden], .work-panel-image img, .work-row .work-client { transition: none; }
+    .work-panel-image img, .work-row .work-client { transition: none; }
     .work-panel .work-link:hover .work-panel-image img, .work-panel .work-link:focus-visible .work-panel-image img { scale: none; }
     .work-row .work-link:hover .work-client { translate: none; }
     .work-cursor-frame { clip-path: none; transition: opacity 150ms linear; }

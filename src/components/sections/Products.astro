@@ -1,4 +1,5 @@
 ---
+import Icon from "../ui/Icon.astro";
 import { Image } from "astro:assets";
 import { saas } from "../../data/portfolio";
 ---
@@ -15,7 +16,7 @@ import { saas } from "../../data/portfolio";
       <p class="product-proof">{saas.outcomes[0]}</p>
       <p class="product-stack">{saas.stack.join(" · ")}</p>
       {saas.href && <a class="text-link" href={saas.href} target="_blank" rel="noopener noreferrer">
-        Visit Motion Deck <span aria-hidden="true">↗</span>
+        Visit Motion Deck <Icon name="arrow-up-right" />
       </a>}
     </div>
     {saas.image && <figure class="product-image">

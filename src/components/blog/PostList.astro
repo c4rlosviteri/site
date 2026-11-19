@@ -1,4 +1,5 @@
 ---
+import Icon from "../ui/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 import { formatPostDate, readingMinutes } from "../../lib/blog";
 
@@ -27,7 +28,7 @@ const { posts } = Astro.props;
               <h3>
                 <a href={`/blog/${post.id}/`}>
                   {post.data.title}
-                  <span aria-hidden="true">↗</span>
+                  <Icon name="arrow-up-right" />
                 </a>
               </h3>
               <p>{post.data.description}</p>

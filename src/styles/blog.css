@@ -11,10 +11,8 @@
   font-size: 0.9rem;
 }
 .text-link:hover { text-decoration: underline; text-underline-offset: .3em; }
-.text-link span { display: inline-block; transition: transform 200ms var(--ease-out); }
-.text-link:hover span, .text-link:focus-visible span { transform: translate(2px, -2px); }
 .section-intro .text-link { margin-top: 1rem; }
-.text-link span { color: var(--signal); }
+.text-link .icon { color: var(--signal); }
 
 .blog-page {
   width: min(100%, var(--container));

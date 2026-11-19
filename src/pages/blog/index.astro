@@ -1,4 +1,5 @@
 ---
+import Icon from "../../components/ui/Icon.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostList from "../../components/blog/PostList.astro";
 import { getBlogPosts } from "../../lib/blog";
@@ -31,7 +32,7 @@ const posts = await getBlogPosts();
       <PostList posts={posts} />
     </section>
     <footer class="blog-footer">
-      <a class="text-link" href="/">Back home <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="/">Back home <Icon name="arrow-up-right" /></a>
       <a class="text-link" href={`mailto:${site.email}`}>Get in touch</a>
     </footer>
   </div>
