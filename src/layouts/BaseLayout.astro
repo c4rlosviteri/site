@@ -1,6 +1,10 @@
 ---
-import "@fontsource-variable/archivo/standard.css";
-import archivoUrl from "@fontsource-variable/archivo/files/archivo-latin-standard-normal.woff2?url";
+import "@fontsource-variable/archivo/wght.css";
+import "@fontsource-variable/newsreader/wght.css";
+import "@fontsource-variable/newsreader/wght-italic.css";
+import archivoUrl from "@fontsource-variable/archivo/files/archivo-latin-wght-normal.woff2?url";
+import newsreaderUrl from "@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url";
+import newsreaderItalicUrl from "@fontsource-variable/newsreader/files/newsreader-latin-wght-italic.woff2?url";
 import "../styles/global.css";
 import "../styles/blog.css";
 import Header from "../components/sections/Header.astro";
@@ -38,9 +42,11 @@ const socialImageURL = new URL(site.socialImage, siteUrl);
       name="robots"
       content={noIndex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"}
     />
-    <meta name="theme-color" content="#080a0c" />
+    <meta name="theme-color" content="#0e0c09" />
     <meta name="color-scheme" content="dark" />
     <link rel="preload" href={archivoUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={newsreaderUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={newsreaderItalicUrl} as="font" type="font/woff2" crossorigin />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
 
