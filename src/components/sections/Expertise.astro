@@ -3,8 +3,12 @@ import { capabilities } from "../../data/portfolio";
 ---
 
 <section id="practice" class="content-section" aria-labelledby="practice-title">
-  <h2 id="practice-title">How I contribute.</h2>
-  <ul class="capability-list" aria-label="Engineering scope and working approach">
+  <div class="section-head">
+    <div class="section-head-inner">
+      <h2 id="practice-title">How I contribute.</h2>
+    </div>
+  </div>
+  <ul class="capability-list section-body" aria-label="Engineering scope and working approach">
     {capabilities.map((capability) => (
       <li>
         <h3>{capability.title}</h3>

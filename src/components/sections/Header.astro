@@ -1,5 +1,6 @@
 ---
 import { site } from "../../data/site";
+import Icon from "../ui/Icon.astro";
 const isHome = Astro.url.pathname === "/";
 const homeSection = (id: string) => isHome ? `#${id}` : `/#${id}`;
 ---
@@ -19,6 +20,13 @@ const homeSection = (id: string) => isHome ? `#${id}` : `/#${id}`;
     <a href={homeSection("contact")}>Contact</a>
     <span class="nav-indicator" aria-hidden="true"></span>
   </nav>
+
+  <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+    <Icon name="sun" class="theme-icon theme-icon--sun" />
+    <Icon name="moon" class="theme-icon theme-icon--moon" />
+    <span class="sr-only">Paper theme</span>
+  </button>
 </header>
 
 <script src="../../scripts/navigation.ts"></script>
+<script src="../../scripts/theme.ts"></script>

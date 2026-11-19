@@ -1,8 +1,8 @@
-// A larger project preview that trails the pointer over the work index.
+// A project preview that appears in the margin beside the work index and tracks the pointer.
 // Enhancement only: thumbnails stay in the rows, and touch or coarse pointers never see this.
 const cursor = document.querySelector<HTMLElement>("[data-work-cursor]");
 const list = document.querySelector<HTMLElement>("[data-work-index]");
-const finePointer = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 901px)");
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 961px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (cursor && list) {
@@ -29,17 +29,16 @@ if (cursor && list) {
     frame = active || !settled ? requestAnimationFrame(tick) : 0;
   };
 
-  const aim = (event: PointerEvent, link: HTMLElement) => {
-    const { offsetWidth: width, offsetHeight: height } = cursor;
-    // Keep the preview in the name column so it never covers the copy being read,
-    // and below the pointer so the hovered name stays visible.
-    const copy = link.querySelector<HTMLElement>(".work-row-copy");
-    const minX = list.getBoundingClientRect().left;
-    const maxX = Math.max(minX, (copy?.getBoundingClientRect().left ?? window.innerWidth) - width - 24);
-    targetX = Math.min(Math.max(event.clientX - width * 0.35, minX), maxX);
+  const margin = list.closest("section")?.querySelector<HTMLElement>(".section-head-inner") ?? null;
 
-    const below = event.clientY + 36;
-    targetY = below + height < window.innerHeight - 16 ? below : event.clientY - height - 36;
+  const aim = (event: PointerEvent, _link: HTMLElement) => {
+    // The preview lives in the left margin, under the section title, and follows the pointer vertically.
+    const height = cursor.offsetHeight;
+    const marginRect = margin?.getBoundingClientRect();
+    targetX = marginRect?.left ?? 16;
+
+    const top = (marginRect?.bottom ?? 80) + 24;
+    targetY = Math.min(Math.max(event.clientY - height / 2, top), window.innerHeight - height - 16);
   };
 
   const show = (id: string, event: PointerEvent, link: HTMLElement) => {
@@ -84,3 +83,5 @@ if (cursor && list) {
   window.addEventListener("scroll", () => active && hide(), { passive: true });
   finePointer.addEventListener("change", hide);
 }
+
+export {};

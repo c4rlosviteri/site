@@ -8,88 +8,96 @@ const index = projects.slice(3);
 ---
 
 <section id="work" class="content-section work-section" aria-labelledby="work-title">
-  <div class="work-intro">
-    <h2 id="work-title">Selected work.</h2>
-    <p>Architecture, accessibility, and shared systems.</p>
+  <div class="section-head">
+    <div class="section-head-inner">
+      <h2 id="work-title">Selected work.</h2>
+      <p>Architecture, accessibility, and shared systems.</p>
+    </div>
   </div>
 
-  <ol class="work-featured">
-    {featured.map((project) => (
-      <li class:list={["work-panel", `work-panel--${project.id}`]}>
-        <article aria-labelledby={`${project.id}-title`}>
-          <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
-            <div class="work-panel-copy">
-              <p id={`${project.id}-client`} class="work-client">{project.name}</p>
-              <h3 id={`${project.id}-title`}>{project.headline}</h3>
-              <p class="work-description">{project.description}</p>
-              <ul class="work-focus" aria-label="Contributions">
-                {project.focus.map((item) => <li>{item}</li>)}
-              </ul>
-              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <Icon name="arrow-up-right" /><span class="sr-only"> (opens in a new tab)</span></span>
-            </div>
-            <figure class="work-panel-image">
-              <Image
-                src={project.image}
-                alt={project.imageAlt}
-                widths={[480, 800, 1200, 1751]}
-                sizes="(max-width: 900px) 100vw, 780px"
-                format="webp"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          </a>
-        </article>
-      </li>
-    ))}
-  </ol>
+  <div class="section-body">
+    <ol class="work-plates">
+      {featured.map((project) => (
+        <li class="work-plate">
+          <article aria-labelledby={`${project.id}-title`}>
+            <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
+              <figure class="work-plate-image">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  widths={[480, 800, 1200, 1751]}
+                  sizes="(max-width: 960px) 100vw, 860px"
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="work-plate-caption">
+                <p id={`${project.id}-client`} class="work-client">{project.name}</p>
+                <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <Icon name="arrow-up-right" /><span class="sr-only"> (opens in a new tab)</span></span>
+              </div>
+              <div class="work-plate-copy">
+                <h3 id={`${project.id}-title`}>{project.headline}</h3>
+                <div>
+                  <p class="work-description">{project.description}</p>
+                  <ul class="work-focus" aria-label="Contributions">
+                    {project.focus.map((item) => <li>{item}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </a>
+          </article>
+        </li>
+      ))}
+    </ol>
 
-  <p class="work-more">Further contributions</p>
-  <ol class="work-index" start={featured.length + 1} data-work-index>
-    {index.map((project) => (
-      <li class="work-row">
-        <article aria-labelledby={`${project.id}-title`}>
-          <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" data-preview={project.id} aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
-            <p id={`${project.id}-client`} class="work-client">{project.name}</p>
-            <div class="work-row-copy">
-              <h3 id={`${project.id}-title`}>{project.headline}</h3>
-              <p class="work-description">{project.description}</p>
-              <ul class="work-focus" aria-label="Contributions">
-                {project.focus.map((item) => <li>{item}</li>)}
-              </ul>
-              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <Icon name="arrow-up-right" /><span class="sr-only"> (opens in a new tab)</span></span>
-            </div>
-            <figure class:list={["work-image", `work-image--${project.id}`]}>
-              <Image
-                src={project.image}
-                alt={project.imageAlt}
-                widths={project.secondaryImage ? [96, 160, 240] : [176, 352, 528]}
-                sizes={project.secondaryImage ? "64px" : "(max-width: 600px) 88px, 176px"}
-                format="webp"
-                loading="lazy"
-                decoding="async"
-              />
-              {project.secondaryImage && <Image
-                src={project.secondaryImage}
-                alt={project.secondaryImageAlt ?? ""}
-                widths={[96, 160, 240]}
-                sizes="64px"
-                format="webp"
-                loading="lazy"
-                decoding="async"
-              />}
-            </figure>
-          </a>
-        </article>
-      </li>
-    ))}
-  </ol>
+    <p class="work-more">Further contributions</p>
+    <ol class="work-index" start={featured.length + 1} data-work-index>
+      {index.map((project) => (
+        <li class="work-row">
+          <article aria-labelledby={`${project.id}-title`}>
+            <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" data-preview={project.id} aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
+              <p id={`${project.id}-client`} class="work-client">{project.name}</p>
+              <div class="work-row-copy">
+                <h3 id={`${project.id}-title`}>{project.headline}</h3>
+                <p class="work-description">{project.description}</p>
+                <ul class="work-focus" aria-label="Contributions">
+                  {project.focus.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <figure class:list={["work-image", `work-image--${project.id}`]}>
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  widths={project.secondaryImage ? [96, 160, 240] : [176, 352, 528]}
+                  sizes={project.secondaryImage ? "56px" : "(max-width: 600px) 88px, 128px"}
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                />
+                {project.secondaryImage && <Image
+                  src={project.secondaryImage}
+                  alt={project.secondaryImageAlt ?? ""}
+                  widths={[96, 160, 240]}
+                  sizes="56px"
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                />}
+              </figure>
+              <span id={`${project.id}-link`} class="work-visit"><span class="sr-only">{project.linkLabel} (opens in a new tab)</span><Icon name="arrow-up-right" /></span>
+            </a>
+          </article>
+        </li>
+      ))}
+    </ol>
+  </div>
 
   <div class="work-cursor" data-work-cursor aria-hidden="true">
     {index.map((project) => (
       <figure class:list={["work-image", "work-cursor-frame", `work-image--${project.id}`]} data-preview-frame={project.id}>
-        <Image src={project.image} alt="" widths={project.secondaryImage ? [240, 480] : [480, 960]} sizes={project.secondaryImage ? "180px" : "420px"} format="webp" loading="lazy" decoding="async" />
-        {project.secondaryImage && <Image src={project.secondaryImage} alt="" widths={[240, 480]} sizes="180px" format="webp" loading="lazy" decoding="async" />}
+        <Image src={project.image} alt="" widths={project.secondaryImage ? [240, 480] : [320, 640]} sizes={project.secondaryImage ? "100px" : "220px"} format="webp" loading="lazy" decoding="async" />
+        {project.secondaryImage && <Image src={project.secondaryImage} alt="" widths={[240, 480]} sizes="100px" format="webp" loading="lazy" decoding="async" />}
       </figure>
     ))}
   </div>
@@ -98,61 +106,37 @@ const index = projects.slice(3);
 <script src="../../scripts/work-preview.ts"></script>
 
 <style>
-  .work-intro { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: end; gap: 1rem 2rem; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
-  .work-intro h2 { margin: 0; }
-  .work-intro > p { justify-self: end; max-width: 38ch; padding-bottom: .5rem; color: var(--muted); text-wrap: pretty; }
-
-  .work-client { color: var(--muted); font-size: .85rem; font-weight: 600; }
+  .work-client { color: var(--muted); font-size: .9rem; font-weight: 550; }
   .work-description { color: var(--muted); line-height: 1.65; text-wrap: pretty; }
   .work-focus { display: flex; flex-wrap: wrap; gap: .25rem .8rem; color: var(--text); font-size: .8rem; line-height: 1.6; }
   .work-focus li + li::before { content: "/"; padding-right: .8rem; color: var(--faint); }
-  .work-visit { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; color: var(--ink); font-size: .85rem; font-weight: 600; }
+  .work-visit { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink); font-size: .9rem; font-weight: 550; }
   .work-visit > .icon { color: var(--signal); }
-  .work-link:hover .work-visit, .work-link:focus-visible .work-visit { text-decoration: underline; text-underline-offset: .3em; }
 
-  /* Featured: three panels. On tall, wide screens each slides over the one before. */
-  .work-featured { display: grid; gap: 1.5rem; }
-  .work-panel article { overflow: hidden; border-radius: 10px; background: var(--surface); transform-origin: 50% 0; }
-  .work-panel .work-link { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: min(36rem, calc(100svh - 8rem)); border-radius: inherit; }
-  .work-panel-copy { display: flex; flex-direction: column; align-self: center; padding: clamp(1.5rem, 3.6vw, 3.25rem); }
-  .work-panel .work-client { color: var(--muted); }
-  .work-panel h3 { margin-top: .9rem; color: var(--ink); font-family: var(--font-display); font-size: clamp(1.7rem, 2.9vw, 2.4rem); font-weight: 380; letter-spacing: -.02em; line-height: 1.1; text-wrap: balance; }
-  .work-panel .work-description { margin-top: 1.25rem; }
-  .work-panel .work-focus { margin-top: 1.25rem; }
-  .work-panel .work-visit { margin-top: 1rem; }
-  .work-panel-image { align-self: end; min-width: 0; margin: 0; padding-top: clamp(1.5rem, 3.6vw, 3.25rem); }
-  .work-panel-image img { width: 112%; max-width: none; height: auto; border-top-left-radius: 6px; transform-origin: 0 100%; transition: scale 700ms var(--ease-out); }
-  .work-panel .work-link:hover .work-panel-image img, .work-panel .work-link:focus-visible .work-panel-image img { scale: 1.03; }
-  .work-panel .work-link:focus-visible { outline-offset: -6px; }
+  /* Plates: each featured project is a captioned figure, like a plate in a monograph. */
+  .work-plates { display: grid; gap: clamp(3.5rem, 7vw, 6rem); }
+  .work-plate .work-link { display: block; }
+  .work-plate-image { margin: 0; overflow: hidden; border-radius: 6px; background: var(--surface); }
+  .work-plate-image img { width: 100%; height: auto; transition: scale 900ms var(--ease-out); }
+  .work-plate .work-link:hover .work-plate-image img, .work-plate .work-link:focus-visible .work-plate-image img { scale: 1.025; }
+  .work-plate-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: .9rem; border-bottom: 1px solid var(--line-soft); }
+  .work-plate .work-link:hover .work-visit, .work-plate .work-link:focus-visible .work-visit { text-decoration: underline; text-underline-offset: .3em; }
+  .work-plate-copy { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1rem 3rem; padding-top: 1.5rem; }
+  .work-plate h3 { color: var(--ink); font-family: var(--font-display); font-size: clamp(1.6rem, 2.6vw, 2.15rem); font-weight: 380; letter-spacing: -.02em; line-height: 1.12; text-wrap: balance; }
+  .work-plate .work-focus { margin-top: 1rem; }
 
-  @media (min-width: 901px) and (min-height: 700px) {
-    .work-panel { position: sticky; top: 5rem; }
-    .work-panel:nth-child(2) { top: 5.75rem; }
-    .work-panel:nth-child(3) { top: 6.5rem; }
-  }
-  @keyframes panel-recede { to { scale: .96; filter: brightness(.6); } }
-  @supports (timeline-scope: --a) {
-    @media (min-width: 901px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
-      .work-featured { timeline-scope: --panel-2, --panel-3; }
-      .work-panel:nth-child(2) { view-timeline: --panel-2 block; }
-      .work-panel:nth-child(3) { view-timeline: --panel-3 block; }
-      .work-panel:nth-child(1) article { animation: panel-recede linear both; animation-timeline: --panel-2; animation-range: entry 35% cover 48%; }
-      .work-panel:nth-child(2) article { animation: panel-recede linear both; animation-timeline: --panel-3; animation-range: entry 35% cover 48%; }
-    }
-  }
-
-  /* Index: a typographic list. A larger preview follows the pointer on desktop. */
-  .work-more { margin: clamp(3rem, 6vw, 5rem) 0 1rem; color: var(--faint); font-size: .85rem; font-weight: 600; }
+  /* Index: a typographic list. The matching plate appears in the margin beside it. */
+  .work-more { margin: clamp(3.5rem, 7vw, 6rem) 0 1rem; color: var(--faint); font-size: .85rem; font-weight: 550; }
   .work-index { border-bottom: 1px solid var(--line-soft); }
   .work-row { border-top: 1px solid var(--line-soft); }
-  .work-row .work-link { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) 9rem; align-items: start; column-gap: 2rem; padding-block: 2rem; }
-  .work-row .work-client { color: var(--ink); font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 380; letter-spacing: -.015em; line-height: 1.15; text-wrap: balance; transition: translate 450ms var(--ease-out); }
+  .work-row .work-link { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) 8rem 1.25rem; align-items: start; column-gap: 2rem; padding-block: 1.75rem; }
+  .work-row .work-client { color: var(--ink); font-family: var(--font-display); font-size: clamp(1.4rem, 2.1vw, 1.75rem); font-weight: 380; letter-spacing: -.015em; line-height: 1.15; text-wrap: balance; transition: translate 450ms var(--ease-out); }
   .work-row-copy { min-width: 0; }
   .work-row h3 { color: var(--ink); font-size: 1.05rem; font-weight: 550; letter-spacing: -.01em; line-height: 1.4; text-wrap: pretty; }
-  .work-row .work-description { margin-top: .5rem; font-size: .95rem; }
-  .work-row .work-focus { margin-top: .75rem; }
-  .work-row .work-visit { margin-top: .25rem; }
-  .work-image { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; min-width: 0; margin: 0; padding: .6rem; overflow: hidden; border-radius: 6px; background: var(--surface-high); }
+  .work-row .work-description { margin-top: .4rem; font-size: .95rem; }
+  .work-row .work-focus { margin-top: .7rem; }
+  .work-row .work-visit { justify-self: end; padding-top: .35rem; font-size: 1.1rem; }
+  .work-image { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; min-width: 0; margin: 0; padding: .5rem; overflow: hidden; border-radius: 6px; background: var(--surface-high); }
   .work-image img { width: 100%; height: auto; border-radius: 2px; }
   .work-image--keller-williams { gap: .4rem; }
   .work-image--keller-williams img { width: calc(50% - .2rem); max-height: 100%; object-fit: contain; }
@@ -160,32 +144,30 @@ const index = projects.slice(3);
   @media (hover: hover) and (pointer: fine) {
     .work-row .work-link { transition: opacity 300ms var(--ease-out); }
     .work-index:has(.work-link:hover) .work-link:not(:hover) { opacity: .4; }
-  .work-row .work-link:hover .work-client { font-style: italic; translate: .4rem 0; }
+    .work-row .work-link:hover .work-client { font-style: italic; translate: .4rem 0; }
   }
 
   .work-cursor { display: none; }
-  @media (hover: hover) and (pointer: fine) and (min-width: 901px) {
-    .work-cursor { position: fixed; top: 0; left: 0; z-index: 15; display: block; width: 23rem; aspect-ratio: 4 / 3; pointer-events: none; opacity: 0; transition: opacity 250ms var(--ease-out); will-change: transform; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 961px) {
+    .work-cursor { position: fixed; top: 0; left: 0; z-index: 15; display: block; width: 13rem; aspect-ratio: 4 / 3; pointer-events: none; opacity: 0; transition: opacity 250ms var(--ease-out); will-change: transform; }
     .work-cursor[data-active] { opacity: 1; }
-  .work-cursor-frame { position: absolute; inset: 0; padding: 1.1rem; border-radius: 8px; background: var(--surface-high); box-shadow: 0 30px 70px -20px oklch(.05 .01 70 / .8); opacity: 0; clip-path: inset(10% round 8px); transition: opacity 250ms var(--ease-out), clip-path 500ms var(--ease-out); }
-  .work-cursor-frame[data-active] { opacity: 1; clip-path: inset(0 round 8px); }
-    .work-cursor-frame.work-image--keller-williams { gap: 1.25rem; }
+    .work-cursor-frame { position: absolute; inset: 0; padding: .75rem; border-radius: 6px; background: var(--surface-high); opacity: 0; clip-path: inset(0 0 100% 0 round 6px); transition: opacity 200ms var(--ease-out), clip-path 550ms var(--ease-out); }
+    .work-cursor-frame[data-active] { opacity: 1; clip-path: inset(0 round 6px); }
+    .work-cursor-frame.work-image--keller-williams { gap: .75rem; }
     .work-cursor-frame.work-image--keller-williams img { width: auto; height: 100%; }
   }
 
-  @media (max-width: 900px) {
-    .work-intro { grid-template-columns: 1fr; }
-    .work-intro > p { justify-self: start; padding-bottom: 0; }
-    .work-panel .work-link { grid-template-columns: 1fr; min-height: 0; }
-    .work-panel-image { padding: 0 0 0 clamp(1.5rem, 3.6vw, 3.25rem); }
+  @media (max-width: 960px) {
+    .work-plate-copy { grid-template-columns: 1fr; }
     .work-row .work-link { grid-template-columns: minmax(0, 1fr) 5.5rem; column-gap: 1rem; row-gap: .75rem; padding-block: 1.75rem; }
     .work-row .work-client { grid-column: 1; align-self: center; }
     .work-row .work-image { grid-column: 2; grid-row: 1; padding: .4rem; }
     .work-row-copy { grid-column: 1 / -1; }
+    .work-row .work-visit { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .work-panel-image img, .work-row .work-client { transition: none; }
-    .work-panel .work-link:hover .work-panel-image img, .work-panel .work-link:focus-visible .work-panel-image img { scale: none; }
+    .work-plate-image img, .work-row .work-client { transition: none; }
+    .work-plate .work-link:hover .work-plate-image img, .work-plate .work-link:focus-visible .work-plate-image img { scale: none; }
     .work-row .work-link:hover .work-client { translate: none; }
     .work-cursor-frame { clip-path: none; transition: opacity 150ms linear; }
   }

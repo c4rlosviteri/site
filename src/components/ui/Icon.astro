@@ -4,7 +4,7 @@
  * Arrows render twice so the glyph can travel out and back in on hover.
  */
 interface Props {
-  name: "arrow-up-right" | "arrow-right" | "arrow-down" | "copy" | "check";
+  name: "arrow-up-right" | "arrow-right" | "arrow-down" | "copy" | "check" | "sun" | "moon";
   class?: string;
 }
 
@@ -16,6 +16,8 @@ const paths = {
   "arrow-down": "M12 4.5v15M6 13.5l6 6 6-6",
   copy: "M9 9h10.5v10.5H9zM15 9V4.5H4.5V15H9",
   check: "M5 12.5l4.5 4.5L19 7.5",
+  sun: "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M5.6 18.4l1.1-1.1M17.3 6.7l1.1-1.1",
+  moon: "M19.5 14.2A7.8 7.8 0 0 1 9.8 4.5a7.8 7.8 0 1 0 9.7 9.7z",
 };
 
 const travels = name.startsWith("arrow");
