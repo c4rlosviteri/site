@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import portrait from "../../assets/carlos-viteri.png";
 import { site } from "../../data/site";
 import CTAButton from "../ui/CTAButton.astro";
+
+const availability = site.availability?.split(" · ") ?? [];
 ---
 
 <section id="top" class="hero" aria-labelledby="hero-title">
@@ -11,12 +13,12 @@ import CTAButton from "../ui/CTAButton.astro";
     <p>{site.name}<span class="hero-role">{site.title}</span></p>
   </div>
   <h1 id="hero-title">
-    Frontend platforms.
-    <span>Accessible by design.</span>
+    <span class="hero-line"><span>Frontend platforms.</span></span>
+    <span class="hero-line hero-line--accent"><span>Accessible by design.</span></span>
   </h1>
   <p class="hero-intro">{site.intro}</p>
   <p class="hero-availability">
-    {site.availability}<br />
+    {availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}<br />
     <span>Ecuador · {site.timezone} · English / Español</span>
   </p>
   <div class="hero-actions">

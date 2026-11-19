@@ -53,8 +53,9 @@ import { projects } from "../../data/portfolio";
 
 <style>
   .work-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1rem 2rem; margin-bottom: 2rem; }
-  .work-intro h2 { margin: 0; font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -.035em; }
-  .work-intro > p { max-width: 39ch; color: var(--muted); font-size: .925rem; text-wrap: pretty; }
+  .work-intro h2 { margin: 0; }
+  .work-intro > p { justify-self: end; max-width: 39ch; color: var(--muted); font-size: .925rem; text-wrap: pretty; }
+  .work-list { border-bottom: 1px solid var(--line-soft); }
   .work-project { padding-block: 1.75rem; border-top: 1px solid var(--line-soft); }
   .work-project--featured { padding-block: 2.5rem; }
   .work-more { margin-bottom: 1.75rem; color: var(--faint); font-size: .8rem; font-weight: 600; }
@@ -83,8 +84,22 @@ import { projects } from "../../data/portfolio";
   .work-project--featured h3 { font-size: clamp(1.35rem, 2.4vw, 1.65rem); letter-spacing: -.025em; line-height: 1.25; }
   .work-project--featured .work-image { padding: 1rem; }
 
+  .work-image img { transition: scale 600ms var(--ease-out); }
+  .work-link:hover .work-image img, .work-link:focus-visible .work-image img { scale: 1.035; }
+  @media (hover: hover) and (pointer: fine) {
+    .work-link { transition: opacity 300ms var(--ease-out); }
+    .work-list:has(.work-link:hover) .work-link:not(:hover) { opacity: .45; }
+  }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .work-image { animation: frame-open linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+      .work-image img { animation: frame-settle linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+    }
+  }
+
   @media (max-width: 600px) {
     .work-intro, .work-project--featured .work-link { grid-template-columns: 1fr; }
+    .work-intro > p { justify-self: start; }
     .work-intro { margin-bottom: 1.5rem; }
     .work-project--featured { padding-block: 2rem; }
     .work-link { grid-template-columns: minmax(0, 1fr) 5.5rem; column-gap: 1rem; }
@@ -100,7 +115,8 @@ import { projects } from "../../data/portfolio";
     .work-focus li + li::before { padding-right: .5rem; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .work-visit > span[aria-hidden] { transition: none; }
+    .work-visit > span[aria-hidden], .work-image img { transition: none; }
+    .work-link:hover .work-image img, .work-link:focus-visible .work-image img { scale: none; }
     .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: none; }
   }
 </style>

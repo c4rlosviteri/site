@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { saas } from "../../data/portfolio";
 ---
 
@@ -17,5 +18,16 @@ import { saas } from "../../data/portfolio";
         Visit Motion Deck <span aria-hidden="true">↗</span>
       </a>}
     </div>
+    {saas.image && <figure class="product-image">
+      <Image
+        src={saas.image}
+        alt={saas.imageAlt ?? ""}
+        widths={[480, 800, 1200, 1600]}
+        sizes="(max-width: 912px) calc(100vw - 2.5rem), 52rem"
+        format="webp"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>}
   </article>
 </section>

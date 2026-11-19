@@ -7,6 +7,7 @@ import cedarsSinai from "../assets/projects/cedars-sinai.png";
 import lpga from "../assets/projects/lpga.png";
 import apple from "../assets/projects/apple.png";
 import eatright from "../assets/projects/eatright.png";
+import motionDeck from "../assets/projects/motion-deck.png";
 
 export const projects: Project[] = [
   {
@@ -105,6 +106,8 @@ export const saas: SupportingWork = {
   stack: ["Next.js", "TypeScript", "Convex", "Polar", "Tailwind CSS"],
   outcomes: ["Launched v1.0 and onboarded more than 20 client studios."],
   href: "https://motiondeck.fit",
+  image: motionDeck,
+  imageAlt: "Motion Deck homepage for yoga, pilates, barre, and indoor cycling studios, comparing WhatsApp booking messages with the Motion Deck client app.",
 };
 
 export const capabilities: Capability[] = [

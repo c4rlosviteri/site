@@ -33,6 +33,7 @@ buttons.forEach((button) => {
       }
 
       button.textContent = "Copied";
+      button.dataset.state = "copied";
       if (status) status.textContent = "Email copied to clipboard.";
     } catch {
       if (status) {
@@ -42,6 +43,7 @@ buttons.forEach((button) => {
 
     window.setTimeout(() => {
       button.textContent = "Copy email";
+      delete button.dataset.state;
       if (status) status.textContent = "";
     }, 2600);
   });

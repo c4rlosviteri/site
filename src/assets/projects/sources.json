@@ -17,6 +17,7 @@
       "asset": "https://www.apple.com/v/iphone-duo/d/images/meta/iphone-duo_overview__bmsaaq50eyaa_og.png?202610151723",
       "type": "Official product image"
     },
-    { "files": ["eatright.png"], "source": "https://www.eatright.org/", "type": "Website screenshot" }
+    { "files": ["eatright.png"], "source": "https://www.eatright.org/", "type": "Website screenshot" },
+    { "files": ["motion-deck.png"], "source": "https://motiondeck.fit", "capturedOn": "2026-11-19", "type": "Website screenshot" }
   ]
 }

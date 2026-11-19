@@ -10,7 +10,9 @@
   font-weight: 650;
   font-size: 0.9rem;
 }
-.text-link:hover { color: var(--signal-bright); }
+.text-link:hover { text-decoration: underline; text-underline-offset: .3em; }
+.text-link span { display: inline-block; transition: transform 200ms var(--ease-out); }
+.text-link:hover span, .text-link:focus-visible span { transform: translate(2px, -2px); }
 .section-intro .text-link { margin-top: 1rem; }
 .text-link span { color: var(--signal); }
 

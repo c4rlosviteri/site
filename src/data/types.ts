@@ -29,6 +29,8 @@ export type SupportingWork = {
   stack: string[];
   outcomes: string[];
   href?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
 };
 
 export type Capability = {

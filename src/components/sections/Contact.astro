@@ -1,15 +1,18 @@
 ---
 import { site } from "../../data/site";
+
+const availability = site.availability?.split(" · ") ?? [];
 ---
 
 <section id="contact" class="contact-section" aria-labelledby="contact-title">
   <h2 id="contact-title">Get in touch.</h2>
+  {availability.length > 0 && <p class="contact-lede">{availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}</p>}
+  <a class="contact-email" href={`mailto:${site.email}`}>
+    {site.email}<span aria-hidden="true">↗</span>
+  </a>
   <div class="contact-actions">
-    <a class="contact-link" href={`mailto:${site.email}`}>
-      {site.email}<span aria-hidden="true">↗</span>
-    </a>
-    <button class="copy-email" type="button" data-copy-email data-email={site.email}>Copy email</button>
-    {site.linkedin && <a class="contact-link contact-link--social" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>}
+    <button class="contact-action copy-email" type="button" data-copy-email data-email={site.email}>Copy email</button>
+    {site.linkedin && <a class="contact-action" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>}
   </div>
   <p class="copy-status" data-copy-status aria-live="polite"></p>
   <footer>
