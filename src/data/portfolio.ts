@@ -4,9 +4,11 @@ import kwTour from "../assets/projects/kw-tour.webp";
 import zoom from "../assets/projects/zoom.png";
 import khov from "../assets/projects/khov.png";
 import cedarsSinai from "../assets/projects/cedars-sinai.png";
-import lpga from "../assets/projects/lpga.png";
-import apple from "../assets/projects/apple.png";
 import eatright from "../assets/projects/eatright.png";
+import honda from "../assets/projects/honda.png";
+import oneworld from "../assets/projects/oneworld.png";
+import twilio from "../assets/projects/twilio.png";
+import setf from "../assets/projects/setf.png";
 import motionDeck from "../assets/projects/motion-deck.png";
 
 export const projects: Project[] = [
@@ -23,16 +25,52 @@ export const projects: Project[] = [
     imageAlt: "eatright.org homepage with food and nutrition resources from the Academy of Nutrition and Dietetics.",
   },
   {
-    id: "lpga",
-    name: "LPGA",
-    headline: "Shared foundations for web, iOS, and Android.",
+    id: "twilio",
+    name: "Twilio",
+    headline: "A design system for the new Twilio Console.",
     description:
-      "Contributed to a shared design system and reusable code across LPGA’s website and React Native apps for iOS and Android.",
-    focus: ["Web & React Native", "iOS & Android", "Shared code"],
-    href: "https://www.lpga.com/",
+      "Worked on the design system behind the new Twilio Console, improved performance, and implemented agents.",
+    focus: ["Design system", "Performance", "Agents"],
+    href: "https://www.twilio.com/",
     linkLabel: "Visit website",
-    image: lpga,
-    imageAlt: "LPGA website showing tournament coverage, player scores, and the latest tour stories.",
+    image: twilio,
+    imageAlt: "Twilio homepage introducing its platform for conversations, with a product video.",
+  },
+  {
+    id: "khov",
+    name: "K. Hovnanian Homes",
+    headline: "Architecture and performance for home customization.",
+    description:
+      "Improved architecture and performance across a home customization site with complex data. Also worked on the design system, personalization, and purchase flows.",
+    focus: ["Complex data", "Architecture", "Performance"],
+    href: "https://www.khov.com/",
+    linkLabel: "Visit website",
+    image: khov,
+    imageAlt: "K. Hovnanian Homes homepage with a family in a kitchen and a new-home search.",
+  },
+  {
+    id: "zoom",
+    name: "Zoom",
+    headline: "Connecting a design system to the CMS.",
+    description:
+      "Contributed to the website’s design system and CMS integration, connecting reusable components with content-driven pages.",
+    focus: ["Design system", "CMS integration"],
+    href: "https://www.zoom.com/",
+    linkLabel: "Visit website",
+    image: zoom,
+    imageAlt: "Zoom website with its blue homepage and a gallery of collaboration products.",
+  },
+  {
+    id: "setf",
+    name: "Southeast Toyota Finance",
+    headline: "Frontend and backend-for-frontend for the SETF app.",
+    description:
+      "Worked on the app’s frontend and backend-for-frontend layer.",
+    focus: ["Frontend", "Backend-for-frontend"],
+    href: "https://www.setf.com/",
+    linkLabel: "Visit website",
+    image: setf,
+    imageAlt: "Southeast Toyota Finance homepage with an account log-in form and financing offers.",
   },
   {
     id: "keller-williams",
@@ -49,30 +87,6 @@ export const projects: Project[] = [
     secondaryImageAlt: "Keller Williams property details with a photo gallery and virtual tour.",
   },
   {
-    id: "zoom",
-    name: "Zoom",
-    headline: "Connecting a design system to the CMS.",
-    description:
-      "Contributed to the website’s design system and CMS integration, connecting reusable components with content-driven pages.",
-    focus: ["Design system", "CMS integration"],
-    href: "https://www.zoom.com/",
-    linkLabel: "Visit website",
-    image: zoom,
-    imageAlt: "Zoom website with its blue homepage and a gallery of collaboration products.",
-  },
-  {
-    id: "khov",
-    name: "K. Hovnanian Homes",
-    headline: "A shared system across the homebuying journey.",
-    description:
-      "Contributed to the design system, personalization, and purchase flows, connecting reusable UI across the homebuying journey.",
-    focus: ["Design system", "Personalization", "Purchase experience"],
-    href: "https://www.khov.com/",
-    linkLabel: "Visit website",
-    image: khov,
-    imageAlt: "K. Hovnanian Homes homepage with a family in a kitchen and a new-home search.",
-  },
-  {
     id: "cedars-sinai",
     name: "Cedars-Sinai",
     headline: "A frontend refactor across the patient journey.",
@@ -85,16 +99,28 @@ export const projects: Project[] = [
     imageAlt: "Cedars-Sinai homepage with navigation for finding doctors, care, and medical services.",
   },
   {
-    id: "apple",
-    name: "Apple",
-    headline: "Product storytelling, frame by frame.",
+    id: "honda",
+    name: "Honda",
+    headline: "The Honda site and vehicle configurator.",
     description:
-      "Contributed to the iPhone Duo, MacBook Neo, and iPadOS product pages, including animation work.",
-    focus: ["Product pages", "Web animation", "Visual storytelling"],
-    href: "https://www.apple.com/",
+      "Worked on Honda’s website and vehicle configurator.",
+    focus: ["Brand website", "Configurator"],
+    href: "https://www.honda.com",
     linkLabel: "Visit website",
-    image: apple,
-    imageAlt: "Official Apple product image of an unfolded iPhone Duo held in two hands.",
+    image: honda,
+    imageAlt: "Honda homepage with a featured SUV on a trail and links to its vehicle divisions.",
+  },
+  {
+    id: "oneworld",
+    name: "oneworld",
+    headline: "CMS and site pages for an airline alliance.",
+    description:
+      "Worked on the CMS and site pages for oneworld.com.",
+    focus: ["CMS", "Site pages"],
+    href: "https://www.oneworld.com/",
+    linkLabel: "Visit website",
+    image: oneworld,
+    imageAlt: "oneworld homepage with navigation for booking, member airlines, and benefits.",
   },
 ];
 
@@ -117,7 +143,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Web & native foundations",
-    summary: "React, TypeScript, Next.js, and React Native. Experience sharing code and design systems across web, iOS, and Android, including LPGA’s web and mobile apps.",
+    summary: "React, TypeScript, Next.js, and React Native. Experience sharing code and design systems across web, iOS, and Android.",
   },
   {
     title: "Technical leadership",

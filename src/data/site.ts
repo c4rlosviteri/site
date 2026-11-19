@@ -5,7 +5,7 @@ export const site: SiteContent = {
   title: "Senior Frontend Engineer",
   tagline: "Design systems · Frontend architecture · Web & mobile",
   intro:
-    "I build design systems and shared foundations for web and mobile products. Over 8+ years, I’ve led frontend architecture, made complex interfaces more accessible, and mentored engineers.",
+    "I build design systems and shared foundations for web and mobile products. Over eight years, I’ve led frontend architecture, made complex interfaces more accessible, and mentored engineers.",
   email: "me@carlosviteri.dev",
   linkedin: "https://www.linkedin.com/in/carlosviteridev/",
   siteUrl: "https://carlosviteri.dev",
