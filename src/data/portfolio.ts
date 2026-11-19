@@ -29,8 +29,8 @@ export const projects: Project[] = [
     name: "Twilio",
     headline: "A design system for the new Twilio Console.",
     description:
-      "Worked on the design system behind the new Twilio Console, improved performance, and implemented agents.",
-    focus: ["Design system", "Performance", "Agents"],
+      "Worked on the design system behind the new Twilio Console and improved performance. Brought AI agents into the development process through skills and harness configuration.",
+    focus: ["Design system", "Performance", "AI agents in development"],
     href: "https://www.twilio.com/",
     linkLabel: "Visit website",
     image: twilio,
@@ -39,9 +39,9 @@ export const projects: Project[] = [
   {
     id: "khov",
     name: "K. Hovnanian Homes",
-    headline: "Architecture and performance for home customization.",
+    headline: "Hundreds of data calls, optimized for home customization.",
     description:
-      "Improved architecture and performance across a home customization site with complex data. Also worked on the design system, personalization, and purchase flows.",
+      "A complex, data-heavy site where buyers customize their home. Improved architecture and performance across multiple parts of it, optimizing hundreds of data calls. Also worked on the design system, personalization, and purchase flows.",
     focus: ["Complex data", "Architecture", "Performance"],
     href: "https://www.khov.com/",
     linkLabel: "Visit website",

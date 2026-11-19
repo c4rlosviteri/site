@@ -2,8 +2,8 @@
 import { Image } from "astro:assets";
 import { projects } from "../../data/portfolio";
 
-const featured = projects.slice(0, 2);
-const index = projects.slice(2);
+const featured = projects.slice(0, 3);
+const index = projects.slice(3);
 ---
 
 <section id="work" class="content-section work-section" aria-labelledby="work-title">
@@ -110,7 +110,7 @@ const index = projects.slice(2);
   .work-link:hover .work-visit, .work-link:focus-visible .work-visit { text-decoration: underline; text-underline-offset: .3em; }
   .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: translate(2px, -2px); }
 
-  /* Featured: two panels. On tall, wide screens the second slides over the first. */
+  /* Featured: three panels. On tall, wide screens each slides over the one before. */
   .work-featured { display: grid; gap: 1.5rem; }
   .work-panel article { overflow: hidden; border-radius: 10px; background: var(--surface); transform-origin: 50% 0; }
   .work-panel .work-link { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: min(36rem, calc(100svh - 8rem)); border-radius: inherit; }
@@ -127,14 +127,17 @@ const index = projects.slice(2);
 
   @media (min-width: 901px) and (min-height: 700px) {
     .work-panel { position: sticky; top: 5rem; }
-    .work-panel:nth-child(2) { top: 6rem; }
+    .work-panel:nth-child(2) { top: 5.75rem; }
+    .work-panel:nth-child(3) { top: 6.5rem; }
   }
   @keyframes panel-recede { to { scale: .96; filter: brightness(.6); } }
   @supports (timeline-scope: --a) {
     @media (min-width: 901px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
-      .work-featured { timeline-scope: --next-panel; }
-      .work-panel:nth-child(2) { view-timeline: --next-panel block; }
-      .work-panel:first-child article { animation: panel-recede linear both; animation-timeline: --next-panel; animation-range: entry 35% cover 48%; }
+      .work-featured { timeline-scope: --panel-2, --panel-3; }
+      .work-panel:nth-child(2) { view-timeline: --panel-2 block; }
+      .work-panel:nth-child(3) { view-timeline: --panel-3 block; }
+      .work-panel:nth-child(1) article { animation: panel-recede linear both; animation-timeline: --panel-2; animation-range: entry 35% cover 48%; }
+      .work-panel:nth-child(2) article { animation: panel-recede linear both; animation-timeline: --panel-3; animation-range: entry 35% cover 48%; }
     }
   }
 
