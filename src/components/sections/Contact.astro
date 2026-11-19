@@ -5,20 +5,22 @@ const availability = site.availability?.split(" · ") ?? [];
 ---
 
 <section id="contact" class="contact-section" aria-labelledby="contact-title">
-  <h2 id="contact-title">Get in touch.</h2>
-  {availability.length > 0 && <p class="contact-lede">{availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}</p>}
-  <a class="contact-email" href={`mailto:${site.email}`}>
-    {site.email}<span aria-hidden="true">↗</span>
-  </a>
-  <div class="contact-actions">
-    <button class="contact-action copy-email" type="button" data-copy-email data-email={site.email}>Copy email</button>
-    {site.linkedin && <a class="contact-action" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>}
+  <div class="contact-inner">
+    <h2 id="contact-title">Get in touch.</h2>
+    {availability.length > 0 && <p class="contact-lede">{availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}</p>}
+    <a class="contact-email" href={`mailto:${site.email}`}>
+      <span class="contact-email-text">{site.email}</span><span class="contact-email-arrow" aria-hidden="true">↗</span>
+    </a>
+    <div class="contact-actions">
+      <button class="contact-action copy-email" type="button" data-copy-email data-email={site.email}>Copy email</button>
+      {site.linkedin && <a class="contact-action" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>}
+    </div>
+    <p class="copy-status" data-copy-status aria-live="polite"></p>
+    <footer>
+      <p>{site.location} · {site.timezone}</p>
+      <p>© {new Date().getFullYear()} {site.name}</p>
+    </footer>
   </div>
-  <p class="copy-status" data-copy-status aria-live="polite"></p>
-  <footer>
-    <p>{site.location} · {site.timezone}</p>
-    <p>© {new Date().getFullYear()} {site.name}</p>
-  </footer>
 </section>
 
 <script src="../../scripts/copy-email.ts"></script>

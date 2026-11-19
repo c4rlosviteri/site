@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import { projects } from "../../data/portfolio";
+
+const featured = projects.slice(0, 2);
+const index = projects.slice(2);
 ---
 
 <section id="work" class="content-section work-section" aria-labelledby="work-title">
@@ -9,27 +12,58 @@ import { projects } from "../../data/portfolio";
     <p>Architecture, accessibility, and shared systems. A closer look at what I contributed within each team.</p>
   </div>
 
-  <ol class="work-list">
-    {projects.map((project, index) => (
-      <li class:list={["work-project", { "work-project--featured": index < 2 }]}>
-        {index === 2 && <p class="work-more">Further contributions</p>}
+  <ol class="work-featured">
+    {featured.map((project) => (
+      <li class:list={["work-panel", `work-panel--${project.id}`]}>
         <article aria-labelledby={`${project.id}-title`}>
           <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
-            <div class="work-heading">
+            <div class="work-panel-copy">
               <p id={`${project.id}-client`} class="work-client">{project.name}</p>
               <h3 id={`${project.id}-title`}>{project.headline}</h3>
+              <p class="work-description">{project.description}</p>
+              <ul class="work-focus" aria-label="Contributions">
+                {project.focus.map((item) => <li>{item}</li>)}
+              </ul>
+              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></span>
             </div>
-            <p class="work-description">{project.description}</p>
-            <ul class="work-focus" aria-label="Contributions">
-              {project.focus.map((item) => <li>{item}</li>)}
-            </ul>
-            <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></span>
+            <figure class="work-panel-image">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                widths={[480, 800, 1200, 1751]}
+                sizes="(max-width: 900px) 100vw, 780px"
+                format="webp"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </a>
+        </article>
+      </li>
+    ))}
+  </ol>
+
+  <p class="work-more">Further contributions</p>
+  <ol class="work-index" start={featured.length + 1} data-work-index>
+    {index.map((project) => (
+      <li class="work-row">
+        <article aria-labelledby={`${project.id}-title`}>
+          <a class="work-link" href={project.href} target="_blank" rel="noopener noreferrer" data-preview={project.id} aria-labelledby={`${project.id}-client ${project.id}-title ${project.id}-link`}>
+            <p id={`${project.id}-client`} class="work-client">{project.name}</p>
+            <div class="work-row-copy">
+              <h3 id={`${project.id}-title`}>{project.headline}</h3>
+              <p class="work-description">{project.description}</p>
+              <ul class="work-focus" aria-label="Contributions">
+                {project.focus.map((item) => <li>{item}</li>)}
+              </ul>
+              <span id={`${project.id}-link`} class="work-visit">{project.linkLabel} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></span>
+            </div>
             <figure class:list={["work-image", `work-image--${project.id}`]}>
               <Image
                 src={project.image}
                 alt={project.imageAlt}
-                widths={project.secondaryImage ? [96, 160, 240] : index < 2 ? [400, 640, 800, 1200] : [176, 352, 528]}
-                sizes={project.secondaryImage ? "(max-width: 600px) 32px, 64px" : index < 2 ? "(max-width: 600px) 90vw, (max-width: 912px) 42vw, 384px" : "(max-width: 600px) 88px, 176px"}
+                widths={project.secondaryImage ? [96, 160, 240] : [176, 352, 528]}
+                sizes={project.secondaryImage ? "64px" : "(max-width: 600px) 88px, 176px"}
                 format="webp"
                 loading="lazy"
                 decoding="async"
@@ -38,7 +72,7 @@ import { projects } from "../../data/portfolio";
                 src={project.secondaryImage}
                 alt={project.secondaryImageAlt ?? ""}
                 widths={[96, 160, 240]}
-                sizes="(max-width: 600px) 32px, 64px"
+                sizes="64px"
                 format="webp"
                 loading="lazy"
                 decoding="async"
@@ -49,74 +83,115 @@ import { projects } from "../../data/portfolio";
       </li>
     ))}
   </ol>
+
+  <div class="work-cursor" data-work-cursor aria-hidden="true">
+    {index.map((project) => (
+      <figure class:list={["work-image", "work-cursor-frame", `work-image--${project.id}`]} data-preview-frame={project.id}>
+        <Image src={project.image} alt="" widths={project.secondaryImage ? [240, 480] : [480, 960]} sizes={project.secondaryImage ? "180px" : "420px"} format="webp" loading="lazy" decoding="async" />
+        {project.secondaryImage && <Image src={project.secondaryImage} alt="" widths={[240, 480]} sizes="180px" format="webp" loading="lazy" decoding="async" />}
+      </figure>
+    ))}
+  </div>
 </section>
 
+<script src="../../scripts/work-preview.ts"></script>
+
 <style>
-  .work-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1rem 2rem; margin-bottom: 2rem; }
+  .work-intro { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: end; gap: 1rem 2rem; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
   .work-intro h2 { margin: 0; }
-  .work-intro > p { justify-self: end; max-width: 39ch; color: var(--muted); font-size: .925rem; text-wrap: pretty; }
-  .work-list { border-bottom: 1px solid var(--line-soft); }
-  .work-project { padding-block: 1.75rem; border-top: 1px solid var(--line-soft); }
-  .work-project--featured { padding-block: 2.5rem; }
-  .work-more { margin-bottom: 1.75rem; color: var(--faint); font-size: .8rem; font-weight: 600; }
-  .work-link { display: grid; grid-template-columns: minmax(0, 1fr) 11rem; align-items: start; column-gap: 2rem; }
-  .work-heading, .work-description, .work-focus, .work-visit { grid-column: 1; min-width: 0; }
-  .work-client { margin-bottom: .5rem; color: var(--muted); font-size: .8rem; font-weight: 600; }
-  .work-heading h3 { color: var(--ink); font-size: 1.2rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.35; text-wrap: pretty; }
-  .work-description { margin-top: .75rem; color: var(--muted); font-size: .925rem; line-height: 1.7; text-wrap: pretty; }
-  .work-focus { display: flex; flex-wrap: wrap; gap: .25rem .8rem; margin-top: .85rem; color: var(--text); font-size: .75rem; line-height: 1.6; }
+  .work-intro > p { justify-self: end; max-width: 38ch; padding-bottom: .5rem; color: var(--muted); text-wrap: pretty; }
+
+  .work-client { color: var(--muted); font-size: .85rem; font-weight: 600; }
+  .work-description { color: var(--muted); line-height: 1.65; text-wrap: pretty; }
+  .work-focus { display: flex; flex-wrap: wrap; gap: .25rem .8rem; color: var(--text); font-size: .8rem; line-height: 1.6; }
   .work-focus li + li::before { content: "/"; padding-right: .8rem; color: var(--faint); }
-  .work-visit { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; margin-top: .4rem; color: var(--ink); font-size: .8rem; font-weight: 600; }
+  .work-visit { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; color: var(--ink); font-size: .85rem; font-weight: 600; }
   .work-visit > span[aria-hidden] { color: var(--signal); transition: transform 200ms var(--ease-out); }
   .work-link:hover .work-visit, .work-link:focus-visible .work-visit { text-decoration: underline; text-underline-offset: .3em; }
   .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: translate(2px, -2px); }
-  .work-image { grid-column: 2; grid-row: 1 / span 4; align-self: center; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; min-width: 0; margin: 0; padding: .75rem; overflow: hidden; border-radius: 6px; background: var(--surface-high); }
+
+  /* Featured: two tinted panels. On tall, wide screens the second slides over the first. */
+  .work-featured { display: grid; gap: 1.5rem; }
+  .work-panel article { overflow: hidden; border-radius: 14px; background: var(--tint); transform-origin: 50% 0; }
+  .work-panel--eatright { --tint: oklch(.34 .06 142); --tint-ink: oklch(.9 .035 142); }
+  .work-panel--lpga { --tint: oklch(.29 .06 255); --tint-ink: oklch(.89 .03 255); }
+  .work-panel .work-link { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: min(36rem, calc(100svh - 8rem)); border-radius: inherit; }
+  .work-panel-copy { display: flex; flex-direction: column; align-self: center; padding: clamp(1.5rem, 3.6vw, 3.25rem); }
+  .work-panel .work-client { color: var(--tint-ink); }
+  .work-panel h3 { margin-top: .9rem; color: var(--ink); font-size: clamp(1.7rem, 3.1vw, 2.6rem); font-weight: 700; font-stretch: 112%; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
+  .work-panel .work-description { margin-top: 1.25rem; color: var(--tint-ink); }
+  .work-panel .work-focus { margin-top: 1.25rem; color: var(--ink); }
+  .work-panel .work-focus li + li::before { color: var(--tint-ink); }
+  .work-panel .work-visit { margin-top: 1rem; }
+  .work-panel .work-visit > span[aria-hidden] { color: var(--ink); }
+  .work-panel-image { align-self: end; min-width: 0; margin: 0; padding-top: clamp(1.5rem, 3.6vw, 3.25rem); }
+  .work-panel-image img { width: 112%; max-width: none; height: auto; border-top-left-radius: 10px; box-shadow: 0 24px 60px -20px oklch(.1 .03 250 / .7); transform-origin: 0 100%; transition: scale 700ms var(--ease-out); }
+  .work-panel .work-link:hover .work-panel-image img, .work-panel .work-link:focus-visible .work-panel-image img { scale: 1.03; }
+  .work-panel .work-link:focus-visible { outline-offset: -6px; outline-color: var(--ink); }
+
+  @media (min-width: 901px) and (min-height: 700px) {
+    .work-panel { position: sticky; top: 5rem; }
+    .work-panel:nth-child(2) { top: 6rem; }
+  }
+  @keyframes panel-recede { to { scale: .94; filter: brightness(.5); } }
+  @supports (timeline-scope: --a) {
+    @media (min-width: 901px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+      .work-featured { timeline-scope: --next-panel; }
+      .work-panel:nth-child(2) { view-timeline: --next-panel block; }
+      .work-panel:first-child article { animation: panel-recede linear both; animation-timeline: --next-panel; animation-range: entry 35% cover 48%; }
+    }
+  }
+
+  /* Index: a typographic list. A larger preview follows the pointer on desktop. */
+  .work-more { margin: clamp(3rem, 6vw, 5rem) 0 1rem; color: var(--faint); font-size: .85rem; font-weight: 600; }
+  .work-index { border-bottom: 1px solid var(--line-soft); }
+  .work-row { border-top: 1px solid var(--line-soft); }
+  .work-row .work-link { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) 9rem; align-items: start; column-gap: 2rem; padding-block: 2rem; }
+  .work-row .work-client { color: var(--ink); font-size: clamp(1.5rem, 2.7vw, 2.25rem); font-weight: 700; font-stretch: 112%; letter-spacing: -.03em; line-height: 1.1; text-wrap: balance; transition: color 250ms var(--ease-out), translate 450ms var(--ease-out); }
+  .work-row-copy { min-width: 0; }
+  .work-row h3 { color: var(--ink); font-size: 1.15rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.35; text-wrap: pretty; }
+  .work-row .work-description { margin-top: .5rem; font-size: .95rem; }
+  .work-row .work-focus { margin-top: .75rem; }
+  .work-row .work-visit { margin-top: .25rem; }
+  .work-image { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; min-width: 0; margin: 0; padding: .6rem; overflow: hidden; border-radius: 6px; background: var(--surface-high); }
   .work-image img { width: 100%; height: auto; border-radius: 2px; }
   .work-image--keller-williams { gap: .4rem; background: oklch(.32 .12 20); }
   .work-image--keller-williams img { width: calc(50% - .2rem); max-height: 100%; object-fit: contain; }
   .work-image--zoom { background: oklch(.32 .11 270); }
   .work-image--khov { background: oklch(.74 .04 225); }
   .work-image--cedars-sinai { background: oklch(.33 .09 20); }
-  .work-image--lpga { background: oklch(.3 .055 255); }
-  .work-image--eatright { background: oklch(.4 .065 140); }
-  .work-image--apple { padding: .5rem; background: white; }
-  .work-project--featured .work-link { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .work-project--featured h3 { font-size: clamp(1.35rem, 2.4vw, 1.65rem); letter-spacing: -.025em; line-height: 1.25; }
-  .work-project--featured .work-image { padding: 1rem; }
+  .work-image--apple { padding: .4rem; background: white; }
 
-  .work-image img { transition: scale 600ms var(--ease-out); }
-  .work-link:hover .work-image img, .work-link:focus-visible .work-image img { scale: 1.035; }
   @media (hover: hover) and (pointer: fine) {
-    .work-link { transition: opacity 300ms var(--ease-out); }
-    .work-list:has(.work-link:hover) .work-link:not(:hover) { opacity: .45; }
-  }
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .work-image { animation: frame-open linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
-      .work-image img { animation: frame-settle linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
-    }
+    .work-row .work-link { transition: opacity 300ms var(--ease-out); }
+    .work-index:has(.work-link:hover) .work-link:not(:hover) { opacity: .4; }
+    .work-row .work-link:hover .work-client { color: var(--signal); translate: .5rem 0; }
   }
 
-  @media (max-width: 600px) {
-    .work-intro, .work-project--featured .work-link { grid-template-columns: 1fr; }
-    .work-intro > p { justify-self: start; }
-    .work-intro { margin-bottom: 1.5rem; }
-    .work-project--featured { padding-block: 2rem; }
-    .work-link { grid-template-columns: minmax(0, 1fr) 5.5rem; column-gap: 1rem; }
-    .work-description, .work-focus, .work-visit { grid-column: 1 / -1; }
-    .work-image { grid-row: 1; align-self: start; padding: .5rem; }
-    .work-project--featured .work-image { grid-column: 1; grid-row: 5; aspect-ratio: 3 / 2; margin-top: 1.25rem; }
-    .work-image--keller-williams { gap: .25rem; }
-    .work-image--keller-williams img { width: calc(50% - .125rem); }
-    .work-heading h3 { font-size: 1.1rem; }
-    .work-project--featured h3 { font-size: 1.45rem; }
-    .work-description { font-size: .875rem; }
-    .work-focus { gap: .2rem .5rem; }
-    .work-focus li + li::before { padding-right: .5rem; }
+  .work-cursor { display: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 901px) {
+    .work-cursor { position: fixed; top: 0; left: 0; z-index: 15; display: block; width: 23rem; aspect-ratio: 4 / 3; pointer-events: none; opacity: 0; transition: opacity 250ms var(--ease-out); will-change: transform; }
+    .work-cursor[data-active] { opacity: 1; }
+    .work-cursor-frame { position: absolute; inset: 0; padding: 1.25rem; border-radius: 10px; box-shadow: 0 30px 70px -20px oklch(.05 .02 250 / .8); opacity: 0; clip-path: inset(12% round 10px); transition: opacity 250ms var(--ease-out), clip-path 500ms var(--ease-out); }
+    .work-cursor-frame[data-active] { opacity: 1; clip-path: inset(0 round 10px); }
+    .work-cursor-frame.work-image--keller-williams { gap: 1.25rem; }
+    .work-cursor-frame.work-image--keller-williams img { width: auto; height: 100%; }
+  }
+
+  @media (max-width: 900px) {
+    .work-intro { grid-template-columns: 1fr; }
+    .work-intro > p { justify-self: start; padding-bottom: 0; }
+    .work-panel .work-link { grid-template-columns: 1fr; min-height: 0; }
+    .work-panel-image { padding: 0 0 0 clamp(1.5rem, 3.6vw, 3.25rem); }
+    .work-row .work-link { grid-template-columns: minmax(0, 1fr) 5.5rem; column-gap: 1rem; row-gap: .75rem; padding-block: 1.75rem; }
+    .work-row .work-client { grid-column: 1; align-self: center; }
+    .work-row .work-image { grid-column: 2; grid-row: 1; padding: .4rem; }
+    .work-row-copy { grid-column: 1 / -1; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .work-visit > span[aria-hidden], .work-image img { transition: none; }
-    .work-link:hover .work-image img, .work-link:focus-visible .work-image img { scale: none; }
-    .work-link:hover .work-visit > span[aria-hidden], .work-link:focus-visible .work-visit > span[aria-hidden] { transform: none; }
+    .work-visit > span[aria-hidden], .work-panel-image img, .work-row .work-client { transition: none; }
+    .work-panel .work-link:hover .work-panel-image img, .work-panel .work-link:focus-visible .work-panel-image img { scale: none; }
+    .work-row .work-link:hover .work-client { translate: none; }
+    .work-cursor-frame { clip-path: none; transition: opacity 150ms linear; }
   }
 </style>

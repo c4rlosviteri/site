@@ -8,22 +8,26 @@ const availability = site.availability?.split(" · ") ?? [];
 ---
 
 <section id="top" class="hero" aria-labelledby="hero-title">
-  <div class="hero-identity">
-    <Image src={portrait} alt="" width={72} height={72} densities={[1, 2, 3]} quality={90} format="webp" loading="eager" />
-    <p>{site.name}<span class="hero-role">{site.title}</span></p>
+  <div class="hero-top">
+    <div class="hero-identity">
+      <Image src={portrait} alt="" width={72} height={72} densities={[1, 2, 3]} quality={90} format="webp" loading="eager" />
+      <p>{site.name}<span class="hero-role">{site.title}</span></p>
+    </div>
+    <p class="hero-availability">
+      <span class="hero-status"><span class="hero-status-dot" aria-hidden="true"></span>{availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}</span>
+      <span class="hero-locale">Ecuador · {site.timezone} · English / Español</span>
+    </p>
   </div>
   <h1 id="hero-title">
     <span class="hero-line"><span>Frontend platforms.</span></span>
     <span class="hero-line hero-line--accent"><span>Accessible by design.</span></span>
   </h1>
-  <p class="hero-intro">{site.intro}</p>
-  <p class="hero-availability">
-    {availability.map((part, i) => <>{i > 0 && " · "}<span class="nowrap">{part}</span></>)}<br />
-    <span>Ecuador · {site.timezone} · English / Español</span>
-  </p>
-  <div class="hero-actions">
-    <CTAButton cta={{label: "Email me", href: `mailto:${site.email}`, kind: "primary"}} />
-    <a class="hero-work-link" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+  <div class="hero-body">
+    <p class="hero-intro">{site.intro}</p>
+    <div class="hero-actions">
+      <CTAButton cta={{label: "Email me", href: `mailto:${site.email}`, kind: "primary"}} />
+      <a class="hero-work-link" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+    </div>
   </div>
   <ul class="hero-evidence" aria-label="Explore engineering experience">
     <li><a href="#eatright-title"><strong>Architecture &amp; accessibility</strong><span>EatRight · Frontend architecture lead</span></a></li>
